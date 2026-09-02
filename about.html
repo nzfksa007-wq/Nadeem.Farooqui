@@ -310,41 +310,45 @@
   </div>
 </footer>
 
-<!-- CAROUSEL JAVASCRIPT -->
+<!-- CAROUSEL JAVASCRIPT - FIXED -->
 <script>
-  let currentIndex = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.dot');
-  const totalSlides = slides.length;
+  // Wait for DOM to be fully loaded before accessing elements
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
 
-  // Auto-rotate every 5 seconds
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    showSlide(currentIndex);
-  }, 5000);
+    // Auto-rotate every 5 seconds
+    let autoRotate = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      showSlide(currentIndex);
+    }, 5000);
 
-  function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-  }
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+    }
 
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    showSlide(currentIndex);
-  }
+    // Make functions globally accessible for onclick handlers
+    window.nextSlide = function() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      showSlide(currentIndex);
+    }
 
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    showSlide(currentIndex);
-  }
+    window.prevSlide = function() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      showSlide(currentIndex);
+    }
 
-  function currentSlide(index) {
-    currentIndex = index;
-    showSlide(currentIndex);
-  }
+    window.currentSlide = function(index) {
+      currentIndex = index;
+      showSlide(currentIndex);
+    }
+  });
 </script>
 
 </body>
