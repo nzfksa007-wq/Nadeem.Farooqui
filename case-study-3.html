@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study 3: Working Capital Optimization | Nadeem Farooqui</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .case-study-hero { background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); color: white; padding: 4rem 2rem; text-align: center; }
+    .case-study-hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .case-study-container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    .case-study-nav { text-align: center; padding: 2rem 0; margin-bottom: 2rem; }
+    .case-study-nav a { color: #0066cc; text-decoration: none; font-weight: 600; }
+    .dmaic-section { margin: 4rem 0; padding: 3rem 2rem; background: #f8f9fa; border-radius: 12px; border-left: 5px solid #0066cc; }
+    .dmaic-section h2 { color: #0066cc; font-size: 2rem; margin-bottom: 1.5rem; }
+    .dmaic-section h3 { color: #1a1a1a; font-size: 1.3rem; margin-top: 1rem; margin-bottom: 0.8rem; }
+    .dmaic-section p { color: #555; line-height: 1.8; margin-bottom: 0.8rem; }
+    .result-box { background: linear-gradient(135deg, #f0f8ff, #ffffff); border: 2px solid #0066cc; border-radius: 10px; padding: 2rem; margin: 2rem 0; }
+    .result-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .result-metric { text-align: center; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .result-metric-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem; }
+    .result-metric-value { font-size: 2rem; font-weight: 700; color: #0066cc; }
+    .key-takeaways { background: #fff5f0; border-left: 4px solid #ff6b35; padding: 2rem; border-radius: 8px; margin: 2rem 0; }
+    .key-takeaways h3 { color: #ff6b35; }
+    .key-takeaways li { padding: 0.8rem 0; padding-left: 1.5rem; position: relative; color: #555; }
+    .key-takeaways li::before { content: "✓"; position: absolute; left: 0; color: #ff6b35; font-weight: bold; }
+    .cta-section { background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); color: white; padding: 3rem 2rem; border-radius: 10px; text-align: center; margin: 4rem 0; }
+    .dashboard-section { background: white; border: 1px solid #e0e0e0; border-radius: 10px; padding: 2rem; margin: 3rem 0; text-align: center; }
+    .dashboard-section h3 { color: #0066cc; margin-bottom: 1.5rem; }
+    .dashboard-image { width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 1.5rem 0; }
+    @media (max-width: 768px) {
+      .result-metrics { grid-template-columns: 1fr; }
+      .case-study-hero h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo">Nadeem Farooqui</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="case-study-hero">
+  <div class="case-study-container">
+    <h1>Case Study 3: Working Capital Optimization & Dead Stock Recovery</h1>
+    <p>Identifying and recovering capital locked in excess and obsolete spare parts inventory</p>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="case-study-nav">
+      <a href="portfolio.html">← Back to Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #0066cc;">
+      <h2>1. Define: The Business Problem</h2>
+      <h3>Situation</h3>
+      <p>A spare parts distributor had significant capital tied up in excess, slow moving and obsolete inventory with no clear recovery strategy or visibility into working capital impact.</p>
+      <h3>Impact</h3>
+      <ul style="margin-left: 2rem;">
+        <li>AED 0.14M+ locked in dead stock with no movement</li>
+        <li>Lost opportunity cost on tied up capital</li>
+        <li>High carrying costs for slow moving inventory</li>
+        <li>Warehouse space consumed by non-productive inventory</li>
+        <li>No structured approach to recovery and disposal</li>
+      </ul>
+      <h3>Objective</h3>
+      <p style="font-weight: 600; color: #0066cc;">Identify recovery opportunities and implement working capital optimization strategy to release cash tied up in non-productive inventory.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #17a2b8;">
+      <h2>2. Measure: Current State Analysis</h2>
+      <div class="result-box">
+        <h3>Baseline Metrics</h3>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-label">Dead Stock Value</div>
+            <div class="result-metric-value">AED 0.14M</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Total Inventory Value</div>
+            <div class="result-metric-value">AED 0.47M</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Dead Stock %</div>
+            <div class="result-metric-value">29.8%</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Recovery Potential</div>
+            <div class="result-metric-value">30%</div>
+          </div>
+        </div>
+      </div>
+      <h3>Data Collection</h3>
+      <ul style="margin-left: 2rem;">
+        <li>Comprehensive inventory value analysis by SKU</li>
+        <li>Consumption pattern analysis (36 month history)</li>
+        <li>Identification of non moving and slow moving items</li>
+        <li>Age analysis of dead stock (years without movement)</li>
+        <li>Condition assessment for recovery viability</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #ffc107;">
+      <h2>3. Analyze: Root Cause Identification</h2>
+      <h3>Root Causes Identified</h3>
+      <ul style="margin-left: 2rem;">
+        <li><strong>Overstocking:</strong> Safety stock levels much higher than actual demand</li>
+        <li><strong>Product Obsolescence:</strong> Technology/product changes made items irrelevant</li>
+        <li><strong>Forecast Errors:</strong> Procurement based on inaccurate demand projections</li>
+        <li><strong>No Usage Review:</strong> Items purchased but never consumed after initial order</li>
+        <li><strong>Weak Inventory Controls:</strong> Lack of periodic dead stock identification</li>
+      </ul>
+      <h3>Data Analysis</h3>
+      <p>Analysis showed 100+ SKUs with zero movement for 24+ months, with concentrated value in just 8-10 items. Estimated recovery potential of AED 42K (30% of dead stock value) through salvage, donation or disposal.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #28a745;">
+      <h2>4. Improve: Solutions & Implementation</h2>
+      <h4>1. Dead Stock Identification & Assessment</h4>
+      <ul style="margin-left: 2rem;">
+        <li>Complete inventory audit with age and condition assessment</li>
+        <li>Classification into recovery, donation, disposal categories</li>
+        <li>Market value assessment for potential salvage</li>
+      </ul>
+      <h4>2. Recovery Strategy</h4>
+      <ul style="margin-left: 2rem;">
+        <li>Direct sales to secondary market suppliers</li>
+        <li>Donation opportunities (tax benefits)</li>
+        <li>Proper disposal and regulatory compliance</li>
+        <li>Write off procedures and accounting impact</li>
+      </ul>
+      <h4>3. Prevention of Future Dead Stock</h4>
+      <ul style="margin-left: 2rem;">
+        <li>Quarterly dead stock reviews and aging analysis</li>
+        <li>Slow moving inventory early warning system</li>
+        <li>Tighter demand forecasting and procurement controls</li>
+        <li>SAP reporting for automated dead stock identification</li>
+      </ul>
+      <h4>4. Working Capital Optimization</h4>
+      <ul style="margin-left: 2rem;">
+        <li>Safety stock right sizing by SKU criticality</li>
+        <li>Inventory carrying cost analysis and reduction</li>
+        <li>Cash flow impact monitoring and forecasting</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #0066cc;">
+      <h2>5. Control: Sustaining Results</h2>
+      <h3>Control Measures</h3>
+      <ul style="margin-left: 2rem;">
+        <li><strong>Monthly Dead Stock Monitoring:</strong> Aging analysis and movement tracking</li>
+        <li><strong>Quarterly Dead Stock Reviews:</strong> Formal assessment and recovery planning</li>
+        <li><strong>Procurement Controls:</strong> Demand validation before purchase orders</li>
+        <li><strong>Inventory Carrying Cost Tracking:</strong> Impact of working capital optimization</li>
+      </ul>
+      <div class="result-box">
+        <h3>Sustained Results</h3>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-label">Recovered Capital</div>
+            <div class="result-metric-value">AED 42K</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Dead Stock Reduction</div>
+            <div class="result-metric-value">30%</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Carrying Costs Reduced</div>
+            <div class="result-metric-value">20%</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">New Dead Stock Rate</div>
+            <div class="result-metric-value">&lt;5%/year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="key-takeaways">
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li>AED 42K+ recovered through systematic dead stock identification and recovery</li>
+        <li>Working capital optimization improved cash flow and financial performance</li>
+        <li>Warehouse space freed up for productive inventory</li>
+        <li>Prevention mechanisms prevent future accumulation of dead stock</li>
+        <li>Quarterly reviews ensure sustained reduction of non productive inventory</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dashboard-section">
+      <h3>Supporting Dashboard: Working Capital Optimization</h3>
+      <p style="color: #666; margin-bottom: 1.5rem;">Dead stock identification and capital allocation analysis</p>
+      <img src="images/Dashboard_3_Working_Capital.png" alt="Working Capital Dashboard" class="dashboard-image">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="cta-section">
+      <h3>Locked Capital in Your Inventory?</h3>
+      <p>Let us identify your dead stock opportunity and develop a recovery strategy to release working capital.</p>
+      <a href="contact.html" class="cta-btn" style="background: white; color: #0066cc; display: inline-block; text-decoration: none; font-weight: 600; padding: 1rem 2rem; border-radius: 50px;">Explore Opportunities</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Nadeem Farooqui | Supply Chain Consultant</p>
+    <div class="footer-links">
+      <a href="mailto:nadeem.farooqui1@outlook.com">Email</a>
+      <a href="https://wa.me/971585536673">WhatsApp</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.9rem;">Dubai, UAE</p>
+  </div>
+</footer>
+
+</body>
+</html>

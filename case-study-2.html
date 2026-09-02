@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study 2: Stock Out Reduction & Demand Planning | Nadeem Farooqui</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .case-study-hero { background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); color: white; padding: 4rem 2rem; text-align: center; }
+    .case-study-hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .case-study-hero p { font-size: 1.1rem; opacity: 0.95; }
+    .case-study-container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    .case-study-nav { text-align: center; padding: 2rem 0; margin-bottom: 2rem; }
+    .case-study-nav a { color: #0066cc; text-decoration: none; font-weight: 600; }
+    .case-study-nav a:hover { color: #ff6b35; }
+    .dmaic-section { margin: 4rem 0; padding: 3rem 2rem; background: #f8f9fa; border-radius: 12px; border-left: 5px solid #0066cc; }
+    .dmaic-section h2 { color: #0066cc; font-size: 2rem; margin-bottom: 1.5rem; text-align: left; }
+    .dmaic-section h3 { color: #1a1a1a; font-size: 1.3rem; margin-top: 1rem; margin-bottom: 0.8rem; }
+    .dmaic-section p { color: #555; line-height: 1.8; margin-bottom: 0.8rem; }
+    .result-box { background: linear-gradient(135deg, #f0f8ff, #ffffff); border: 2px solid #0066cc; border-radius: 10px; padding: 2rem; margin: 2rem 0; }
+    .result-box h3 { color: #0066cc; text-align: center; margin-bottom: 1.5rem; }
+    .result-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .result-metric { text-align: center; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .result-metric-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem; }
+    .result-metric-value { font-size: 2rem; font-weight: 700; color: #0066cc; }
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+    .before-after-box { padding: 2rem; border-radius: 10px; text-align: center; }
+    .before { background: #ffe6e6; border-left: 4px solid #dc3545; }
+    .after { background: #e6ffe6; border-left: 4px solid #28a745; }
+    .before h4, .after h4 { font-size: 1.2rem; margin-bottom: 1rem; }
+    .before h4 { color: #dc3545; }
+    .after h4 { color: #28a745; }
+    .key-takeaways { background: #fff5f0; border-left: 4px solid #ff6b35; padding: 2rem; border-radius: 8px; margin: 2rem 0; }
+    .key-takeaways h3 { color: #ff6b35; }
+    .key-takeaways li { padding: 0.8rem 0; padding-left: 1.5rem; position: relative; color: #555; line-height: 1.6; }
+    .key-takeaways li::before { content: "✓"; position: absolute; left: 0; color: #ff6b35; font-weight: bold; }
+    .cta-section { background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); color: white; padding: 3rem 2rem; border-radius: 10px; text-align: center; margin: 4rem 0; }
+    .cta-section p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+    .dashboard-section { background: white; border: 1px solid #e0e0e0; border-radius: 10px; padding: 2rem; margin: 3rem 0; text-align: center; }
+    .dashboard-section h3 { color: #0066cc; margin-bottom: 1.5rem; }
+    .dashboard-image { width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 1.5rem 0; }
+    @media (max-width: 768px) {
+      .result-metrics { grid-template-columns: 1fr; }
+      .before-after { grid-template-columns: 1fr; }
+      .case-study-hero h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo">Nadeem Farooqui</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="case-study-hero">
+  <div class="case-study-container">
+    <h1>Case Study 2: Stock Out Reduction & Demand Planning</h1>
+    <p>Reducing critical stock outs through demand visibility, forecasting and safety stock optimization</p>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="case-study-nav">
+      <a href="portfolio.html">← Back to Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #0066cc;">
+      <h2>1. Define: The Business Problem</h2>
+      <h3>Situation</h3>
+      <p>A critical spare parts distributor was experiencing frequent stock outs affecting customer service levels. Emergency procurement costs were high, and demand forecasting was reactive rather than proactive.</p>
+      <h3>Impact</h3>
+      <ul style="margin-left: 2rem;">
+        <li>Stock out rate of 2.0% affecting customer delivery commitments</li>
+        <li>High emergency procurement and expedited shipping costs</li>
+        <li>Poor demand visibility and reactive planning</li>
+        <li>Unpredictable safety stock levels causing overstock on some items</li>
+        <li>Customer dissatisfaction and lost business due to unavailability</li>
+      </ul>
+      <h3>Objective</h3>
+      <p style="font-weight: 600; color: #0066cc;">Reduce stock out rate to below 1.5% through demand forecasting, safety stock optimization and inventory replenishment planning.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #17a2b8;">
+      <h2>2. Measure: Current State Analysis</h2>
+      <div class="result-box">
+        <h3>Baseline Metrics</h3>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-label">Stock Out Rate</div>
+            <div class="result-metric-value">2.0%</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Emergency Orders</div>
+            <div class="result-metric-value">45+/month</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Affected SKUs</div>
+            <div class="result-metric-value">150+</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Safety Stock Coverage</div>
+            <div class="result-metric-value">Inconsistent</div>
+          </div>
+        </div>
+      </div>
+      <h3>Data Collection</h3>
+      <ul style="margin-left: 2rem;">
+        <li>36 month consumption history analysis</li>
+        <li>Demand pattern and seasonality identification</li>
+        <li>Stock out incident frequency and duration</li>
+        <li>Lead time variability assessment</li>
+        <li>Safety stock adequacy review</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #ffc107;">
+      <h2>3. Analyze: Root Cause Identification</h2>
+      <h3>Root Causes Identified</h3>
+      <ul style="margin-left: 2rem;">
+        <li><strong>Inadequate Safety Stock:</strong> Levels not aligned with demand variability and lead times</li>
+        <li><strong>Poor Demand Visibility:</strong> Forecasts based on historical averages, not trends</li>
+        <li><strong>Variable Lead Times:</strong> Supplier inconsistency not factored into replenishment planning</li>
+        <li><strong>Reactive Ordering:</strong> Orders placed after stock outs occur, not proactively</li>
+        <li><strong>No Demand Forecasting Model:</strong> Lack of systematic approach to predict future needs</li>
+      </ul>
+      <h3>Data Analysis</h3>
+      <p>Analysis revealed that 70% of stock outs occurred in fast moving items (>100 units/month) with variable demand patterns. Lead time variability of +/- 30% was not being accounted for in safety stock calculations.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #28a745;">
+      <h2>4. Improve: Solutions & Implementation</h2>
+      <h4>1. Demand Forecasting Model</h4>
+      <ul style="margin-left: 2rem;">
+        <li>36 month consumption trend analysis</li>
+        <li>Seasonal pattern identification and adjustment</li>
+        <li>Forecast accuracy benchmarking and monitoring</li>
+        <li>Monthly forecast updates based on actual demand</li>
+      </ul>
+      <h4>2. Safety Stock Optimization</h4>
+      <ul style="margin-left: 2rem;">
+        <li>Safety stock calculated based on demand variability and lead time</li>
+        <li>Service level targets defined (95% vs 99% availability)</li>
+        <li>ABC SKU classification for differentiated service levels</li>
+        <li>Quarterly safety stock reviews and adjustments</li>
+      </ul>
+      <h4>3. Replenishment Planning</h4>
+      <ul style="margin-left: 2rem;">
+        <li>Reorder points calculated from forecast and safety stock</li>
+        <li>Proactive order placement before stock out risk</li>
+        <li>Lead time management and supplier coordination</li>
+        <li>Automated alerts for low stock conditions</li>
+      </ul>
+      <h4>4. Performance Monitoring</h4>
+      <ul style="margin-left: 2rem;">
+        <li>Real time stock availability tracking</li>
+        <li>Stock out incident analysis and root cause follow up</li>
+        <li>Forecast accuracy metrics and dashboard</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dmaic-section" style="border-left-color: #0066cc;">
+      <h2>5. Control: Sustaining Results</h2>
+      <h3>Control Measures</h3>
+      <ul style="margin-left: 2rem;">
+        <li><strong>Daily Monitoring:</strong> Stock level alerts and replenishment order status</li>
+        <li><strong>Weekly Reviews:</strong> Stock out incidents and root cause follow up</li>
+        <li><strong>Monthly Forecasts:</strong> Updated demand forecasts based on actual consumption</li>
+        <li><strong>Quarterly Safety Stock Review:</strong> Adjustments based on demand variability trends</li>
+      </ul>
+      <div class="result-box">
+        <h3>Sustained Metrics</h3>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-label">Stock Out Rate</div>
+            <div class="result-metric-value">1.06%</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Improvement</div>
+            <div class="result-metric-value">47%</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Emergency Orders</div>
+            <div class="result-metric-value">&lt;10/month</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-label">Service Level</div>
+            <div class="result-metric-value">98.9%+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <h2 style="text-align: center; font-size: 2rem; margin: 3rem 0;">Results: Before & After</h2>
+    <div class="before-after">
+      <div class="before-after-box before">
+        <h4>Before Improvement</h4>
+        <p style="font-size: 0.95rem; color: #333;"><strong>Stock Out Rate:</strong> 2.0%<br><strong>Emergency Orders:</strong> 45+/month<br><strong>Service Level:</strong> 98%<br><strong>Forecast Accuracy:</strong> Low<br><strong>Safety Stock:</strong> Reactive</p>
+      </div>
+      <div class="before-after-box after">
+        <h4>After Improvement</h4>
+        <p style="font-size: 0.95rem; color: #333;"><strong>Stock Out Rate:</strong> 1.06%<br><strong>Emergency Orders:</strong> <10/month<br><strong>Service Level:</strong> 98.9%<br><strong>Forecast Accuracy:</strong> High<br><strong>Safety Stock:</strong> Optimized</p>
+      </div>
+    </div>
+    <div class="key-takeaways">
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li>Stock out rate reduced by 47% through demand forecasting and safety stock optimization</li>
+        <li>Service levels improved to 98.9% with consistent availability</li>
+        <li>Emergency procurement costs reduced significantly</li>
+        <li>Customer satisfaction improved with reliable stock availability</li>
+        <li>Demand planning moved from reactive to proactive methodology</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="dashboard-section">
+      <h3>Supporting Dashboard: Demand Planning & 36-Month Analysis</h3>
+      <p style="color: #666; margin-bottom: 1.5rem;">Real time demand trends and safety stock monitoring</p>
+      <img src="images/Dashboard_2_Demand_Planning.png" alt="Demand Planning Dashboard" class="dashboard-image">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="case-study-container">
+    <div class="cta-section">
+      <h3>Facing Similar Stock Out Challenges?</h3>
+      <p>We can apply demand planning and safety stock optimization to reduce your stock outs and improve service levels.</p>
+      <a href="contact.html" class="cta-btn" style="background: white; color: #0066cc; display: inline-block; text-decoration: none; font-weight: 600; padding: 1rem 2rem; border-radius: 50px;">Discuss Your Challenges</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Nadeem Farooqui | Supply Chain Consultant</p>
+    <div class="footer-links">
+      <a href="mailto:nadeem.farooqui1@outlook.com">Email</a>
+      <a href="https://wa.me/971585536673">WhatsApp</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.9rem;">Dubai, UAE</p>
+  </div>
+</footer>
+
+</body>
+</html>
