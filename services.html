@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Supply Chain, Inventory and Warehouse Consulting services by Nadeem Farooqui. Practical solutions for inventory accuracy, working capital, warehouse operations, demand planning and supply chain performance.">
+  <meta name="author" content="Nadeem Farooqui">
+  <title>Services | Nadeem Farooqui | Supply Chain Consultant</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* SERVICES PAGE */
+    .services-hero {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      padding: 4.5rem 2rem;
+      text-align: center;
+    }
+
+    .services-hero h1 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+    }
+
+    .services-hero p {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      opacity: 0.95;
+    }
+
+    .services-intro {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 4rem 1rem 1rem;
+    }
+
+    .services-intro h2 {
+      margin-bottom: 1rem;
+    }
+
+    .services-intro p {
+      color: #666;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0 4rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+      border-top: 4px solid #0066cc;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #f0f7ff;
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      color: #0066cc;
+      margin-bottom: 0.8rem;
+      font-size: 1.25rem;
+    }
+
+    .service-card p {
+      color: #666;
+      line-height: 1.7;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card ul {
+      padding-left: 1.15rem;
+      margin: 0;
+      color: #555;
+      line-height: 1.8;
+      font-size: 0.9rem;
+    }
+
+    .service-card li::marker {
+      color: #0066cc;
+    }
+
+    .approach-section {
+      background: #f8f9fa;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.2rem;
+      margin: 2.5rem 0 1rem;
+    }
+
+    .approach-step {
+      position: relative;
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: #0066cc;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .approach-step h3 {
+      margin-bottom: 0.6rem;
+      color: #222;
+    }
+
+    .approach-step p {
+      color: #666;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .client-fit {
+      padding: 4rem 0;
+    }
+
+    .client-fit-box {
+      background: linear-gradient(135deg, #f0f7ff, #ffffff);
+      border: 1px solid #dcecff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .client-fit-box h2 {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    .client-fit-box p {
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .fit-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fit-list li {
+      background: white;
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      color: #444;
+      font-size: 0.92rem;
+    }
+
+    .fit-list li::before {
+      content: "✓";
+      color: #0066cc;
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+
+    .services-cta {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      text-align: center;
+      padding: 4.5rem 2rem;
+    }
+
+    .services-cta h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .services-cta p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0.95;
+    }
+
+    .services-cta .cta-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: white;
+      color: #0066cc;
+      padding: 0.9rem 1.7rem;
+      border-radius: 7px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .services-cta .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    }
+
+    @media (max-width: 1100px) {
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .approach-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .service-grid,
+      .approach-grid,
+      .client-fit-box {
+        grid-template-columns: 1fr;
+      }
+
+    @media (max-width: 760px) {
+      .service-grid,
+      .approach-grid,
+      .client-fit-box {
+        grid-template-columns: 1fr;
+      }
+
+      .services-hero {
+        padding: 3.5rem 1.5rem;
+      }
+
+      .client-fit-box {
+        padding: 2rem 1.4rem;
+      }
+
+      .client-fit-box h2 {
+        text-align: center;
+      }
+
+      .fit-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .service-card,
+      .services-cta .cta-btn {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">Nadeem Farooqui</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="services-hero">
+    <div class="container">
+      <h1>Supply Chain Consulting Services</h1>
+      <p>
+        Practical, data driven solutions to help businesses improve inventory
+        performance, warehouse operations, working capital and supply chain visibility.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section>
+    <div class="container">
+      <div class="services-intro">
+        <h2>How I Can Help Your Business</h2>
+        <p>
+          I help businesses identify where inventory and supply chain performance
+          is being lost, understand the root causes, and implement practical
+          improvements that can be measured through clear operational and financial KPIs.
+        </p>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="service-grid">
+
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Inventory Optimization</h3>
+          <p>
+            Improve inventory availability while reducing excess, obsolete and
+            slow moving stock.
+          </p>
+          <ul>
+            <li>ABC and inventory classification</li>
+            <li>Stock level analysis</li>
+            <li>Safety stock review</li>
+            <li>Slow moving inventory analysis</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏭</div>
+          <h3>Warehouse Operations</h3>
+          <p>
+            Strengthen warehouse processes, controls and productivity from
+            receiving through storage, picking and dispatch.
+          </p>
+          <ul>
+            <li>Warehouse process assessment</li>
+            <li>Layout and location review</li>
+            <li>Material flow improvement</li>
+            <li>Operational KPI development</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3>Inventory Accuracy &amp; Control</h3>
+          <p>
+            Build stronger inventory controls and reliable stock records that
+            management can trust.
+          </p>
+          <ul>
+            <li>Cycle count programs</li>
+            <li>Stock reconciliation</li>
+            <li>Root cause analysis</li>
+            <li>Audit readiness</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💰</div>
+          <h3>Working Capital Optimization</h3>
+          <p>
+            Identify capital tied up in inventory and develop practical strategies
+            to improve inventory value and cash utilization.
+          </p>
+          <ul>
+            <li>Dead stock identification</li>
+            <li>Excess inventory analysis</li>
+            <li>Recovery opportunities</li>
+            <li>Inventory value reporting</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <h3>Demand Planning</h3>
+          <p>
+            Improve material planning and availability through better demand
+            visibility, forecasting and replenishment practices.
+          </p>
+          <ul>
+            <li>Demand trend analysis</li>
+            <li>Forecast review</li>
+            <li>Replenishment planning</li>
+            <li>Stock out analysis</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>Supply Chain Dashboards</h3>
+          <p>
+            Turn operational data into management visibility through practical
+            Excel and Power BI dashboards.
+          </p>
+          <ul>
+            <li>Inventory KPI dashboards</li>
+            <li>Management reporting</li>
+            <li>Trend and exception analysis</li>
+            <li>Performance visualization</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Process Improvement</h3>
+          <p>
+            Identify process weaknesses and standardize workflows using practical
+            continuous improvement methods.
+          </p>
+          <ul>
+            <li>Process mapping</li>
+            <li>SOP development</li>
+            <li>Root cause analysis</li>
+            <li>Lean improvement principles</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🚚</div>
+          <h3>Supply Chain Diagnostics</h3>
+          <p>
+            Conduct a structured review of inventory, warehouse and supply chain
+            operations to identify risks, inefficiencies and improvement priorities.
+          </p>
+          <ul>
+            <li>Current state assessment</li>
+            <li>KPI and data review</li>
+            <li>Operational risk identification</li>
+            <li>Improvement roadmap</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTING APPROACH -->
+  <section class="approach-section">
+    <div class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+      <div class="services-intro" style="padding-top: 0;">
+        <h2>My Consulting Methodology</h2>
+        <p>
+          I apply a structured Lean Six Sigma DMAIC methodology to supply chain
+          and operational improvement. Each engagement moves from defining the
+          business problem to achieving measurable and sustainable results.
+        </p>
+      </div>
+
+      <div class="approach-grid">
+
+        <div class="approach-step">
+          <div class="step-number">1</div>
+          <h3>Define</h3>
+          <p>
+            Understand the business problem, define objectives, establish the
+            project scope and identify the operational requirements that matter.
+          </p>
+        </div>
+
+        <div class="approach-step">
+          <div class="step-number">2</div>
+          <h3>Measure</h3>
+          <p>
+            Collect and validate operational data to establish the current state,
+            create a reliable baseline and quantify the size of the problem.
+          </p>
+        </div>
+
+        <div class="approach-step">
+          <div class="step-number">3</div>
+          <h3>Analyze</h3>
+          <p>
+            Go beyond symptoms to identify root causes using structured problem
+            solving, data analysis and process evaluation.
+          </p>
+        </div>
+
+        <div class="approach-step">
+          <div class="step-number">4</div>
+          <h3>Improve</h3>
+          <p>
+            Develop and implement practical solutions based on business impact,
+            feasibility and the expected operational and financial benefit.
+          </p>
+        </div>
+
+        <div class="approach-step">
+          <div class="step-number">5</div>
+          <h3>Control</h3>
+          <p>
+            Establish KPIs, controls, standard processes and management visibility
+            to ensure improvements are sustained over time.
+          </p>
+        </div>
+
+      </div>
+
+      <div style="
+        max-width: 900px;
+        margin: 2.5rem auto 0;
+        padding: 1.3rem 1.5rem;
+        background: white;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        font-weight: 700;
+        color: #0066cc;
+        font-size: 1.05rem;
+        letter-spacing: 0.02em;
+      ">
+        Problem &nbsp;→&nbsp; Data &nbsp;→&nbsp; Root Cause &nbsp;→&nbsp; Improvement &nbsp;→&nbsp; Sustainable Results
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT FIT -->
+  <section class="client-fit">
+    <div class="container">
+      <div class="client-fit-box">
+        <div>
+          <h2>Who Can Benefit?</h2>
+          <p>
+            My consulting approach is designed for SMEs and growing businesses
+            that need practical supply chain improvement without unnecessary
+            complexity or expensive transformation programs.
+          </p>
+        </div>
+
+        <ul class="fit-list">
+          <li>Businesses carrying excess inventory</li>
+          <li>Companies facing frequent stock outs</li>
+          <li>Warehouses with weak inventory controls</li>
+          <li>Businesses lacking reliable KPI visibility</li>
+          <li>Growing operations needing scalable processes</li>
+          <li>Companies preparing for inventory audits</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="services-cta">
+    <div class="container">
+      <h2>Let's Improve Your Supply Chain</h2>
+      <p>
+        If inventory is tying up cash, stock availability is affecting customers,
+        or your team lacks clear operational visibility, let's identify the
+        problem and build a practical improvement plan.
+      </p>
+      <a href="contact.html" class="cta-btn">Discuss Your Requirements</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Nadeem Farooqui | Supply Chain Consultant</p>
+      <div class="footer-links">
+        <a href="mailto:nadeem.farooqui1@outlook.com">Email</a>
+        <a href="https://wa.me/971585536673">WhatsApp</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.9rem;">Dubai, UAE</p>
+    </div>
+  </footer>
+
+</body>
+</html>
