@@ -5,6 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Nadeem Farooqui | Supply Chain Consultant</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* CAROUSEL STYLES */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 2rem;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .carousel-wrapper {
+      background: linear-gradient(135deg, #ff6b35, #0066cc);
+      padding: 3px;
+      border-radius: 15px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      border-radius: 12px;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* CAROUSEL DOTS */
+    .carousel-dots {
+      text-align: center;
+      padding: 1rem;
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 0 0 15px 15px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: #0066cc;
+      width: 30px;
+      border-radius: 6px;
+    }
+
+    .dot:hover {
+      background: #0066cc;
+    }
+
+    /* CAROUSEL NAVIGATION */
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      font-size: 1.5rem;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .carousel-nav:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-nav.prev {
+      left: 10px;
+    }
+
+    .carousel-nav.next {
+      right: 10px;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeInZoom {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .carousel-slide.active img {
+      animation: fadeInZoom 0.8s ease-in-out;
+    }
+  </style>
 </head>
 <body>
 
@@ -44,32 +164,42 @@
           I have spent 20 years managing complex inventory operations in the GCC region. Starting with Schindler in Saudi Arabia (2006-2022) and continuing in the UAE (2022-2026), I have built a career on transforming supply chain chaos into competitive advantage.
         </p>
         <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 1rem;">
-          My expertise spans 2K+ SKUs inventory management, demand forecasting, working capital optimization, and audit readiness. I have implemented systems that achieve 100% inventory accuracy, reduce stock-outs by 60-80%, and recover millions in locked capital.
+          My expertise spans 1,800+ SKU inventory management, demand forecasting, working capital optimization, and audit readiness. I have implemented systems that achieve 100% inventory accuracy, reduce stock-outs by 60-80%, and recover millions in locked capital.
         </p>
         <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
-          Now, I am bringing 20 years of ground-truth expertise to SME based businesses—helping them transform their supply chain operations through data-driven strategy and practical execution.
+          Now, I am bringing 20 years of ground-truth expertise to SMEs worldwide, helping businesses transform their supply chain operations through data-driven strategy and practical execution.
         </p>
       </div>
 
-      <!-- RIGHT: PHOTO & QUICK FACTS -->
+      <!-- RIGHT: ANIMATED PHOTO CAROUSEL -->
       <div>
-        <div style="background: linear-gradient(135deg, #ff6b35, #0066cc); padding: 3px; border-radius: 15px; margin-bottom: 2rem;">
-          <div style="background: white; padding: 1rem; border-radius: 12px; text-align: center;">
-            <div style="width: 100%; height: 350px; background: linear-gradient(135deg, #e6f2ff, #fff5f0); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.95rem;">
-              📷 Your Professional Photo<br>(Upload Image 4 here)
+        <div class="carousel-wrapper">
+          <div class="carousel">
+            <div class="carousel-slide active">
+              <img src="images/photo-1.png" alt="Nadeem Farooqui - Professional Photo 1">
             </div>
+            <div class="carousel-slide">
+              <img src="images/photo-2.png" alt="Nadeem Farooqui - Professional Photo 2">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/photo-3.png" alt="Nadeem Farooqui - Professional Photo 3">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/photo-4.png" alt="Nadeem Farooqui - Professional Photo 4">
+            </div>
+
+            <!-- NAVIGATION ARROWS -->
+            <button class="carousel-nav prev" onclick="prevSlide()">❮</button>
+            <button class="carousel-nav next" onclick="nextSlide()">❯</button>
           </div>
-        </div>
-        <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px;">
-          <h3 style="color: #0066cc; margin-bottom: 1rem;">Quick Facts</h3>
-          <ul style="list-style: none; line-height: 2;">
-            <li>🎯 <strong>20 Years</strong> Supply Chain Excellence</li>
-            <li>✅ <strong>Zero Failed Audits</strong> Across Career</li>
-            <li>📊 <strong>1,800+</strong> SKUs Managed</li>
-            <li>💰 <strong>AED 0.14M+</strong> Dead Stock Recovery</li>
-            <li>🌍 <strong>KSA & UAE</strong> Based Experience</li>
-            <li>🗣️ <strong>English, Urdu, Hindi</strong> Fluent</li>
-          </ul>
+
+          <!-- DOTS -->
+          <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
         </div>
       </div>
 
@@ -89,7 +219,6 @@
         <h3 style="color: #0066cc; margin-bottom: 1rem;">📚 Education</h3>
         <p><strong>BBA in Logistics & Supply Chain Management</strong></p>
         <p style="color: #666; font-size: 0.95rem; margin-bottom: 0.5rem;">Western Global University</p>
-        <p style="color: #28a745; font-weight: bold;">CGPA: 3.58/4.0</p>
       </div>
 
       <!-- CERTIFICATIONS -->
@@ -109,7 +238,8 @@
           <li>✓ <strong>SAP MM</strong> (Material Management)</li>
           <li>✓ <strong>SAP Ariba</strong> (Procurement)</li>
           <li>✓ <strong>WMS</strong> (Warehouse Systems)</li>
-          <li>✓ <strong>Power BI</strong> & Excel</li>
+          <li>✓ <strong>Advanced Excel & VBA</strong></li>
+          <li>✓ <strong>Power BI</strong></li>
         </ul>
       </div>
 
@@ -161,7 +291,7 @@
 <section style="background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); color: white; text-align: center; padding: 4rem 2rem;">
   <div class="container">
     <h2 style="color: white; margin-bottom: 1.5rem;">Ready to Transform Your Supply Chain?</h2>
-    <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95;">Let's discuss how 20 years of expertise can help your business</p>
+    <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95;">Let us discuss how 20 years of expertise can help your business</p>
     <a href="services.html" class="cta-btn" style="background: white; color: #0066cc;">Explore Services</a>
   </div>
 </section>
@@ -176,9 +306,46 @@
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
-    <p style="margin-top: 1rem; font-size: 0.9rem;">Dubai, UAE | Jeddah, KSA</p>
+    <p style="margin-top: 1rem; font-size: 0.9rem;">Dubai, UAE</p>
   </div>
 </footer>
+
+<!-- CAROUSEL JAVASCRIPT -->
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.dot');
+  const totalSlides = slides.length;
+
+  // Auto-rotate every 5 seconds
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  }, 5000);
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    showSlide(currentIndex);
+  }
+
+  function currentSlide(index) {
+    currentIndex = index;
+    showSlide(currentIndex);
+  }
+</script>
 
 </body>
 </html>
