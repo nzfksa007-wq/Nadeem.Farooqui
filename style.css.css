@@ -1,0 +1,104 @@
+/* Master Stylesheet */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #0066cc;
+  --accent: #ff6b35;
+  --success: #28a745;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary) 0%, #0052a3 100%);
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo { font-size: 22px; font-weight: bold; color: white; text-decoration: none; }
+.logo:hover { color: var(--accent); }
+
+nav ul { list-style: none; display: flex; gap: 2rem; }
+nav a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
+nav a:hover { color: var(--accent); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95; }
+
+.cta-btn {
+  display: inline-block;
+  background: white;
+  color: var(--primary);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.metric-box {
+  background: linear-gradient(135deg, var(--primary) 0%, #0052a3 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.metric-box:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+.metric-box h3 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.metric-box p { font-size: 0.95rem; }
+
+section { padding: 4rem 0; }
+h2 { font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; color: #1a1a1a; }
+
+footer {
+  background: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.footer-links a { color: var(--accent); text-decoration: none; margin: 0 1rem; }
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  nav ul { gap: 1rem; font-size: 0.9rem; }
+  .metrics { grid-template-columns: 1fr; }
+}
