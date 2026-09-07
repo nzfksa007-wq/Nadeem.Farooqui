@@ -6,15 +6,11 @@
   <title>About Nadeem Farooqui | Supply Chain Consultant</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* ----- RESET & BASE ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* ----- RESET & BASE (matching homepage) ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #ffffff;
       color: #1e2a3a;
       line-height: 1.5;
@@ -26,17 +22,19 @@
       padding: 0 24px;
     }
 
-    /* ----- HEADER / NAV ----- */
+    /* ----- HEADER / NAV (same as homepage) ----- */
     header {
-      background: #0b1a2e;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
       color: white;
-      padding: 1rem 0;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .header-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -44,49 +42,44 @@
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
+      font-size: 22px;
+      font-weight: bold;
       color: white;
       text-decoration: none;
     }
+    .logo:hover { color: #ff6b35; }
 
     nav ul {
-      display: flex;
       list-style: none;
+      display: flex;
       gap: 2rem;
       flex-wrap: wrap;
     }
-
     nav a {
-      color: rgba(255, 255, 255, 0.8);
+      color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s;
+      transition: 0.3s;
     }
-
-    nav a:hover {
-      color: #ff6b35;
-    }
+    nav a:hover { color: #ff6b35; }
 
     /* ----- HERO (page header) ----- */
     .hero-about {
-      background: linear-gradient(145deg, #0b1a2e 0%, #1a3552 100%);
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
       color: white;
-      padding: 3.5rem 0;
+      padding: 4rem 2rem;
       text-align: center;
     }
 
     .hero-about h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
-      letter-spacing: -1px;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
       margin-bottom: 0.5rem;
     }
 
     .hero-about p {
       font-size: 1.2rem;
-      opacity: 0.85;
+      opacity: 0.9;
       max-width: 700px;
       margin: 0 auto;
     }
@@ -115,7 +108,7 @@
       margin-bottom: 1.2rem;
     }
 
-    /* PHOTO CARD – clean, premium */
+    /* PHOTO CARD – clean, premium (no em dash) */
     .photo-card {
       max-width: 480px;
       margin: 0 auto;
@@ -210,10 +203,6 @@
       font-size: 0.8rem;
     }
 
-    .badge-accent {
-      color: #0052a3;
-    }
-
     /* ----- CORE EXPERTISE (icon grid) ----- */
     .expertise-grid {
       display: grid;
@@ -299,7 +288,7 @@
 
     /* ----- CTA (consultancy focused) ----- */
     .cta-section {
-      background: linear-gradient(145deg, #0b1a2e 0%, #1a3552 100%);
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
       color: white;
       border-radius: 28px;
       padding: 3.5rem 2rem;
@@ -339,9 +328,9 @@
       transform: translateY(-2px);
     }
 
-    /* ----- FOOTER ----- */
+    /* ----- FOOTER (same as homepage) ----- */
     footer {
-      background: #0b1a2e;
+      background: #1a1a1a;
       color: rgba(255,255,255,0.7);
       padding: 2.5rem 0;
       margin-top: 2rem;
@@ -357,16 +346,16 @@
     }
 
     .footer-links a {
-      color: rgba(255,255,255,0.7);
+      color: #ff6b35;
       text-decoration: none;
       font-weight: 500;
     }
 
     .footer-links a:hover {
-      color: #ff6b35;
+      color: white;
     }
 
-    /* ----- RESPONSIVE ----- */
+    /* ----- RESPONSIVE (matching homepage) ----- */
     @media (max-width: 992px) {
       .about-grid {
         grid-template-columns: 1fr;
@@ -424,9 +413,10 @@
     }
   </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
+<!-- HEADER (identical to homepage) -->
 <header>
   <div class="header-container">
     <a href="index.html" class="logo">Nadeem Farooqui</a>
@@ -446,19 +436,21 @@
 <section class="hero-about">
   <div class="container">
     <h1>About Me</h1>
-    <p>Supply chain, inventory &amp; operations expertise across the GCC — now helping SMEs worldwide.</p>
+    <p>Turning inventory and supply-chain complexity into measurable competitive advantage for SMEs worldwide.</p>
   </div>
 </section>
 
 <!-- MAIN : STORY + PHOTO -->
 <section>
   <div class="container about-grid">
-    <!-- LEFT: STORY -->
+    <!-- LEFT: STORY (brand-level, value-focused) -->
     <div class="story">
       <h2>Building practical supply chain advantage</h2>
-      <p>My career has been shaped across two major GCC markets — starting in Saudi Arabia (2006) and continuing in the UAE (2022–2026). I've worked hands-on with complex inventories, technical spare parts, and high-stakes operational environments where accuracy and availability directly impact performance.</p>
-      <p>At Schindler, I led warehouse operations, inventory control, and aftermarket logistics. I drove 100% inventory accuracy, reduced stock-outs by 60–80%, and helped unlock millions in tied-up working capital — all while maintaining zero audit failures across multiple cycles.</p>
-      <p>Today, I bring this practical GCC experience to SMEs and growing businesses globally. My focus is not just on process documentation, but on measurable outcomes: better stock visibility, leaner working capital, and supply chains that become a competitive edge.</p>
+      <p>I help SMEs and growing businesses turn inventory and supply-chain complexity into a measurable competitive advantage.</p>
+      <p>My career has been shaped across two major GCC markets, starting in Saudi Arabia in 200s and continuing in the UAE from 2022 to 2026. I have worked hands-on with complex inventories, technical spare parts, and high-stakes operational environments where accuracy and availability directly impact performance and profitability.</p>
+      <p>I have led warehouse operations, inventory control, 3PL logistics and aftermarket logistics for large-scale organisations. In these roles, I drove 100% inventory accuracy, reduced stock-outs by 60–80%, and helped unlock millions in tied-up working capital all while maintaining zero audit failures across multiple cycles.</p>
+      <p>Today, I bring this practical GCC experience to SMEs and growing businesses globally. My focus is not on generic process documentation, but on measurable outcomes: better stock visibility, leaner working capital, and supply chains that become a strategic edge rather than a cost centre.</p>
+      <p>I work with clients to identify where inventory and supply-chain performance is being lost, understand the root causes, and implement practical improvements that can be tracked through clear operational and financial KPIs.</p>
     </div>
 
     <!-- RIGHT: PHOTO (professional) -->
@@ -483,27 +475,27 @@
 <!-- CREDENTIALS & CERTIFICATIONS -->
 <section style="background: #f8fafc; padding: 2.5rem 0;">
   <div class="container">
-    <h2 style="font-size: 1.8rem; font-weight: 600; color: #0b1a2e; margin-bottom: 0.5rem;">Credentials &amp; certifications</h2>
+    <h2 style="font-size: 1.8rem; font-weight: 600; color: #0b1a2e; margin-bottom: 0.5rem;">Credentials and certifications</h2>
     <div class="creds-grid">
       <div class="creds-card">
         <h3>📚 Education</h3>
         <ul>
-          <li><strong>BBA – Logistics &amp; Supply Chain</strong><br><span style="color: #4b5e72; font-size: 0.95rem;">Western Global University</span></li>
+          <li><strong>BBA in Logistics and Supply Chain</strong><br><span style="color: #4b5e72; font-size: 0.95rem;">Western Global University</span></li>
         </ul>
       </div>
       <div class="creds-card">
         <h3>🏆 Certifications</h3>
         <ul>
-          <li><strong>CGSCM</strong> – Certified Global Supply Chain Manager</li>
-          <li><strong>CGSCP</strong> – Certified Global Supply Chain Professional</li>
+          <li><strong>CGSCM</strong> – Certified Global Supply Chain Professional</li>
+          <li><strong>CGSCP</strong> – Certified Global Supply Chain Manager</li>
           <li><strong>Lean Six Sigma Black Belt</strong></li>
         </ul>
       </div>
       <div class="creds-card">
-        <h3>💻 Systems &amp; tools</h3>
+        <h3>💻 Systems and tools</h3>
         <ul>
           <li>SAP MM / Ariba</li>
-          <li>WMS &amp; warehouse systems</li>
+          <li>WMS and warehouse systems</li>
           <li>Advanced Excel · VBA · Power BI</li>
         </ul>
       </div>
@@ -533,7 +525,7 @@
     <p>My approach is rooted in data, collaboration, and practical execution. I don't just deliver reports — I help you identify measurable opportunities, reduce waste, and build resilience. Every engagement is tailored to your business size, industry, and maturity.</p>
     <div style="font-weight: 500; margin-bottom: 0.8rem; color: #0b1a2e;">My consulting framework:</div>
     <div class="dmaic-grid">
-      <div class="dmaic-step">Define <small>scope &amp; goals</small></div>
+      <div class="dmaic-step">Define <small>scope and goals</small></div>
       <div class="dmaic-step">Measure <small>current state</small></div>
       <div class="dmaic-step">Analyse <small>root causes</small></div>
       <div class="dmaic-step">Improve <small>processes</small></div>
@@ -552,17 +544,20 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER (identical to homepage) with updated contact details -->
 <footer>
   <div class="container">
     <p>&copy; 2026 Nadeem Farooqui · Supply Chain Consultant</p>
     <div class="footer-links">
       <a href="mailto:nadeem.farooqui1@outlook.com">Email</a>
-      <a href="https://wa.me/971585536673">WhatsApp</a>
+      <a href="https://wa.me/919493736773">WhatsApp</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
-    <p style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.7;">Dubai, UAE</p>
+    <p style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.7;">
+      📧 [nadeem.farooqui1@outlook.com](mailto:nadeem.farooqui1@outlook.com) · 📱 +91 94937 36773
+    </p>
+    <p style="margin-top: 0.2rem; font-size: 0.9rem; opacity: 0.7;">Jeddah, KSA</p>
   </div>
 </footer>
 
