@@ -1,0 +1,20 @@
+Nadeem Farooqui website alignment update
+
+REPLACE these files in the GitHub repository:
+index.html  <- use index-new-value-language.html as the source
+about.html
+services.html
+case-study-1.html
+case-study-2.html
+case-study-3.html
+case-study-4.html
+contact.html
+portfolio-dashboards.html
+
+IMPORTANT:
+1. Keep your existing images folder and css folder.
+2. The website now uses the Indian WhatsApp number +91 94937 36773 consistently.
+3. Location wording is standardized toward GCC Supply Chain & Inventory Consulting rather than a relocation statement.
+4. The homepage has been softened where numerical claims were too broad or could be interpreted as guaranteed results.
+5. Mobile navigation is made horizontally scrollable so the existing navigation remains usable on phones without adding JavaScript.
+6. New varied dashboard designs should be added next. The current dashboard index contains the existing nine demonstrations and is not the final dashboard portfolio.
