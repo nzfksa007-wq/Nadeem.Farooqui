@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Supply chain consulting for manufacturing and distribution. Transform inventory chaos into competitive advantage. 20 years of expertise. DMAIC methodology. Quick wins in 30-90 days.">
+  <title>Nadeem Farooqui | Supply Chain Consultant | Real Results. Proven Methodology.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* HOMEPAGE STYLES */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 107, 53, 0.1);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(30px); }
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+    
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 1.8rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-btn-primary {
+      background: white;
+      color: #0066cc;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .cta-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    }
+
+    .cta-btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border: 2px solid white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .cta-btn-secondary:hover {
+      background: white;
+      color: #0066cc;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* QUICK WINS SECTION */
+    .quick-wins {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      color: #0066cc;
+    }
+
+    .section-header p {
+      font-size: 1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .quick-wins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .quick-win-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border-top: 4px solid #0066cc;
+    }
+
+    .quick-win-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .quick-win-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .quick-win-card h3 {
+      color: #0066cc;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .quick-win-card p {
+      color: #555;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .quick-win-benefit {
+      background: #f0f8ff;
+      padding: 0.8rem;
+      border-left: 3px solid #ff6b35;
+      border-radius: 5px;
+      font-weight: 600;
+      color: #ff6b35;
+      font-size: 0.9rem;
+    }
+
+    /* CREDIBILITY SECTION */
+    .credibility {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .credibility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .credibility-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .credibility-number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #0066cc;
+      margin-bottom: 0.3rem;
+    }
+
+    .credibility-label {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    .credibility-description {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .badge {
+      background: #f0f8ff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid #0066cc;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .badge-icon {
+      font-size: 1.3rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* MONEY IMPACT SECTION */
+    .money-impact {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #f0f8ff 0%, #e5f0ff 100%);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .impact-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .impact-title {
+      color: #0066cc;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .impact-problem {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+    }
+
+    .impact-solution {
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      background: #f0f8ff;
+      border-radius: 5px;
+    }
+
+    .impact-value {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      padding: 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    /* THIS FOR YOU SECTION */
+    .this-for-you {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .fit-grid h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .fit-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .fit-list li {
+      padding: 0.6rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .fit-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    .not-fit-list li::before {
+      content: "✗";
+      color: #dc3545;
+    }
+
+    @media (max-width: 768px) {
+      .fit-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* METHODOLOGY SECTION */
+    .methodology {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+    }
+
+    .methodology .section-header h2,
+    .methodology .section-header p {
+      color: white;
+    }
+
+    .methodology .section-header p {
+      opacity: 0.95;
+    }
+
+    .dmaic-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .dmaic-step-card {
+      background: rgba(255,255,255,0.1);
+      padding: 1.8rem 1.2rem;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .dmaic-step-card:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-description {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+
+    /* PORTFOLIO SECTION */
+    .portfolio-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .portfolio-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .case-study-preview {
+      background: linear-gradient(135deg, #f0f8ff, #ffffff);
+      border: 2px solid #0066cc;
+      padding: 1.8rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .case-study-preview:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,102,204,0.15);
+    }
+
+    .case-study-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0066cc;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-study-title {
+      font-size: 1.1rem;
+      color: #0066cc;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-study-preview p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .case-study-metric {
+      background: white;
+      padding: 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0066cc;
+      text-align: center;
+    }
+
+    .portfolio-section > div:last-child {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .portfolio-section a {
+      color: #0066cc;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .portfolio-section a:hover {
+      color: #ff6b35;
+    }
+
+    /* START HERE SECTION */
+    .start-here {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .step-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .step-number-badge {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: #0066cc;
+      color: white;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 {
+      color: #0066cc;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .step-card p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .step-card .cta-btn-primary {
+      font-size: 0.9rem;
+      padding: 0.8rem 2rem;
+    }
+
+    .highlight-box {
+      background: #f0f8ff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #0066cc;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .highlight-box p {
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* CONTACT CTA */
+    .contact-cta {
+      background: linear-gradient(135deg, #f0f8ff 0%, #e5f0ff 100%);
+      padding: 3.5rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .contact-cta h2 {
+      color: #0066cc;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-cta > p {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
+
+    .contact-methods {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: white;
+      color: #0066cc;
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .contact-icon {
+      font-size: 1.2rem;
+    }
+
+    /* FOOTER */
+    .footer-section {
+      background: #1a1a1a;
+      color: #ccc;
+      padding: 2.5rem 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-column h4 {
+      color: #ff6b35;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column li {
+      padding: 0.4rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-column a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: #ff6b35;
+    }
+
+    .footer-column li:not(a) {
+      color: #999;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+      text-align: center;
+      color: #999;
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { padding: 3.5rem 2rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .quick-wins, .credibility, .money-impact, .this-for-you, .methodology, .portfolio-section, .start-here {
+        padding: 3rem 2rem;
+      }
+      .section-header h2 { font-size: 1.8rem; }
+      .hero-stats { gap: 1rem; }
+      .dmaic-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 2.5rem 1.5rem; }
+      .hero h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .hero-tagline { font-size: 0.9rem; margin-bottom: 1.2rem; }
+      .hero-ctas { gap: 0.8rem; }
+      .cta-btn-primary, .cta-btn-secondary { padding: 0.8rem 1.8rem; font-size: 0.85rem; }
+      .section-header h2 { font-size: 1.5rem; }
+      .quick-wins, .credibility, .money-impact, .this-for-you, .methodology, .portfolio-section, .start-here {
+        padding: 2rem 1.5rem;
+      }
+      .dmaic-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Stop Wasting Money on Inventory</h1>
+      <p class="hero-subtitle">Start Recovering It</p>
+      <p class="hero-tagline">Transform inventory chaos into competitive advantage. 20 years of proven supply chain expertise applied to your business.</p>
+      
+      <div class="hero-ctas">
+        <a href="https://wa.me/919493736773?text=Hi%20Nadeem,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="cta-btn-primary">Free 15-Min Call</a>
+        <a href="contact.html" class="cta-btn-secondary">Book a Consultation</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">98.7%</div>
+          <div class="stat-label">Inventory Accuracy</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">47%</div>
+          <div class="stat-label">Stock-Out Improvement</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">60%+</div>
+          <div class="stat-label">Process Efficiency Gain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK WINS SECTION -->
+<section class="quick-wins">
+  <div class="container">
+    <div class="section-header">
+      <h2>What We Identify in 30 Days</h2>
+      <p>Real opportunities from data analysis, not guesswork</p>
+    </div>
+
+    <div class="quick-wins-grid">
+      <div class="quick-win-card">
+        <div class="quick-win-icon">💰</div>
+        <h3>Recover Locked Capital</h3>
+        <p>Identify 20-40% of inventory value locked in dead stock and slow movers</p>
+        <div class="quick-win-benefit">Potential: 30% working capital recovery</div>
+      </div>
+
+      <div class="quick-win-card">
+        <div class="quick-win-icon">⚡</div>
+        <h3>Eliminate Stock-Outs</h3>
+        <p>Fix demand planning gaps causing emergency procurements at premium costs</p>
+        <div class="quick-win-benefit">Save 30-50% on emergency costs</div>
+      </div>
+
+      <div class="quick-win-card">
+        <div class="quick-win-icon">🎯</div>
+        <h3>Simplify SKU Management</h3>
+        <p>Consolidate 30-50% of non-core SKUs without losing revenue</p>
+        <div class="quick-win-benefit">500+ management hours saved annually</div>
+      </div>
+
+      <div class="quick-win-card">
+        <div class="quick-win-icon">📦</div>
+        <h3>Optimize Warehouse Operations</h3>
+        <p>Reduce manual picking, improve accuracy, scale operations without hiring</p>
+        <div class="quick-win-benefit">60-80% reduction in manual work</div>
+      </div>
+
+      <div class="quick-win-card">
+        <div class="quick-win-icon">✓</div>
+        <h3>Pass Compliance Audits</h3>
+        <p>Establish inventory controls and audit-ready processes</p>
+        <div class="quick-win-benefit">Zero audit findings</div>
+      </div>
+
+      <div class="quick-win-card">
+        <div class="quick-win-icon">📊</div>
+        <h3>Real-Time Visibility</h3>
+        <p>Dashboard-driven KPIs for proactive decision-making</p>
+        <div class="quick-win-benefit">Make data-driven decisions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY SECTION -->
+<section class="credibility">
+  <div class="container">
+    <div class="section-header">
+      <h2>Proven Track Record</h2>
+      <p>20 years of consistent delivery across GCC and India markets</p>
+    </div>
+
+    <div class="credibility-grid">
+      <div class="credibility-item">
+        <div class="credibility-number">1,800+</div>
+        <div class="credibility-label">SKUs Managed</div>
+        <div class="credibility-description">100% inventory accuracy across complex product lines</div>
+      </div>
+
+      <div class="credibility-item">
+        <div class="credibility-number">1.06%</div>
+        <div class="credibility-label">Stock-Out Rate</div>
+        <div class="credibility-description">47% improvement from 2% baseline</div>
+      </div>
+
+      <div class="credibility-item">
+        <div class="credibility-number">1.8M+</div>
+        <div class="credibility-label">POs Processed</div>
+        <div class="credibility-description">98%+ fulfillment rate, zero errors</div>
+      </div>
+
+      <div class="credibility-item">
+        <div class="credibility-number">0</div>
+        <div class="credibility-label">Audit Findings</div>
+        <div class="credibility-description">Perfect compliance record across 20 years</div>
+      </div>
+    </div>
+
+    <div class="badges">
+      <div class="badge">
+        <div class="badge-icon">📋</div>
+        <div>Lean Six Sigma Black Belt</div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">🎓</div>
+        <div>CGSCM & CGSCP Certified</div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">💼</div>
+        <div>SAP MM & Ariba Expert</div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">📊</div>
+        <div>Advanced Analytics & BI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONEY IMPACT SECTION -->
+<section class="money-impact">
+  <div class="container">
+    <div class="section-header">
+      <h2>The Real Impact</h2>
+      <p>Problems we solve and their bottom-line effect</p>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-title">Dead & Slow-Moving Inventory</div>
+        <p class="impact-problem">Capital locked in non-moving inventory. Warehouse space wasted. Carrying costs destroying margin.</p>
+        <p class="impact-solution">Solution: Inventory optimization + strategic liquidation</p>
+        <div class="impact-value">Recover 30% of dead stock value in 90 days</div>
+      </div>
+
+      <div class="impact-card">
+        <div class="impact-title">Poor Demand Planning</div>
+        <p class="impact-problem">Frequent stock-outs force emergency procurements at 30-50% premium costs. Customers unhappy. Revenue lost.</p>
+        <p class="impact-solution">Solution: Demand planning + safety stock optimization</p>
+        <div class="impact-value">Save 30-50% on emergency costs, reach 98%+ service level</div>
+      </div>
+
+      <div class="impact-card">
+        <div class="impact-title">Manual & Inefficient Processes</div>
+        <p class="impact-problem">80% manual picking, high error rates, slow fulfillment, staff burnout, scaling impossible.</p>
+        <p class="impact-solution">Solution: Process redesign + WMS optimization + KPI management</p>
+        <div class="impact-value">Reduce manual work 60-80%, eliminate 95%+ errors</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THIS FOR YOU SECTION -->
+<section class="this-for-you">
+  <div class="container">
+    <div class="section-header">
+      <h2>Is This Right for You?</h2>
+    </div>
+
+    <div class="fit-grid">
+      <div>
+        <h3 style="color: #28a745;">✓ This is for you if...</h3>
+        <ul class="fit-list">
+          <li>Manufacturing, distribution or logistics SME</li>
+          <li>Losing money on excess and slow-moving inventory</li>
+          <li>Unexpected stock-outs hurting customer delivery</li>
+          <li>Manual processes draining warehouse resources</li>
+          <li>Audit findings or compliance concerns</li>
+          <li>Want to improve profits without adding headcount</li>
+          <li>Based in India, GCC, or global operations</li>
+          <li>Ready for practical, results-driven consulting</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="color: #dc3545;">✗ NOT for you if...</h3>
+        <ul class="fit-list not-fit-list">
+          <li>Outsourcing all supply chain completely</li>
+          <li>Only need transactional freight forwarding</li>
+          <li>Looking for short-term staffing solutions</li>
+          <li>Want slides without implementation</li>
+          <li>Not ready to invest time in improvement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY SECTION -->
+<section class="methodology">
+  <div class="container">
+    <div class="section-header">
+      <h2>Proven DMAIC Methodology</h2>
+      <p>Every engagement follows a structured, disciplined approach</p>
+    </div>
+
+    <div class="dmaic-steps">
+      <div class="dmaic-step-card">
+        <div class="step-number">1</div>
+        <div class="step-title">Define</div>
+        <div class="step-description">Problem statement, business impact, improvement objectives</div>
+      </div>
+      <div class="dmaic-step-card">
+        <div class="step-number">2</div>
+        <div class="step-title">Measure</div>
+        <div class="step-description">Baseline data, KPI establishment, current state</div>
+      </div>
+      <div class="dmaic-step-card">
+        <div class="step-number">3</div>
+        <div class="step-title">Analyze</div>
+        <div class="step-description">Root cause identification, data analysis, process evaluation</div>
+      </div>
+      <div class="dmaic-step-card">
+        <div class="step-number">4</div>
+        <div class="step-title">Improve</div>
+        <div class="step-description">Solution design, implementation, change management</div>
+      </div>
+      <div class="dmaic-step-card">
+        <div class="step-number">5</div>
+        <div class="step-title">Control</div>
+        <div class="step-description">Standardization, KPI monitoring, sustained results</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section class="portfolio-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Real Work. Real Data. Real Results.</h2>
+      <p>Evidence-based case studies showing actual transformation</p>
+    </div>
+
+    <div class="portfolio-preview">
+      <div class="case-study-preview">
+        <div class="case-study-number">01</div>
+        <div class="case-study-title">Inventory Accuracy</div>
+        <p>85% to 100% across 1,800+ SKUs</p>
+        <div class="case-study-metric">100% Accuracy | Zero Findings</div>
+      </div>
+
+      <div class="case-study-preview">
+        <div class="case-study-number">02</div>
+        <div class="case-study-title">Stock-Out Reduction</div>
+        <p>2.0% to 1.06% in 24 months</p>
+        <div class="case-study-metric">47% Improvement | 98.9% Service</div>
+      </div>
+
+      <div class="case-study-preview">
+        <div class="case-study-number">03</div>
+        <div class="case-study-title">Working Capital</div>
+        <p>Capital recovery from dead stock</p>
+        <div class="case-study-metric">30% Recovery Potential</div>
+      </div>
+
+      <div class="case-study-preview">
+        <div class="case-study-number">04</div>
+        <div class="case-study-title">Warehouse Operations</div>
+        <p>90% to 98%+ fulfillment rate</p>
+        <div class="case-study-metric">60%+ Productivity Gain</div>
+      </div>
+    </div>
+
+    <div>
+      <a href="case-study-1.html">View Full Case Studies with DMAIC Breakdown →</a>
+    </div>
+  </div>
+</section>
+
+<!-- START HERE SECTION -->
+<section class="start-here">
+  <div class="container">
+    <div class="section-header">
+      <h2>How to Start: 3 Simple Steps</h2>
+      <p>Low commitment. High value. Risk-free first conversation.</p>
+    </div>
+
+    <div class="steps-container">
+      <div class="step-card">
+        <div class="step-number-badge">1</div>
+        <h3>Free 15-Minute Discovery Call</h3>
+        <p>Understand your inventory challenges, identify quick opportunities, determine if we're a fit.</p>
+        <a href="https://wa.me/919493736773?text=Hi%20Nadeem,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="cta-btn-primary">Book on WhatsApp</a>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number-badge">2</div>
+        <h3>Quick Opportunity Assessment</h3>
+        <p>Deep dive audit identifying immediate wins, recovery opportunities and recommended actions. (3-5 days)</p>
+        <a href="contact.html" class="cta-btn-primary">Schedule Assessment</a>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number-badge">3</div>
+        <h3>Implementation Partnership</h3>
+        <p>Hands-on engagement to transform insights into results using structured DMAIC approach.</p>
+        <a href="services.html" class="cta-btn-primary">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <p>Most SMEs identify significant inventory improvement opportunities within the first 30 days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<div class="container">
+  <div class="contact-cta">
+    <h2>Ready to Transform Your Supply Chain?</h2>
+    <p>No long-term contracts. No hidden costs. Just direct access to 20 years of supply chain expertise.</p>
+    
+    <div class="contact-methods">
+      <a href="https://wa.me/919493736773?text=Hi%20Nadeem,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="contact-button">
+        <span class="contact-icon">💬</span>
+        <span>WhatsApp: +91 94937 36773</span>
+      </a>
+      <a href="mailto:nadeem.farooqui1@outlook.com" class="contact-button">
+        <span class="contact-icon">✉️</span>
+        <span>Email Nadeem</span>
+      </a>
+      <a href="contact.html" class="contact-button">
+        <span class="contact-icon">📅</span>
+        <span>Book a Call</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>Nadeem Farooqui</h4>
+        <ul>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="case-study-1.html">Case Studies</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="case-study-1.html">Inventory Accuracy</a></li>
+          <li><a href="case-study-2.html">Demand Planning</a></li>
+          <li><a href="case-study-3.html">Working Capital</a></li>
+          <li><a href="case-study-4.html">Warehouse Ops</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://wa.me/919493736773">WhatsApp: +91 94937 36773</a></li>
+          <li><a href="mailto:nadeem.farooqui1@outlook.com">Email: nadeem.farooqui1@outlook.com</a></li>
+          <li><a href="https://linkedin.com/in/nadeem-farooqui-a53393228">LinkedIn Profile</a></li>
+          <li><a href="contact.html">Schedule Call</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Consulting</h4>
+        <ul>
+          <li>India & Global Markets</li>
+          <li>Remote & On Site</li>
+          <li>Supply Chain & Inventory</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Nadeem Farooqui | Supply Chain Consultant | Real Problems. Data-Driven Solutions. Measurable Results.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
