@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Supply chain consulting case studies. Real problems, data-driven analysis, measurable results using Lean Six Sigma DMAIC methodology.">
+  <title>Portfolio | Nadeem Farooqui | Supply Chain Consultant</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* PORTFOLIO PAGE STYLES */
+    .portfolio-hero {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .portfolio-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-hero p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .portfolio-intro {
+      max-width: 900px;
+      margin: 3rem auto;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .portfolio-intro h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+    .portfolio-intro p {
+      font-size: 1.05rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .case-study-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border-top: 4px solid #0066cc;
+    }
+
+    .case-study-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .case-study-header {
+      background: linear-gradient(135deg, #f0f7ff, #f5f5ff);
+      padding: 2rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .case-study-number {
+      display: inline-block;
+      background: #0066cc;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 36px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .case-study-card h3 {
+      color: #0066cc;
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .case-study-card p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .case-study-body {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-study-problem {
+      background: #fffbf0;
+      padding: 1.5rem;
+      border-left: 4px solid #ff6b35;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    .case-study-problem h4 {
+      color: #ff6b35;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin: 0 0 0.5rem;
+      font-weight: 700;
+    }
+
+    .case-study-problem p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .case-study-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .metric {
+      background: #f0f8ff;
+      padding: 1rem;
+      border-radius: 6px;
+      border-left: 3px solid #0066cc;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: #666;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0066cc;
+    }
+
+    .case-study-footer {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .view-case-study {
+      display: inline-block;
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .view-case-study:hover {
+      color: #ff6b35;
+      transform: translateX(5px);
+    }
+
+    .view-case-study::after {
+      content: " →";
+      margin-left: 0.5rem;
+    }
+
+    .dmaic-section {
+      background: #f8f9fa;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin: 4rem 0;
+    }
+
+    .dmaic-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .dmaic-intro {
+      margin-bottom: 3rem;
+    }
+
+    .dmaic-intro h2 {
+      font-size: 2rem;
+    }
+
+    .dmaic-intro p {
+      font-size: 1.05rem;
+      color: #666;
+    }
+
+    .dmaic-flow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .dmaic-step {
+      flex: 1;
+      min-width: 150px;
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .dmaic-step h4 {
+      color: #0066cc;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .dmaic-step p {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .dmaic-arrow {
+      flex: 0 0 auto;
+      font-size: 1.5rem;
+      color: #0066cc;
+      font-weight: bold;
+    }
+
+    .portfolio-cta {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .portfolio-cta h2 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .portfolio-cta p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 1100px) {
+      .case-studies-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dmaic-flow {
+        flex-direction: column;
+      }
+
+      .dmaic-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-study-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-hero {
+        padding: 3rem 1.5rem;
+      }
+
+      .portfolio-hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER & NAVIGATION -->
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo">Nadeem Farooqui</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="portfolio-hero">
+  <div class="container">
+    <h1>Real Problems. Data Driven Analysis. Measurable Results.</h1>
+    <p>Evidence based case studies demonstrating practical supply chain transformation using Lean Six Sigma methodology</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section>
+  <div class="container">
+    <div class="portfolio-intro">
+      <h2>Case Studies</h2>
+      <p>
+        Each case study follows the DMAIC methodology: Define the problem, Measure the baseline, Analyze root causes, Implement improvements, and Control for sustained results. All data is anonymized and presented to demonstrate practical consulting value.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section>
+  <div class="container">
+    <div class="case-studies-grid">
+
+      <!-- CASE STUDY 1: INVENTORY ACCURACY -->
+      <div class="case-study-card">
+        <div class="case-study-header">
+          <div class="case-study-number">01</div>
+          <h3>Inventory Accuracy Transformation</h3>
+          <p>Achieving 100% inventory accuracy across 1,800+ SKUs</p>
+        </div>
+        <div class="case-study-body">
+          <div class="case-study-problem">
+            <h4>The Challenge</h4>
+            <p>System records and physical inventory did not match, creating discrepancies in critical spare parts and impacting operational reliability.</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">Starting Accuracy</div>
+              <div class="metric-value">85%</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Final Accuracy</div>
+              <div class="metric-value">100%</div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">SKUs Audited</div>
+              <div class="metric-value">1,800+</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Locations</div>
+              <div class="metric-value">Multiple</div>
+            </div>
+          </div>
+          <div class="case-study-footer">
+            <a href="case-study-1.html" class="view-case-study">View Full Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE STUDY 2: STOCK OUT REDUCTION -->
+      <div class="case-study-card">
+        <div class="case-study-header">
+          <div class="case-study-number">02</div>
+          <h3>Stock Out Reduction & Demand Planning</h3>
+          <p>Reducing critical stock outs through demand visibility and safety stock optimization</p>
+        </div>
+        <div class="case-study-body">
+          <div class="case-study-problem">
+            <h4>The Challenge</h4>
+            <p>Frequent stock outs on critical spare parts affecting customer service levels and emergency procurement costs.</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">Initial Stock Out Rate</div>
+              <div class="metric-value">2.0%</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Improved Rate</div>
+              <div class="metric-value">1.06%</div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">Improvement</div>
+              <div class="metric-value">47%</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Time Period</div>
+              <div class="metric-value">24 months</div>
+            </div>
+          </div>
+          <div class="case-study-footer">
+            <a href="case-study-2.html" class="view-case-study">View Full Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE STUDY 3: WORKING CAPITAL RECOVERY -->
+      <div class="case-study-card">
+        <div class="case-study-header">
+          <div class="case-study-number">03</div>
+          <h3>Working Capital Optimization & Dead Stock Recovery</h3>
+          <p>Identifying and recovering capital locked in excess and obsolete inventory</p>
+        </div>
+        <div class="case-study-body">
+          <div class="case-study-problem">
+            <h4>The Challenge</h4>
+            <p>Significant capital tied up in slow moving, obsolete and excess spare parts with no clear recovery strategy.</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">Dead Stock Value</div>
+              <div class="metric-value">AED 0.14M</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Recovery Opportunity</div>
+              <div class="metric-value">30%+</div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">Dead Stock SKUs</div>
+              <div class="metric-value">100+</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Total Inventory Value</div>
+              <div class="metric-value">AED 0.47M</div>
+            </div>
+          </div>
+          <div class="case-study-footer">
+            <a href="case-study-3.html" class="view-case-study">View Full Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE STUDY 4: WAREHOUSE PERFORMANCE -->
+      <div class="case-study-card">
+        <div class="case-study-header">
+          <div class="case-study-number">04</div>
+          <h3>Warehouse Operations & Process Improvement</h3>
+          <p>Optimizing warehouse efficiency through process redesign and KPI management</p>
+        </div>
+        <div class="case-study-body">
+          <div class="case-study-problem">
+            <h4>The Challenge</h4>
+            <p>Manual processes, inefficient workflows, and lack of performance visibility impacting warehouse productivity and accuracy.</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">PO Fulfillment Rate</div>
+              <div class="metric-value">98%+</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">POs Managed</div>
+              <div class="metric-value">1.8M+</div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">Manual Work Reduction</div>
+              <div class="metric-value">80%</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Error Rate Reduction</div>
+              <div class="metric-value">95%</div>
+            </div>
+          </div>
+          <div class="case-study-footer">
+            <a href="case-study-4.html" class="view-case-study">View Full Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE STUDY 5: SUPPLY CHAIN DASHBOARD -->
+      <div class="case-study-card">
+        <div class="case-study-header">
+          <div class="case-study-number">05</div>
+          <h3>Real Time Supply Chain Dashboard</h3>
+          <p>Transforming operational data into actionable management visibility</p>
+        </div>
+        <div class="case-study-body">
+          <div class="case-study-problem">
+            <h4>The Challenge</h4>
+            <p>Disconnected data sources, manual reporting, and no real time visibility into inventory, demand and warehouse performance.</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">KPIs Tracked</div>
+              <div class="metric-value">15+</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Data Sources</div>
+              <div class="metric-value">SAP/WMS</div>
+            </div>
+          </div>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <div class="metric-label">Reporting Time</div>
+              <div class="metric-value">Manual → Real Time</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Decision Speed</div>
+              <div class="metric-value">Days → Minutes</div>
+            </div>
+          </div>
+          <div class="case-study-footer">
+            <a href="case-study-5.html" class="view-case-study">View Full Case Study</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DMAIC METHODOLOGY -->
+<section class="dmaic-section">
+  <div class="dmaic-container">
+    <div class="dmaic-intro">
+      <h2>The DMAIC Methodology</h2>
+      <p>Each case study follows this structured approach to problem solving and continuous improvement</p>
+    </div>
+
+    <div class="dmaic-flow">
+      <div class="dmaic-step">
+        <h4>Define</h4>
+        <p>Problem statement, business impact, improvement objectives</p>
+      </div>
+      <div class="dmaic-arrow">→</div>
+      <div class="dmaic-step">
+        <h4>Measure</h4>
+        <p>Baseline data collection, KPI establishment, current state analysis</p>
+      </div>
+      <div class="dmaic-arrow">→</div>
+      <div class="dmaic-step">
+        <h4>Analyze</h4>
+        <p>Root cause identification, data analysis, process evaluation</p>
+      </div>
+      <div class="dmaic-arrow">→</div>
+      <div class="dmaic-step">
+        <h4>Improve</h4>
+        <p>Solution design, implementation, change management</p>
+      </div>
+      <div class="dmaic-arrow">→</div>
+      <div class="dmaic-step">
+        <h4>Control</h4>
+        <p>Process standardization, KPI monitoring, sustained results</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="portfolio-cta">
+  <div class="container">
+    <h2>Ready to Transform Your Supply Chain?</h2>
+    <p>
+      If these case studies resonate with your supply chain challenges, let us discuss how this proven methodology can deliver measurable results for your business.
+    </p>
+    <a href="contact.html" class="cta-btn">Start Your Project</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Nadeem Farooqui | Supply Chain Consultant</p>
+    <div class="footer-links">
+      <a href="mailto:nadeem.farooqui1@outlook.com">Email</a>
+      <a href="https://wa.me/971585536673">WhatsApp</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.9rem;">Dubai, UAE</p>
+  </div>
+</footer>
+
+</body>
+</html>
