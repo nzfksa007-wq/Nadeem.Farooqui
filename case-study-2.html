@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Planning and Material Availability case study by Nadeem Farooqui.">
+<title>Case Study 2 | Planning & Material Availability</title>
+<style>
+:root{
+  --blue:#0066cc;--blue2:#0052a3;--navy:#0b2d4f;--ink:#273746;--muted:#66798a;
+  --line:#dce6ee;--soft:#f5f8fb;--green:#16845c;--amber:#d58b18;--red:#c64b4b;
+}
+*{box-sizing:border-box}html{overflow-x:hidden;scroll-behavior:smooth}
+body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--ink);line-height:1.58;overflow-x:hidden;background:#fff}
+.container{max-width:1200px;margin:auto;padding:0 2rem}a{color:inherit}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{text-decoration:none;color:var(--blue2);font-weight:800;font-size:1.1rem}
+.nav nav{display:flex;gap:24px}.nav nav a{text-decoration:none;color:#40566a;font-size:.91rem;font-weight:700}.nav nav a:hover{color:var(--blue)}
+.hero{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:58px 0;text-align:center;position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.055)}
+.hero:before{width:430px;height:430px;right:-120px;top:-230px}.hero:after{width:280px;height:280px;left:-110px;bottom:-180px}
+.hero .container{position:relative}.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+.hero h1{font-size:clamp(2.2rem,5vw,3.7rem);line-height:1.08;margin:.55rem 0 .65rem}
+.hero p{max-width:790px;margin:0 auto 1rem;color:#e9f4ff;font-size:1.05rem}
+.tags{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.tag{border:1px solid rgba(255,255,255,.3);border-radius:30px;padding:6px 11px;font-size:.76rem;background:rgba(255,255,255,.08)}
+.back{border-bottom:1px solid var(--line);padding:12px 0}.back a{text-decoration:none;color:var(--blue);font-weight:700;font-size:.86rem}
+.section{padding:38px 0}.soft{background:var(--soft)}
+.kicker{color:var(--blue);font-size:.73rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin:0 0 4px}
+h2{color:var(--navy);font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.16;margin:0 0 8px}
+h3{color:var(--navy);font-size:1.04rem;margin:0 0 6px}p{margin:0 0 .7rem}.lead{color:var(--muted);max-width:900px;margin-bottom:18px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:17px}
+.stat span{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;font-weight:700}.stat strong{display:block;color:var(--blue2);font-size:1.65rem;line-height:1.2;margin:4px 0}.stat small{color:var(--muted)}
+/* unique planning timeline */
+.timeline-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 10px 28px rgba(16,50,77,.05)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 0 10px;font-size:.72rem;color:var(--muted)}.legend i{width:18px;height:3px;display:inline-block;vertical-align:middle;margin-right:5px}.legend .demand{background:var(--blue)}.legend .safety{background:var(--amber)}.legend .reorder{background:var(--red)}
+.chart-wrap{overflow-x:auto}.trend-svg{min-width:760px;width:100%;height:300px;display:block}.axis{stroke:#cbd8e2;stroke-width:1}.gridline{stroke:#e8eef3;stroke-width:1}.demand-line{fill:none;stroke:#0066cc;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.area{fill:url(#areaFill)}.safety-line{stroke:#d58b18;stroke-width:2;stroke-dasharray:8 6}.reorder-line{stroke:#c64b4b;stroke-width:2;stroke-dasharray:4 5}.point{fill:#fff;stroke:#0066cc;stroke-width:3}.axistext{fill:#718493;font-size:11px}.callout{fill:#0b2d4f;font-size:11px;font-weight:700}
+/* heatmap */
+.analytics-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:11px;padding:19px}
+.heatmap{display:grid;grid-template-columns:130px repeat(3,1fr);gap:5px;margin-top:12px}.hm-head,.hm-label,.hm{padding:11px 8px;border-radius:6px;font-size:.73rem;text-align:center}.hm-head{font-weight:800;color:var(--navy);background:#eef4f8}.hm-label{text-align:left;font-weight:700;color:#526779;background:#f6f8fa}.hm{font-weight:800}.low{background:#e9f7f1;color:#14714f}.med{background:#fff3d9;color:#9a620d}.high{background:#fde8e8;color:#a53b3b}.critical{background:#c64b4b;color:#fff}
+.priority-list{display:grid;gap:8px;margin-top:12px}.priority-item{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:10px;border:1px solid var(--line);border-radius:8px;padding:10px}.rank{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#eaf4fc;color:var(--blue);font-weight:800;font-size:.78rem}.priority-item b{font-size:.82rem;color:var(--navy)}.priority-item span{font-size:.69rem;color:var(--muted)}.pill{padding:4px 8px;border-radius:20px;font-size:.63rem;font-weight:800;background:#fde8e8;color:#a53b3b}
+/* process */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:9px;padding:14px}.step:after{content:"›";position:absolute;right:-9px;top:34%;color:var(--blue);font-size:1.5rem;font-weight:800;z-index:2}.step:last-child:after{display:none}.step b{display:block;color:var(--navy);font-size:.83rem}.step span{color:var(--muted);font-size:.73rem}.num{display:grid;width:28px;height:28px;place-items:center;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:.75rem;margin-bottom:7px}
+/* results */
+.results{background:var(--navy);border-radius:13px;padding:23px;color:#fff}.results h2{color:#fff}.results .lead{color:#d9e8f3}.result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.result{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:14px}.result strong{display:block;font-size:1.5rem}.result span{font-size:.73rem;color:#d8e5ef}
+/* unique command center */
+.command{background:#0c2235;color:#eaf3fa;border-radius:13px;padding:20px}
+.command-head{display:flex;justify-content:space-between;gap:15px;margin-bottom:12px}.command h3{color:#fff;font-size:1.18rem}.command-head p{color:#9fb5c8;font-size:.76rem}.badge{border:1px solid #2c5675;background:#173b59;border-radius:30px;padding:6px 9px;height:max-content;white-space:nowrap;font-size:.63rem}
+.command-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.ckpi,.cpanel{background:#122f49;border:1px solid #214865;border-radius:8px}.ckpi{padding:12px}.ckpi span{display:block;color:#9fb5c8;font-size:.64rem;text-transform:uppercase}.ckpi strong{font-size:1.3rem}
+.command-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:8px;margin-top:8px}.cpanel{padding:14px}.cpanel h4{font-size:.82rem;margin:0 0 10px}
+.gapbar{display:grid;grid-template-columns:72px 1fr 42px;gap:7px;align-items:center;margin:10px 0;font-size:.67rem}.track{height:9px;background:#203f58;border-radius:20px;overflow:hidden}.fill{height:100%;background:#45a5e4;border-radius:20px}.fill2{background:#48b889}.fill3{background:#e4a545}
+.donut-wrap{display:flex;align-items:center;justify-content:center;gap:22px;min-height:160px}.donut{width:132px;height:132px;border-radius:50%;background:conic-gradient(#48b889 0 16%,#45a5e4 16% 36%,#e4a545 36% 64%,#637f95 64% 100%);position:relative}.donut:after{content:"2,405";position:absolute;inset:25px;border-radius:50%;background:#122f49;display:grid;place-items:center;color:#fff;font-weight:800;font-size:1rem}.donut-legend{font-size:.68rem;color:#b7cad8}.donut-legend div{margin:6px 0}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.insight-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}.insight{background:#122f49;border:1px solid #214865;border-radius:8px;padding:11px;font-size:.7rem;color:#c5d5e1}.insight b{display:block;color:#fff;margin-bottom:3px}
+.data-note{font-size:.75rem;color:var(--muted);margin:9px 0 0}
+.takeaway{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}.quote{background:#edf6fd;border-left:4px solid var(--blue);padding:18px;border-radius:0 9px 9px 0;color:var(--navy);font-size:1.05rem;font-weight:700}
+.cta{text-align:center;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border-radius:13px;padding:32px 20px}.cta h2{color:#fff}.cta p{max-width:680px;margin:0 auto 14px;color:#e7f2fb}.btn{display:inline-block;background:#fff;color:var(--blue);font-weight:800;text-decoration:none;padding:10px 18px;border-radius:30px}
+footer{background:#091e31;color:#c8d4de;padding:27px 0;margin-top:40px}
+@media(max-width:900px){.grid4,.result-grid,.command-kpis{grid-template-columns:1fr 1fr}.analytics-grid,.command-grid,.takeaway{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.step:after{display:none}}
+@media(max-width:620px){.container{padding:0 1rem}.nav{flex-direction:column;align-items:flex-start;padding:11px 0;gap:8px}.nav nav{width:100%;overflow:auto;white-space:nowrap;gap:16px}.hero{padding:44px 0}.section{padding:30px 0}.grid4,.result-grid,.command-kpis,.flow,.insight-row{grid-template-columns:1fr}.heatmap{grid-template-columns:105px repeat(3,1fr)}.hm-head,.hm-label,.hm{padding:9px 4px;font-size:.63rem}.command-head{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="container nav"><a class="logo" href="index.html">Nadeem Farooqui</a><nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></nav></div></header>
+
+<section class="hero"><div class="container"><div class="eyebrow">Case Study 02 • Planning & Material Availability</div><h1>Demand Planning &amp; Replenishment Transformation</h1><p>Using consumption visibility, safety stock review and exception based replenishment to improve material availability and reduce reactive ordering.</p><div class="tags"><span class="tag">Demand Planning</span><span class="tag">36 Month Consumption</span><span class="tag">Safety Stock</span><span class="tag">Replenishment</span><span class="tag">Material Availability</span></div></div></section>
+<div class="back"><div class="container"><a href="portfolio.html">← Back to Portfolio</a></div></div>
+
+<section class="section"><div class="container"><div class="kicker">Business Challenge</div><h2>Planning was reacting to shortages instead of anticipating them</h2><p class="lead">Demand visibility was limited, safety stock coverage was inconsistent and replenishment frequently became urgent only after material availability was already at risk. The objective was to establish a more proactive planning rhythm.</p>
+<div class="grid4"><div class="stat"><span>Stock Out Rate</span><strong>2.0%</strong><small>Baseline</small></div><div class="stat"><span>Emergency Orders</span><strong>45+</strong><small>Per month</small></div><div class="stat"><span>Affected SKUs</span><strong>150+</strong><small>Availability exposure</small></div><div class="stat"><span>Planning Mode</span><strong>Reactive</strong><small>Starting position</small></div></div></div></section>
+
+<section class="section soft"><div class="container"><div class="kicker">Demand Signal</div><h2>Planning starts with understanding consumption behaviour</h2><p class="lead">Instead of repeating Case Study 1's before and after bar charts, this case uses a planning timeline to show how demand signals can be viewed against safety stock and reorder thresholds.</p>
+<div class="timeline-card">
+<h3>Illustrative Demand & Replenishment Timeline</h3>
+<div class="legend"><span><i class="demand"></i>Demand / consumption signal</span><span><i class="safety"></i>Safety stock threshold</span><span><i class="reorder"></i>Reorder trigger</span></div>
+<div class="chart-wrap"><svg class="trend-svg" viewBox="0 0 900 300" role="img" aria-label="Illustrative demand planning trend chart">
+<defs><linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0066cc" stop-opacity=".22"/><stop offset="100%" stop-color="#0066cc" stop-opacity=".02"/></linearGradient></defs>
+<line class="gridline" x1="55" y1="45" x2="870" y2="45"/><line class="gridline" x1="55" y1="95" x2="870" y2="95"/><line class="gridline" x1="55" y1="145" x2="870" y2="145"/><line class="gridline" x1="55" y1="195" x2="870" y2="195"/><line class="axis" x1="55" y1="245" x2="870" y2="245"/><line class="axis" x1="55" y1="35" x2="55" y2="245"/>
+<line class="safety-line" x1="55" y1="190" x2="870" y2="190"/><text class="axistext" x="690" y="184">Safety stock threshold</text>
+<line class="reorder-line" x1="55" y1="155" x2="870" y2="155"/><text class="axistext" x="690" y="149">Reorder trigger</text>
+<path class="area" d="M55 245 L55 132 L125 118 L195 148 L265 103 L335 126 L405 82 L475 110 L545 70 L615 94 L685 61 L755 88 L825 54 L870 76 L870 245 Z"/>
+<polyline class="demand-line" points="55,132 125,118 195,148 265,103 335,126 405,82 475,110 545,70 615,94 685,61 755,88 825,54 870,76"/>
+<circle class="point" cx="195" cy="148" r="5"/><circle class="point" cx="475" cy="110" r="5"/><circle class="point" cx="755" cy="88" r="5"/>
+<text class="axistext" x="55" y="270">M1</text><text class="axistext" x="195" y="270">M3</text><text class="axistext" x="335" y="270">M5</text><text class="axistext" x="475" y="270">M7</text><text class="axistext" x="615" y="270">M9</text><text class="axistext" x="755" y="270">M11</text><text class="axistext" x="845" y="270">M12</text>
+<text class="callout" x="210" y="136">Review</text><text class="callout" x="490" y="98">Rising demand</text>
+</svg></div>
+<p class="data-note"><b>Visual note:</b> The timeline is an analytical illustration of the planning method. It does not claim to reproduce a specific client's monthly series.</p>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="kicker">Risk Segmentation</div><h2>Not every shortage should receive the same planning response</h2><p class="lead">A professional planning view combines movement class with availability exposure. This helps separate urgent replenishment from items requiring review rather than automatic ordering.</p>
+<div class="analytics-grid">
+<div class="card"><h3>Replenishment Risk Heatmap</h3><div class="heatmap">
+<div></div><div class="hm-head">Healthy</div><div class="hm-head">Below Safety</div><div class="hm-head">Out of Stock</div>
+<div class="hm-label">Fast Moving</div><div class="hm low">Monitor</div><div class="hm high">High</div><div class="hm critical">Critical</div>
+<div class="hm-label">Medium Moving</div><div class="hm low">Monitor</div><div class="hm med">Medium</div><div class="hm high">High</div>
+<div class="hm-label">Slow Moving</div><div class="hm low">Review</div><div class="hm med">Review</div><div class="hm med">Validate</div>
+</div><p class="data-note">The heatmap is a decision framework: movement speed changes the business impact of the same stock condition.</p></div>
+<div class="card"><h3>Planning Priority Queue</h3><div class="priority-list">
+<div class="priority-item"><div class="rank">01</div><div><b>Fast mover + stock gap</b><br><span>Immediate replenishment review</span></div><div class="pill">Critical</div></div>
+<div class="priority-item"><div class="rank">02</div><div><b>Medium mover + zero stock</b><br><span>Demand and lead time check</span></div><div class="pill">High</div></div>
+<div class="priority-item"><div class="rank">03</div><div><b>Slow mover + zero stock</b><br><span>Validate need before replenishment</span></div><div class="pill" style="background:#fff3d9;color:#9a620d">Review</div></div>
+</div></div>
+</div></div></section>
+
+<section class="section soft"><div class="container"><div class="kicker">Planning Workflow</div><h2>Turning demand history into replenishment decisions</h2><p class="lead">The improved process connects consumption history to inventory policy and then manages exceptions through a repeatable review cycle.</p>
+<div class="flow"><div class="step"><span class="num">1</span><b>Consumption History</b><span>Review movement and recurring demand.</span></div><div class="step"><span class="num">2</span><b>Demand Pattern</b><span>Separate fast, medium and slow behaviour.</span></div><div class="step"><span class="num">3</span><b>Safety Stock</b><span>Review buffer against variability and lead time.</span></div><div class="step"><span class="num">4</span><b>Replenishment Trigger</b><span>Prioritize before availability becomes critical.</span></div><div class="step"><span class="num">5</span><b>Exception Review</b><span>Track stock outs, gaps and changing demand.</span></div></div>
+</div></section>
+
+<section class="section"><div class="container"><div class="results"><div class="kicker" style="color:#8fc9f2">Documented Outcome</div><h2>Material availability improved with fewer emergency actions</h2><p class="lead">The structured planning approach reduced the stock out rate while moving replenishment away from repeated emergency intervention.</p><div class="result-grid"><div class="result"><strong>1.06%</strong><span>Stock out rate</span></div><div class="result"><strong>47%</strong><span>Stock out improvement</span></div><div class="result"><strong>&lt;10</strong><span>Emergency orders per month</span></div><div class="result"><strong>98.9%</strong><span>Service level</span></div></div></div></div></section>
+
+<section class="section soft"><div class="container"><div class="kicker">Supporting Analytics Demonstration</div><h2>Planning Control Tower</h2><p class="lead">This dashboard intentionally uses a different visual model from Case Study 1. It is designed as a planning command center focused on consumption class, stock gap and exception priority.</p>
+<div class="command">
+<div class="command-head"><div><h3>Material Availability Control Tower</h3><p>Movement segmentation • stock gap • out of stock exposure • replenishment priority</p></div><span class="badge">ANONYMIZED ANALYTICS</span></div>
+<div class="command-kpis"><div class="ckpi"><span>Inventory Records</span><strong>2,405</strong></div><div class="ckpi"><span>Below Safety Flag</span><strong>216</strong></div><div class="ckpi"><span>Out of Stock</span><strong>396</strong></div><div class="ckpi"><span>Total Stock Gap</span><strong>1,006</strong></div></div>
+<div class="command-grid">
+<div class="cpanel"><h4>Stock Gap by Consumption Class</h4>
+<div class="gapbar"><span>Fast</span><div class="track"><div class="fill" style="width:100%"></div></div><b>860</b></div>
+<div class="gapbar"><span>Medium</span><div class="track"><div class="fill fill2" style="width:12.1%"></div></div><b>104</b></div>
+<div class="gapbar"><span>Slow</span><div class="track"><div class="fill fill3" style="width:4.1%"></div></div><b>35</b></div>
+<p style="font-size:.67rem;color:#9fb5c8;margin-top:12px">Fast moving materials account for approximately 85.5% of the measured stock gap, making them the first planning priority.</p></div>
+<div class="cpanel"><h4>Movement Profile</h4><div class="donut-wrap"><div class="donut"></div><div class="donut-legend"><div><span class="dot" style="background:#48b889"></span>Fast 391</div><div><span class="dot" style="background:#45a5e4"></span>Medium 484</div><div><span class="dot" style="background:#e4a545"></span>Slow 668</div><div><span class="dot" style="background:#637f95"></span>Unclassified 862</div></div></div></div>
+</div>
+<div class="insight-row"><div class="insight"><b>Gap concentration</b>Fast moving materials carry most of the measured quantity gap and deserve earlier replenishment attention.</div><div class="insight"><b>Different risks</b>Slow moving items show more out of stock records, but automatic replenishment may not be the right response without demand validation.</div><div class="insight"><b>Planning discipline</b>Movement class, stock gap and availability status should be reviewed together before action.</div></div>
+</div>
+<p class="data-note"><b>Confidentiality note:</b> Company, brand and material identifiers are anonymized. Currency is intentionally not displayed.</p>
+<p class="data-note"><b>Data note:</b> The control tower is a supporting analytics demonstration built from a separate structured spare parts dataset. It is not represented as the same population as the documented professional case above.</p>
+</div></section>
+
+<section class="section"><div class="container"><div class="takeaway"><div><div class="kicker">Management Takeaway</div><h2>Good planning is exception driven, not shortage driven</h2><p class="lead">The objective is not simply to hold more inventory. It is to identify which materials need attention, when they need it and why.</p></div><div class="quote">“Use demand signals to act before a stock out becomes an operational problem.”</div></div></div></section>
+
+<section class="section" style="padding-top:4px"><div class="container"><div class="cta"><h2>Need stronger planning visibility?</h2><p>Discuss how consumption analysis, safety stock review and exception based replenishment can improve material availability.</p><a class="btn" href="contact.html">Book Free 15-Min Call</a></div></div></section>
+<footer><div class="container"><strong style="color:#fff">Nadeem Farooqui</strong><br>Supply Chain, Inventory &amp; Warehouse Operations Consulting</div></footer>
+</body></html>
