@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Inventory Accuracy and Control Transformation case study by Nadeem Farooqui.">
+<title>Case Study 1 | Inventory Accuracy & Control Transformation</title>
+<style>
+:root{--blue:#0066cc;--navy:#102f4c;--ink:#243443;--muted:#657586;--line:#dfe7ee;--soft:#f6f9fc;--green:#198754;--orange:#e68a18;--red:#c84b4b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.55;background:#fff}
+.container{width:min(1160px,calc(100% - 36px));margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line)}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.logo{font-weight:800;color:var(--navy);text-decoration:none;font-size:1.1rem}
+nav{display:flex;gap:23px} nav a{text-decoration:none;color:#465a6d;font-size:.92rem;font-weight:700} nav a:hover{color:var(--blue)}
+.hero{background:linear-gradient(135deg,#0052a3,#0066cc);color:#fff;padding:58px 0}
+.eyebrow,.kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.hero h1{font-size:clamp(2.15rem,5vw,3.8rem);line-height:1.05;margin:10px 0 13px;max-width:900px}
+.hero p{max-width:820px;margin:0;color:#e5f0f9;font-size:1.05rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.tag{border:1px solid #ffffff55;border-radius:30px;padding:6px 11px;font-size:.78rem}
+.back{padding:13px 0;border-bottom:1px solid var(--line)}.back a{color:var(--blue);font-weight:700;text-decoration:none;font-size:.9rem}
+.section{padding:38px 0}.soft{background:var(--soft)}
+.kicker{color:var(--blue);margin-bottom:5px}
+h2{font-size:clamp(1.55rem,3vw,2.2rem);line-height:1.15;color:var(--navy);margin:0 0 9px}
+h3{color:var(--navy);margin:0 0 7px}
+p{margin:0 0 .7rem}.lead{max-width:850px;color:var(--muted)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.stat{border:1px solid var(--line);border-radius:10px;padding:17px;background:#fff}
+.stat span{font-size:.72rem;text-transform:uppercase;color:var(--muted);font-weight:700}.stat strong{display:block;font-size:1.65rem;color:var(--navy);line-height:1.2;margin:3px 0}
+.note{background:#edf6fd;border-left:4px solid var(--blue);padding:14px 17px;margin-top:18px;font-size:.9rem}
+.visual-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+.chart-card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:19px;min-width:0}
+.chart-card h3{font-size:1rem}.chart-sub{font-size:.8rem;color:var(--muted);margin-bottom:15px}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:13px;align-items:end;height:230px;padding:12px 24px 0;border-bottom:1px solid #ccd8e2}
+.col{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}.bar{width:min(105px,70%);border-radius:7px 7px 0 0;background:var(--blue);position:relative}.bar.before{height:85%;background:#8196a8}.bar.after{height:100%}.bar strong{position:absolute;top:8px;width:100%;text-align:center;color:#fff;font-size:1.15rem}.label{font-size:.8rem;font-weight:700;margin-top:7px}
+.disc{height:230px;display:flex;align-items:flex-end;justify-content:center;gap:60px;border-bottom:1px solid #ccd8e2;padding:10px 35px 0}.dcol{text-align:center;width:100px}.dbar{margin:auto;width:78px;border-radius:7px 7px 0 0;background:#c75a5a;position:relative}.dbar.before{height:190px}.dbar.after{height:3px;background:var(--green)}.dval{font-weight:800;color:var(--navy);margin-bottom:5px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:19px}.step{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:8px;padding:14px;background:#fff}.step b{display:block;color:var(--navy);margin-bottom:3px}.step span{font-size:.8rem;color:var(--muted)}
+.root-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:19px}.root{border:1px solid var(--line);border-radius:9px;padding:15px;background:#fff}.root .num{width:27px;height:27px;border-radius:50%;background:#eaf3fb;color:var(--blue);display:grid;place-items:center;font-weight:800;font-size:.8rem;margin-bottom:8px}.root b{font-size:.88rem;color:var(--navy)}.root p{font-size:.78rem;color:var(--muted);margin-top:5px}
+.action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:19px}.action{padding:17px;border:1px solid var(--line);border-radius:10px;background:#fff}.action b{display:block;color:var(--navy);margin-bottom:4px}.action p{font-size:.84rem;color:var(--muted);margin:0}
+.dashboard{background:#102a42;color:#e9f2f8;border-radius:14px;padding:20px;margin-top:19px}.dash-head{display:flex;justify-content:space-between;gap:16px;align-items:start}.dash-head h3{color:#fff}.badge{font-size:.68rem;padding:6px 9px;border:1px solid #3b607c;background:#183d5b;border-radius:30px;white-space:nowrap}.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:14px}.dk{background:#163852;border:1px solid #28506e;border-radius:8px;padding:13px}.dk span{display:block;color:#a8bdcc;font-size:.69rem;text-transform:uppercase}.dk strong{font-size:1.4rem}
+.dash-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:10px;margin-top:10px}.panel{background:#163852;border:1px solid #28506e;border-radius:8px;padding:15px}.panel h4{margin:0 0 13px;color:#fff;font-size:.88rem}
+.hbar{display:grid;grid-template-columns:80px 1fr 62px;gap:7px;align-items:center;font-size:.71rem;margin:8px 0}.track{height:8px;background:#294b64;border-radius:20px;overflow:hidden}.fill{height:100%;background:#43a2e6}.risk{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.cell{text-align:center;border-radius:5px;padding:10px 3px;font-size:.65rem}.low{background:#1b514b}.mid{background:#665525}.high{background:#653b3e}
+.pareto{height:145px;display:flex;align-items:flex-end;gap:15px;border-left:1px solid #5a7285;border-bottom:1px solid #5a7285;padding:8px 18px 0}.pbar{flex:1;background:#43a2e6;border-radius:5px 5px 0 0;position:relative}.pbar span{position:absolute;bottom:-23px;width:100%;text-align:center;font-size:.7rem}
+.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}.insight{background:#163852;border:1px solid #28506e;border-radius:8px;padding:12px;font-size:.75rem;color:#c5d6e2}.insight b{display:block;color:#fff;margin-bottom:3px}
+.results{background:var(--navy);color:#fff;border-radius:13px;padding:23px}.results h2{color:#fff}.result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:15px}.result{background:#ffffff10;border:1px solid #ffffff22;border-radius:8px;padding:14px}.result strong{display:block;font-size:1.45rem}.result span{font-size:.73rem;color:#dce8f0}
+.disclaimer{font-size:.78rem;color:var(--muted);margin-top:10px}
+.cta{text-align:center;background:linear-gradient(135deg,#0052a3,#0066cc);color:#fff;border-radius:13px;padding:33px 20px}.cta h2{color:#fff}.btn{display:inline-block;background:#fff;color:var(--blue);font-weight:800;text-decoration:none;padding:10px 18px;border-radius:30px;margin-top:6px}
+footer{background:#091e31;color:#c8d4de;padding:27px 0;margin-top:42px}
+@media(max-width:850px){.grid4,.dash-kpis,.result-grid{grid-template-columns:1fr 1fr}.flow,.root-grid{grid-template-columns:1fr 1fr}.visual-grid,.dash-grid{grid-template-columns:1fr}.action-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.nav{flex-direction:column;align-items:flex-start;padding:12px 0}.nav nav{display:flex;width:100%;overflow:auto;white-space:nowrap;gap:16px}.hero{padding:44px 0}.section{padding:30px 0}.grid4,.dash-kpis,.result-grid,.flow,.root-grid,.action-grid,.insights{grid-template-columns:1fr}.disc{gap:25px}.dash-head{flex-direction:column}.container{width:min(100% - 26px,1160px)}}
+</style>
+</head>
+<body>
+<header><div class="container nav"><a class="logo" href="index.html">Nadeem Farooqui</a><nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></nav></div></header>
+
+<section class="hero"><div class="container"><div class="eyebrow">Case Study 01 • Inventory Management</div><h1>Inventory Accuracy &amp; Control Transformation</h1><p>How disciplined cycle counting, reconciliation and transaction controls improved inventory accuracy across 1,800+ spare parts SKUs.</p><div class="tags"><span class="tag">Lean Six Brand G DMAIC</span><span class="tag">SAP MM</span><span class="tag">Cycle Counting</span><span class="tag">Inventory Governance</span></div></div></section>
+<div class="back"><div class="container"><a href="portfolio.html">← Back to Portfolio</a></div></div>
+
+<section class="section"><div class="container"><div class="kicker">Challenge</div><h2>Inventory records could not be relied on consistently</h2><p class="lead">Differences between physical stock and system balances created reconciliation work and reduced confidence in material availability. The goal was not simply to correct quantities, but to build controls that prevented recurring variances.</p>
+<div class="grid4"><div class="stat"><span>Opening accuracy</span><strong>85%</strong>Baseline</div><div class="stat"><span>Inventory scope</span><strong>1,800+</strong>SKUs</div><div class="stat"><span>Discrepancies</span><strong>270+</strong>Identified</div><div class="stat"><span>Variance rate</span><strong>15%</strong>Baseline</div></div></div></section>
+
+<section class="section soft"><div class="container"><div class="kicker">Before &amp; After</div><h2>The improvement at a glance</h2><p class="lead">Two measures show the transformation most clearly: inventory accuracy increased while unresolved discrepancies were eliminated.</p>
+<div class="visual-grid">
+<div class="chart-card"><h3>Inventory Accuracy</h3><div class="chart-sub">Percentage of inventory records matching physical stock</div><div class="before-after"><div class="col"><div class="bar before"><strong>85%</strong></div><div class="label">Before</div></div><div class="col"><div class="bar after"><strong>100%</strong></div><div class="label">After</div></div></div></div>
+<div class="chart-card"><h3>Unresolved Discrepancies</h3><div class="chart-sub">Items requiring reconciliation</div><div class="disc"><div class="dcol"><div class="dval">270+</div><div class="dbar before"></div><div class="label">Before</div></div><div class="dcol"><div class="dval">0</div><div class="dbar after"></div><div class="label">After</div></div></div></div>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="kicker">Method</div><h2>DMAIC turned counting into a control system</h2><div class="flow"><div class="step"><b>Define</b><span>Establish the accuracy problem and operational impact.</span></div><div class="step"><b>Measure</b><span>Compare SAP balances with physical inventory.</span></div><div class="step"><b>Analyze</b><span>Identify recurring sources of variance.</span></div><div class="step"><b>Improve</b><span>Correct process weaknesses and introduce cycle counts.</span></div><div class="step"><b>Control</b><span>Monitor exceptions and sustain transaction discipline.</span></div></div></div></section>
+
+<section class="section soft"><div class="container"><div class="kicker">Root Cause Analysis</div><h2>Why the discrepancies were recurring</h2><div class="root-grid"><div class="root"><div class="num">1</div><b>Transaction timing</b><p>Delayed or incorrect material movements created system differences.</p></div><div class="root"><div class="num">2</div><b>GR / GI reconciliation</b><p>Goods receipts and issues required tighter transaction control.</p></div><div class="root"><div class="num">3</div><b>Location accuracy</b><p>Physical storage locations did not always align with records.</p></div><div class="root"><div class="num">4</div><b>Stock condition</b><p>Damaged or obsolete stock required timely system treatment.</p></div><div class="root"><div class="num">5</div><b>Counting discipline</b><p>A systematic cycle count program was required.</p></div></div></div></section>
+
+<section class="section"><div class="container"><div class="kicker">Improvement Actions</div><h2>Controls introduced to prevent recurrence</h2><div class="action-grid"><div class="action"><b>Structured cycle counting</b><p>Routine verification replaced dependence on periodic full counts.</p></div><div class="action"><b>Risk based priority</b><p>High value and higher risk inventory received greater control attention.</p></div><div class="action"><b>Variance investigation</b><p>Root causes were reviewed before inventory adjustments were made.</p></div><div class="action"><b>Transaction discipline</b><p>Goods receipt and goods issue processes were strengthened.</p></div><div class="action"><b>Location controls</b><p>Bin and storage inconsistencies were corrected.</p></div><div class="action"><b>Exception monitoring</b><p>Recurring discrepancies became visible for corrective action.</p></div></div></div></section>
+
+<section class="section soft"><div class="container"><div class="kicker">Supporting Analytics</div><h2>Executive Inventory Intelligence Dashboard</h2><p class="lead">A separate structured spare parts dataset demonstrates how the same control philosophy can be extended into management analytics and exception based decision support.</p>
+<div class="dashboard"><div class="dash-head"><div><h3>Executive Inventory Intelligence</h3><small>Value concentration • stock health • safety stock risk • prioritisation</small></div><div class="badge">ANALYTICS DEMONSTRATION</div></div>
+<div class="dash-kpis"><div class="dk"><span>Dataset records</span><strong>2,405</strong></div><div class="dk"><span>Inventory value</span><strong>3.41M</strong></div><div class="dk"><span>Below safety stock</span><strong>216</strong></div><div class="dk"><span>Out of stock</span><strong>396</strong></div></div>
+<div class="dash-grid"><div class="panel"><h4>Inventory Value by Brand</h4><div class="hbar"><span>Brand A</span><div class="track"><div class="fill" style="width:100%"></div></div><span>2.95M</span></div><div class="hbar"><span>Brand B</span><div class="track"><div class="fill" style="width:6.5%"></div></div><span>190.8K</span></div><div class="hbar"><span>Brand C</span><div class="track"><div class="fill" style="width:4.8%"></div></div><span>143.1K</span></div><div class="hbar"><span>Brand D</span><div class="track"><div class="fill" style="width:3%"></div></div><span>88.1K</span></div><div class="hbar"><span>Brand E</span><div class="track"><div class="fill" style="width:.9%"></div></div><span>25.3K</span></div></div>
+<div class="panel"><h4>Inventory Risk Matrix</h4><div class="risk"><div class="cell mid">Low stock<br>High value</div><div class="cell high">Below safety<br>High value</div><div class="cell high">Out of stock<br>High value</div><div class="cell low">Healthy<br>Medium value</div><div class="cell mid">Below safety<br>Medium</div><div class="cell high">Out of stock<br>Medium</div><div class="cell low">Healthy<br>Low value</div><div class="cell mid">Below safety<br>Low value</div><div class="cell mid">Out of stock<br>Low value</div></div></div></div>
+<div class="dash-grid"><div class="panel"><h4>ABC / Pareto Prioritisation</h4><div class="pareto"><div class="pbar" style="height:88%"><span>A</span></div><div class="pbar" style="height:52%"><span>B</span></div><div class="pbar" style="height:28%"><span>C</span></div></div><p style="font-size:.7rem;color:#91a9ba;margin-top:28px">Conceptual prioritisation view; not presented as a measured ABC split of the professional case.</p></div>
+<div class="panel"><h4>Management Focus</h4><div class="risk"><div class="cell high">396<br>Out of stock</div><div class="cell mid">216<br>Below safety</div><div class="cell low">Value based<br>cycle counts</div></div><p style="font-size:.75rem;color:#b8cad7;margin-top:12px">Exception based control directs management attention to material availability and financial exposure instead of treating every SKU equally.</p></div></div>
+<div class="insights"><div class="insight"><b>Value concentration</b>2.95M of the demonstration dataset is concentrated in Brand A branded inventory.</div><div class="insight"><b>Availability exposure</b>216 records are below safety stock and 396 records show zero current stock.</div><div class="insight"><b>Control priority</b>Combine value, availability risk and cycle count frequency to focus management effort.</div></div></div>
+<p class="disclaimer"><b>Data note:</b> The dashboard uses a separate 2,405 record spare parts dataset for analytics demonstration. It is not represented as the same 1,800+ SKU population used in the professional case study.</p></div></section>
+
+<section class="section"><div class="container"><div class="results"><div class="kicker" style="color:#92caf0">Documented Results</div><h2>Control discipline produced measurable improvement</h2><div class="result-grid"><div class="result"><strong>100%</strong><span>Inventory accuracy achieved</span></div><div class="result"><strong>0</strong><span>Unresolved discrepancies</span></div><div class="result"><strong>0</strong><span>Inventory audit findings</span></div><div class="result"><strong>1,800+</strong><span>SKUs under control</span></div></div></div></div></section>
+
+<section class="section" style="padding-top:5px"><div class="container"><div class="cta"><h2>Need stronger inventory controls?</h2><p>Identify where cycle counting, transaction discipline and management visibility can improve inventory reliability.</p><a class="btn" href="contact.html">Book Free 15-Min Call</a></div></div></section>
+<footer><div class="container"><b style="color:#fff">Nadeem Farooqui</b><br>Supply Chain, Inventory &amp; Warehouse Operations Consulting</div></footer>
+</body></html>
