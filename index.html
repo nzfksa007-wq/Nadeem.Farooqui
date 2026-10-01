@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practical supply chain consulting across inventory, planning, warehouse operations, logistics and analytics. GCC operational experience, Lean Six Sigma methodology and data driven improvement.">
+  <title>Nadeem Farooqui | Supply Chain, Inventory & Warehouse Operations Consultant</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* RESET & BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* NAVBAR STYLES */
+    nav.navbar {
+      position: sticky;
+      top: 0;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      z-index: 1000;
+      padding: 0.8rem 2rem;
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0066cc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar-logo:hover {
+      color: #ff6b35;
+    }
+
+    .navbar-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .navbar-menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .navbar-menu a:hover {
+      color: #0066cc;
+    }
+
+    .navbar-menu li {
+      position: relative;
+    }
+
+    /* DROPDOWN MENU */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle::after {
+      content: ' ▼';
+      font-size: 0.7rem;
+      color: #0066cc;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      margin-top: 0.8rem;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 0.8rem 1.2rem;
+      color: #333;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f0f8ff;
+      color: #0066cc;
+      padding-left: 1.5rem;
+    }
+
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .navbar-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: white;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      .navbar-menu.active {
+        max-height: 400px;
+      }
+
+      .navbar-menu li {
+        width: 100%;
+      }
+
+      .navbar-menu a {
+        display: block;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .dropdown-menu {
+        position: static;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transform: none;
+        box-shadow: none;
+        background: #f8f9fa;
+        margin-top: 0;
+      }
+
+      .dropdown.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        max-height: 500px;
+      }
+
+      .dropdown-menu a {
+        padding-left: 3rem;
+        font-size: 0.85rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 107, 53, 0.1);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(30px); }
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+    
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 1.8rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-btn-primary {
+      background: white;
+      color: #0066cc;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .cta-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    }
+
+    .cta-btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border: 2px solid white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .cta-btn-secondary:hover {
+      background: white;
+      color: #0066cc;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* QUICK WINS SECTION */
+    .quick-wins {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      color: #0066cc;
+    }
+
+    .section-header p {
+      font-size: 1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .quick-wins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .quick-win-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border-top: 4px solid #0066cc;
+    }
+
+    .quick-win-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .quick-win-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .quick-win-card h3 {
+      color: #0066cc;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .quick-win-card p {
+      color: #555;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .quick-win-benefit {
+      background: #f0f8ff;
+      padding: 0.8rem;
+      border-left: 3px solid #ff6b35;
+      border-radius: 5px;
+      font-weight: 600;
+      color: #ff6b35;
+      font-size: 0.9rem;
+    }
+
+    /* CREDIBILITY SECTION */
+    .credibility {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .credibility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .credibility-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .credibility-number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #0066cc;
+      margin-bottom: 0.3rem;
+    }
+
+    .credibility-label {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    .credibility-description {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .badge {
+      background: #f0f8ff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid #0066cc;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .badge-icon {
+      font-size: 1.3rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* MONEY IMPACT SECTION */
+    .money-impact {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #f0f8ff 0%, #e5f0ff 100%);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .impact-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .impact-title {
+      color: #0066cc;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .impact-problem {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+    }
+
+    .impact-solution {
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      background: #f0f8ff;
+      border-radius: 5px;
+    }
+
+    .impact-value {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      padding: 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    /* THIS FOR YOU SECTION */
+    .this-for-you {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .fit-grid h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .fit-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .fit-list li {
+      padding: 0.6rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .fit-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    .not-fit-list li::before {
+      content: "✗";
+      color: #dc3545;
+    }
+
+    @media (max-width: 768px) {
+      .fit-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* METHODOLOGY SECTION */
+    .methodology {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+    }
+
+    .methodology .section-header h2,
+    .methodology .section-header p {
+      color: white;
+    }
+
+    .methodology .section-header p {
+      opacity: 0.95;
+    }
+
+    .dmaic-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .dmaic-step-card {
+      background: rgba(255,255,255,0.1);
+      padding: 1.8rem 1.2rem;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .dmaic-step-card:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-description {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+
+    /* PORTFOLIO SECTION */
+    .portfolio-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .portfolio-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .case-study-preview {
+      background: linear-gradient(135deg, #f0f8ff, #ffffff);
+      border: 2px solid #0066cc;
+      padding: 1.8rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .case-study-preview:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,102,204,0.15);
+    }
+
+    .case-study-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0066cc;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-study-title {
+      font-size: 1.1rem;
+      color: #0066cc;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-study-preview p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .case-study-metric {
+      background: white;
+      padding: 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0066cc;
+      text-align: center;
+    }
+
+    .portfolio-section > div:last-child {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .portfolio-section a {
+      color: #0066cc;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .portfolio-section a:hover {
+      color: #ff6b35;
+    }
+
+    /* START HERE SECTION */
+    .start-here {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .step-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .step-number-badge {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: #0066cc;
+      color: white;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 {
+      color: #0066cc;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .step-card p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .step-card .cta-btn-primary {
+      font-size: 0.9rem;
+      padding: 0.8rem 2rem;
+    }
+
+    .highlight-box {
+      background: #f0f8ff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #0066cc;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .highlight-box p {
+      color: #0066cc;
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* CONTACT CTA */
+    .contact-cta {
+      background: linear-gradient(135deg, #f0f8ff 0%, #e5f0ff 100%);
+      padding: 3.5rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .contact-cta h2 {
+      color: #0066cc;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-cta > p {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
+
+    .contact-methods {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: white;
+      color: #0066cc;
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .contact-icon {
+      font-size: 1.2rem;
+    }
+
+    /* FOOTER */
+    .footer-section {
+      background: #1a1a1a;
+      color: #ccc;
+      padding: 2.5rem 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-column h4 {
+      color: #ff6b35;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column li {
+      padding: 0.4rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-column a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: #ff6b35;
+    }
+
+    .footer-column li:not(a) {
+      color: #999;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+      text-align: center;
+      color: #999;
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav.navbar {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .navbar-container {
+        padding: 0;
+      }
+
+      .hero { padding: 3.5rem 2rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .quick-wins, .credibility, .money-impact, .this-for-you, .methodology, .portfolio-section, .start-here {
+        padding: 3rem 2rem;
+      }
+      .section-header h2 { font-size: 1.8rem; }
+      .hero-stats { gap: 1rem; }
+      .dmaic-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      nav.navbar {
+        padding: 0.8rem 1rem;
+      }
+
+      .navbar-logo {
+        font-size: 1.1rem;
+      }
+
+      .hero { padding: 2.5rem 1.5rem; }
+      .hero h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .hero-tagline { font-size: 0.9rem; margin-bottom: 1.2rem; }
+      .hero-ctas { gap: 0.8rem; }
+      .cta-btn-primary, .cta-btn-secondary { padding: 0.8rem 1.8rem; font-size: 0.85rem; }
+      .section-header h2 { font-size: 1.5rem; }
+      .quick-wins, .credibility, .money-impact, .this-for-you, .methodology, .portfolio-section, .start-here {
+        padding: 2rem 1.5rem;
+      }
+      .dmaic-steps { grid-template-columns: 1fr; }
+    }
+
+    /* 2026 PORTFOLIO & VISUAL CONSISTENCY REFINEMENTS */
+    :root {
+      --brand-blue: #0066cc;
+      --brand-blue-dark: #0052a3;
+      --brand-orange: #ff6b35;
+      --text-dark: #273746;
+      --text-muted: #667085;
+      --surface: #f8fafc;
+      --border: #e1e8ef;
+    }
+
+    body { color: var(--text-dark); }
+    .section-header { margin-bottom: 2rem; }
+    .section-header h2 { line-height: 1.2; margin-bottom: .55rem; }
+    .section-header p { line-height: 1.6; }
+    .quick-wins, .credibility, .money-impact, .this-for-you,
+    .methodology, .portfolio-section, .start-here { padding-top: 3.75rem; padding-bottom: 3.75rem; }
+
+    .portfolio-preview {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .case-study-preview {
+      display: flex;
+      flex-direction: column;
+      min-height: 250px;
+      padding: 1.45rem;
+      border: 1px solid #d6e6f5;
+      border-top: 4px solid var(--brand-blue);
+      background: #fff;
+    }
+    .case-study-preview:nth-child(2) { border-top-color: #16845c; }
+    .case-study-preview:nth-child(3) { border-top-color: #d58b18; }
+    .case-study-preview:nth-child(4) { border-top-color: #6558c9; }
+    .case-study-preview:nth-child(5) { border-top-color: #17a2b8; }
+    .case-study-number { font-size: 2rem; line-height: 1; margin-bottom: .75rem; }
+    .case-study-title { min-height: 2.7rem; line-height: 1.25; }
+    .case-study-preview p { flex: 1; margin-bottom: 1rem; }
+    .case-study-metric { margin-top: auto; min-height: 54px; display: grid; place-items: center; }
+    .case-study-preview a { text-decoration: none; color: inherit; display: contents; }
+
+    .portfolio-cta {
+      text-align: center;
+      margin-top: 1.75rem;
+    }
+    .portfolio-cta a {
+      display: inline-block;
+      padding: .8rem 1.4rem;
+      border: 1px solid var(--brand-blue);
+      border-radius: 50px;
+    }
+
+    @media (max-width: 1100px) {
+      .portfolio-preview { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .portfolio-preview { grid-template-columns: 1fr 1fr; }
+      .case-study-preview { min-height: 230px; }
+    }
+    @media (max-width: 520px) {
+      .portfolio-preview { grid-template-columns: 1fr; }
+      .case-study-preview { min-height: auto; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="index.html" class="navbar-logo">Nadeem Farooqui</a>
+    
+    <ul class="navbar-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Case Studies</a>
+        <ul class="dropdown-menu">
+          <li><a href="case-study-1.html">Inventory Accuracy</a></li>
+          <li><a href="case-study-2.html">Demand Planning</a></li>
+          <li><a href="case-study-3.html">Working Capital</a></li>
+          <li><a href="case-study-4.html">Warehouse Operations</a></li>
+          <li><a href="case-study-5-logistics.html">Logistics &amp; Distribution</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Turn Supply Chain Complexity Into Operational Control</h1>
+      <p class="hero-subtitle">Inventory • Planning • Warehouse • Logistics • Analytics</p>
+      <p class="hero-tagline">Practical GCC supply chain experience combined with Lean Six Sigma and data driven analysis to improve visibility, material availability, inventory control and operational execution.</p>
+      
+      <div class="hero-ctas">
+        <a href="https://wa.me/919493736773?text=Hi%20Nadeem,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="cta-btn-primary">Free 15-Min Call</a>
+        <a href="contact.html" class="cta-btn-secondary">Book a Consultation</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Inventory Accuracy Achieved</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">47%</div>
+          <div class="stat-label">Stock-Out Improvement</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">GCC</div>
+          <div class="stat-label">Supply Chain Operations Experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITY SECTION -->
+<section class="quick-wins">
+  <div class="container">
+    <div class="section-header">
+      <h2>Where I Help Businesses Improve</h2>
+      <p>Practical improvement across the connected supply chain, from inventory visibility to final delivery.</p>
+    </div>
+    <div class="quick-wins-grid">
+      <div class="quick-win-card"><div class="quick-win-icon">📦</div><h3>Inventory Control</h3><p>Improve stock accuracy, cycle counting, reconciliation, classification and inventory governance.</p><div class="quick-win-benefit">Reliable stock data and stronger controls</div></div>
+      <div class="quick-win-card"><div class="quick-win-icon">📈</div><h3>Planning & Material Availability</h3><p>Use consumption patterns, safety stock and exception analysis to strengthen replenishment decisions.</p><div class="quick-win-benefit">Better availability with focused replenishment</div></div>
+      <div class="quick-win-card"><div class="quick-win-icon">💼</div><h3>Working Capital</h3><p>Identify slow moving, inactive and obsolete inventory and prioritize practical recovery actions.</p><div class="quick-win-benefit">Greater visibility of inventory exposure</div></div>
+      <div class="quick-win-card"><div class="quick-win-icon">🏭</div><h3>Warehouse Operations</h3><p>Review receiving, storage, picking, dispatch, SOPs, KPI controls and warehouse workflow.</p><div class="quick-win-benefit">More controlled and efficient execution</div></div>
+      <div class="quick-win-card"><div class="quick-win-icon">🚚</div><h3>Logistics & Distribution</h3><p>Strengthen dispatch planning, transport coordination, shipment milestones and field delivery visibility.</p><div class="quick-win-benefit">Better control across outbound handoffs</div></div>
+      <div class="quick-win-card"><div class="quick-win-icon">📊</div><h3>Supply Chain Analytics</h3><p>Convert operational data into management KPIs, exception views and decision focused dashboards.</p><div class="quick-win-benefit">Clearer decisions from operational data</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY SECTION -->
+<section class="credibility">
+  <div class="container">
+    <div class="section-header">
+      <h2>Proven Track Record</h2>
+      <p>20+ years of hands on supply chain operations across Saudi Arabia and the UAE</p>
+    </div>
+
+    <div class="credibility-grid">
+      <div class="credibility-item">
+        <div class="credibility-number">1,800+</div>
+        <div class="credibility-label">SKUs Managed</div>
+        <div class="credibility-description">100% inventory accuracy across complex product lines</div>
+      </div>
+
+      <div class="credibility-item">
+        <div class="credibility-number">1.06%</div>
+        <div class="credibility-label">Stock-Out Rate</div>
+        <div class="credibility-description">47% improvement from 2% baseline</div>
+      </div>
+
+      <div class="credibility-item">
+        <div class="credibility-number">98%+</div>
+        <div class="credibility-label">PO Fulfillment</div>
+        <div class="credibility-description">Documented warehouse operations case result</div>
+      </div>
+
+      <div class="credibility-item">
+        <div class="credibility-number">0</div>
+        <div class="credibility-label">Unresolved Discrepancies</div>
+        <div class="credibility-description">Documented inventory accuracy case result</div>
+      </div>
+    </div>
+
+    <div class="badges">
+      <div class="badge">
+        <div class="badge-icon">📋</div>
+        <div>Lean Six Sigma Black Belt</div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">🎓</div>
+        <div>CGSCM & CGSCP Certified</div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">💼</div>
+        <div>SAP MM, WMS & Power BI</div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">📊</div>
+        <div>Lean Six Sigma & Process Improvement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS IMPACT SECTION -->
+<section class="money-impact">
+  <div class="container">
+    <div class="section-header">
+      <h2>From Operational Problems to Management Visibility</h2>
+      <p>Each engagement connects operational data, root cause analysis and practical controls.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card"><div class="impact-title">Inventory Risk</div><p class="impact-problem">Inaccurate stock, inactive inventory and weak controls reduce confidence in planning and audits.</p><p class="impact-solution">Approach: cycle counting, reconciliation, classification and exception control</p><div class="impact-value">Focus: accuracy, governance and working capital visibility</div></div>
+      <div class="impact-card"><div class="impact-title">Material Availability</div><p class="impact-problem">Stock outs and reactive ordering can disrupt service and create avoidable operational pressure.</p><p class="impact-solution">Approach: consumption analysis, safety stock review and replenishment exceptions</p><div class="impact-value">Documented case: 47% stock out improvement</div></div>
+      <div class="impact-card"><div class="impact-title">Execution & Distribution</div><p class="impact-problem">Warehouse and logistics handoffs become difficult to manage without clear ownership and KPI visibility.</p><p class="impact-solution">Approach: process mapping, dispatch controls, milestone visibility and management dashboards</p><div class="impact-value">Focus: controlled flow from warehouse to delivery</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THIS FOR YOU SECTION -->
+<section class="this-for-you">
+  <div class="container">
+    <div class="section-header">
+      <h2>Is This Right for You?</h2>
+    </div>
+
+    <div class="fit-grid">
+      <div>
+        <h3 style="color: #28a745;">✓ This is for you if...</h3>
+        <ul class="fit-list">
+          <li>Manufacturing, distribution or logistics SME</li>
+          <li>Losing money on excess and slow-moving inventory</li>
+          <li>Unexpected stock-outs hurting customer delivery</li>
+          <li>Manual processes draining warehouse resources</li>
+          <li>Audit findings or compliance concerns</li>
+          <li>Want to improve profits without adding headcount</li>
+          <li>Based in India, GCC, or global operations</li>
+          <li>Ready for practical, results-driven consulting</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="color: #dc3545;">✗ NOT for you if...</h3>
+        <ul class="fit-list not-fit-list">
+          <li>Outsourcing all supply chain completely</li>
+          <li>Only need transactional freight forwarding</li>
+          <li>Looking for short-term staffing solutions</li>
+          <li>Want slides without implementation</li>
+          <li>Not ready to invest time in improvement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY SECTION -->
+<section class="methodology">
+  <div class="container">
+    <div class="section-header">
+      <h2>Proven DMAIC Methodology</h2>
+      <p>Every engagement follows a structured, disciplined approach</p>
+    </div>
+
+    <div class="dmaic-steps">
+      <div class="dmaic-step-card">
+        <div class="step-number">1</div>
+        <div class="step-title">Define</div>
+        <div class="step-description">Problem statement, business impact, improvement objectives</div>
+      </div>
+      <div class="dmaic-step-card">
+        <div class="step-number">2</div>
+        <div class="step-title">Measure</div>
+        <div class="step-description">Baseline data, KPI establishment, current state</div>
+      </div>
+      <div class="dmaic-step-card">
+        <div class="step-number">3</div>
+        <div class="step-title">Analyze</div>
+        <div class="step-description">Root cause identification, data analysis, process evaluation</div>
+      </div>
+      <div class="dmaic-step-card">
+        <div class="step-number">4</div>
+        <div class="step-title">Improve</div>
+        <div class="step-description">Solution design, implementation, change management</div>
+      </div>
+      <div class="dmaic-step-card">
+        <div class="step-number">5</div>
+        <div class="step-title">Control</div>
+        <div class="step-description">Standardization, KPI monitoring, sustained results</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section class="portfolio-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Five Supply Chain Case Studies</h2>
+      <p>Professional experience, documented results and clearly identified analytics demonstrations across five connected capability areas.</p>
+    </div>
+    <div class="portfolio-preview">
+      <div class="case-study-preview"><a href="case-study-1.html"><div class="case-study-number">01</div><div class="case-study-title">Inventory Accuracy & Control</div><p>Systematic cycle counting, reconciliation and root cause elimination across complex inventory.</p><div class="case-study-metric">100% Accuracy | 1,800+ SKUs</div></a></div>
+      <div class="case-study-preview"><a href="case-study-2.html"><div class="case-study-number">02</div><div class="case-study-title">Planning & Material Availability</div><p>Demand visibility, safety stock review and replenishment planning to reduce stock out exposure.</p><div class="case-study-metric">47% Stock Out Improvement</div></a></div>
+      <div class="case-study-preview"><a href="case-study-3.html"><div class="case-study-number">03</div><div class="case-study-title">Working Capital & Dead Stock</div><p>Inventory segmentation and aging analysis to identify inactive stock and recovery priorities.</p><div class="case-study-metric">Inventory Exposure & Recovery Analysis</div></a></div>
+      <div class="case-study-preview"><a href="case-study-4.html"><div class="case-study-number">04</div><div class="case-study-title">Warehouse Operations</div><p>Workflow, fulfillment, process controls and operational visibility across warehouse execution.</p><div class="case-study-metric">98%+ PO Fulfillment</div></a></div>
+      <div class="case-study-preview"><a href="case-study-5-logistics.html"><div class="case-study-number">05</div><div class="case-study-title">Logistics & Distribution</div><p>Outbound transport planning, dispatch coordination, shipment milestones and field delivery control.</p><div class="case-study-metric">Dispatch | Transport | Delivery Visibility</div></a></div>
+    </div>
+    <div class="portfolio-cta"><a href="portfolio.html">Explore the Full Portfolio →</a></div>
+  </div>
+</section>
+
+<!-- START HERE SECTION -->
+<section class="start-here">
+  <div class="container">
+    <div class="section-header">
+      <h2>How to Start: 3 Simple Steps</h2>
+      <p>Low commitment. High value. Risk-free first conversation.</p>
+    </div>
+
+    <div class="steps-container">
+      <div class="step-card">
+        <div class="step-number-badge">1</div>
+        <h3>Free 15-Minute Discovery Call</h3>
+        <p>Understand your inventory challenges, identify quick opportunities, determine if we're a fit.</p>
+        <a href="https://wa.me/919493736773?text=Hi%20Nadeem,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="cta-btn-primary">Book on WhatsApp</a>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number-badge">2</div>
+        <h3>Quick Opportunity Assessment</h3>
+        <p>Deep dive audit identifying immediate wins, recovery opportunities and recommended actions. (3-5 days)</p>
+        <a href="contact.html" class="cta-btn-primary">Schedule Assessment</a>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number-badge">3</div>
+        <h3>Implementation Partnership</h3>
+        <p>Hands-on engagement to transform insights into results using structured DMAIC approach.</p>
+        <a href="services.html" class="cta-btn-primary">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <p>Most SMEs identify significant inventory improvement opportunities within the first 30 days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<div class="container">
+  <div class="contact-cta">
+    <h2>Have a Supply Chain Challenge?</h2>
+    <p>Start with a focused conversation about your supply chain challenge, available data and improvement priorities.</p>
+    
+    <div class="contact-methods">
+      <a href="https://wa.me/919493736773?text=Hi%20Nadeem,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="contact-button">WhatsApp</a>
+      <a href="mailto:nadeem.farooqui1@outlook.com" class="contact-button">
+        <span class="contact-icon">✉️</span>
+        <span>Email Nadeem</span>
+      </a>
+      <a href="contact.html" class="contact-button">
+        <span class="contact-icon">📅</span>
+        <span>Book a Call</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>Nadeem Farooqui</h4>
+        <ul>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="case-study-1.html">Case Studies</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="case-study-1.html">Inventory Accuracy</a></li>
+          <li><a href="case-study-2.html">Demand Planning</a></li>
+          <li><a href="case-study-3.html">Working Capital</a></li>
+          <li><a href="case-study-4.html">Warehouse Operations</a></li>
+          <li><a href="case-study-5-logistics.html">Logistics &amp; Distribution</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://wa.me/919493736773">WhatsApp</a></li>
+          <li><a href="mailto:nadeem.farooqui1@outlook.com">Email: nadeem.farooqui1@outlook.com</a></li>
+          <li><a href="https://linkedin.com/in/nadeem-farooqui-a53393228">LinkedIn Profile</a></li>
+          <li><a href="contact.html">Schedule Call</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Consulting</h4>
+        <ul>
+          <li>India & Global Markets</li>
+          <li>Remote & On Site</li>
+          <li>Supply Chain, Inventory & Operations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Nadeem Farooqui | Supply Chain, Inventory & Warehouse Operations Consultant | Practical Improvement. Data Driven Decisions.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navbarMenu = document.querySelector('.navbar-menu');
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navbarMenu.classList.toggle('active');
+  });
+
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dropdown = toggle.closest('.dropdown');
+      dropdown.classList.toggle('active');
+    });
+  });
+
+  // Close menu when link is clicked
+  document.querySelectorAll('.navbar-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navbarMenu.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+</html>
