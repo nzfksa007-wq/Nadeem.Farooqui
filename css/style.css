@@ -585,3 +585,34 @@ body :is(.section,.sec){padding-top:48px!important;padding-bottom:48px!important
 body :is(.section,.sec) p{line-height:1.65}
 body :is(.section,.sec) :is(.visual-grid,.grid4,.grid3,.cards,.dashboard-grid){margin-top:22px}
 @media(max-width:800px){.site-header .site-brand{font-size:1.15rem!important}body :is(.section,.sec){padding-top:32px!important;padding-bottom:32px!important}body :is(.page-hero,.services-hero,.portfolio-hero,.booking-hero,.case-hero) h1{font-size:clamp(1.85rem,6vw,2.5rem)!important}}
+
+/* Targeted final corrections: case-study dropdown and Contact tab */
+.site-header .site-menu>li>a[href="contact.html"]{
+ font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif!important;
+ font-size:16px!important;font-weight:500!important;line-height:1.35!important;
+ letter-spacing:0!important;padding:12px 14px!important;
+}
+.site-header .site-dropdown>.site-submenu{
+ box-sizing:border-box!important;min-width:310px!important;
+ padding:8px!important;margin:0!important;list-style:none!important;
+}
+.site-header .site-dropdown>.site-submenu>li{
+ display:block!important;float:none!important;width:100%!important;
+ padding:0!important;margin:0!important;list-style:none!important;
+}
+.site-header .site-dropdown>.site-submenu>li>a{
+ display:block!important;box-sizing:border-box!important;
+ width:100%!important;padding:11px 13px!important;margin:0!important;
+ font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif!important;
+ font-size:14px!important;font-weight:500!important;line-height:1.5!important;
+ letter-spacing:0!important;text-align:left!important;text-transform:none!important;
+ white-space:normal!important;
+}
+.site-header .site-dropdown>.site-submenu>li>a:hover,
+.site-header .site-dropdown>.site-submenu>li>a:focus-visible{
+ background:#eef5ff!important;color:#0052a3!important;
+}
+@media(max-width:800px){
+ .site-header .site-menu>li>a[href="contact.html"]{padding:12px!important}
+ .site-header .site-dropdown>.site-submenu{min-width:0!important;width:calc(100% - 12px)!important;margin:0 0 8px 12px!important}
+}
