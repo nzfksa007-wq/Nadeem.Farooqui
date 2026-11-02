@@ -977,6 +977,18 @@ body.home-page .hero h1,body.home-page .hero p,body.home-page .hero .stat-number
 body.home-page .quick-wins,body.home-page .credibility,body.home-page .money-impact,body.home-page .this-for-you,body.home-page .methodology,body.home-page .portfolio-section,body.home-page .start-here{background:#fff}
 body.home-page .quick-wins:nth-of-type(even),body.home-page .credibility:nth-of-type(even),body.home-page .money-impact:nth-of-type(even),body.home-page .this-for-you:nth-of-type(even),body.home-page .methodology:nth-of-type(even),body.home-page .portfolio-section:nth-of-type(even),body.home-page .start-here:nth-of-type(even){background:#f6f9fc}
 body.home-page .section-header h2{color:#0066cc}
+
+/* Fix washed-out DMAIC panel and reduce oversized section transitions */
+body.home-page .methodology{background:linear-gradient(135deg,#0066cc 0%,#0052a3 100%)!important;color:#fff!important;padding:48px 24px!important}
+body.home-page .methodology .section-header h2,body.home-page .methodology .section-header p,body.home-page .methodology .dmaic-step-card,body.home-page .methodology .step-number,body.home-page .methodology .step-title,body.home-page .methodology .step-description{color:#fff!important}
+body.home-page .methodology .dmaic-step-card{background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.3)!important}
+body.home-page .methodology .section-header{margin-bottom:24px!important}
+body.home-page .methodology .dmaic-steps{margin-top:16px!important}
+body.home-page .portfolio-section{padding:48px 24px!important}
+body.home-page .portfolio-section .section-header{margin-bottom:24px!important}
+body.home-page .portfolio-preview{margin-top:16px!important}
+body.home-page .methodology+.portfolio-section{margin-top:0!important}
+@media(max-width:768px){body.home-page .methodology,body.home-page .portfolio-section{padding:36px 18px!important}}
 </style>
 <link rel="stylesheet" href="css/style.css">
 </head>
