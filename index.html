@@ -970,38 +970,12 @@
     }
 
   </style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
-  <div class="navbar-container">
-    <a href="index.html" class="navbar-logo">Nadeem Farooqui</a>
-    
-    <ul class="navbar-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle">Case Studies</a>
-        <ul class="dropdown-menu">
-          <li><a href="case-study-1.html">Inventory Accuracy</a></li>
-          <li><a href="case-study-2.html">Demand Planning</a></li>
-          <li><a href="case-study-3.html">Working Capital</a></li>
-          <li><a href="case-study-4.html">Warehouse Operations</a></li>
-          <li><a href="case-study-5-logistics.html">Logistics &amp; Distribution</a></li>
-        </ul>
-      </li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-</nav>
+<header class="site-header"><div class="site-header-inner"><a class="site-brand" href="index.html">Nadeem Farooqui</a><details class="site-mobile-menu"><summary aria-label="Toggle navigation">Menu ☰</summary><nav class="site-navigation" aria-label="Main navigation"><ul class="site-menu"><li><a href="index.html" aria-current="page">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><details class="site-dropdown"><summary>Case Studies</summary><ul class="site-submenu"><li><a href="portfolio.html">All Case Studies</a></li><li><a href="case-study-1.html">Inventory Accuracy & Control</a></li><li><a href="case-study-2.html">Planning & Material Availability</a></li><li><a href="case-study-3.html">Working Capital & Dead Stock</a></li><li><a href="case-study-4.html">Warehouse Operations</a></li><li><a href="case-study-5.html">Logistics & Distribution</a></li></ul></details></li><li><a href="contact.html">Contact</a></li></ul></nav></details></div></header>
 
 <!-- HERO SECTION -->
 <section class="hero">
@@ -1212,7 +1186,7 @@
       <div class="case-study-preview"><a href="case-study-2.html"><div class="case-study-number">02</div><div class="case-study-title">Planning & Material Availability</div><p>Demand visibility, safety stock review and replenishment planning to reduce stock out exposure.</p><div class="case-study-metric">47% Stock Out Improvement</div></a></div>
       <div class="case-study-preview"><a href="case-study-3.html"><div class="case-study-number">03</div><div class="case-study-title">Working Capital & Dead Stock</div><p>Inventory segmentation and aging analysis to identify inactive stock and recovery priorities.</p><div class="case-study-metric">Inventory Exposure & Recovery Analysis</div></a></div>
       <div class="case-study-preview"><a href="case-study-4.html"><div class="case-study-number">04</div><div class="case-study-title">Warehouse Operations</div><p>Workflow, fulfillment, process controls and operational visibility across warehouse execution.</p><div class="case-study-metric">98%+ PO Fulfillment</div></a></div>
-      <div class="case-study-preview"><a href="case-study-5-logistics.html"><div class="case-study-number">05</div><div class="case-study-title">Logistics & Distribution</div><p>Outbound transport planning, dispatch coordination, shipment milestones and field delivery control.</p><div class="case-study-metric">Dispatch | Transport | Delivery Visibility</div></a></div>
+      <div class="case-study-preview"><a href="case-study-5.html"><div class="case-study-number">05</div><div class="case-study-title">Logistics & Distribution</div><p>Outbound transport planning, dispatch coordination, shipment milestones and field delivery control.</p><div class="case-study-metric">Dispatch | Transport | Delivery Visibility</div></a></div>
     </div>
     <div class="portfolio-cta"><a href="portfolio.html">Explore the Full Portfolio →</a></div>
   </div>
@@ -1296,7 +1270,7 @@
           <li><a href="case-study-2.html">Demand Planning</a></li>
           <li><a href="case-study-3.html">Working Capital</a></li>
           <li><a href="case-study-4.html">Warehouse Operations</a></li>
-          <li><a href="case-study-5-logistics.html">Logistics &amp; Distribution</a></li>
+          <li><a href="case-study-5.html">Logistics &amp; Distribution</a></li>
         </ul>
       </div>
 
@@ -1327,32 +1301,7 @@
 </footer>
 
 <!-- MOBILE MENU SCRIPT -->
-<script>
-  const hamburger = document.querySelector('.hamburger');
-  const navbarMenu = document.querySelector('.navbar-menu');
-  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navbarMenu.classList.toggle('active');
-  });
-
-  dropdownToggles.forEach(toggle => {
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const dropdown = toggle.closest('.dropdown');
-      dropdown.classList.toggle('active');
-    });
-  });
-
-  // Close menu when link is clicked
-  document.querySelectorAll('.navbar-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navbarMenu.classList.remove('active');
-    });
-  });
-</script>
 
 </body>
 </html>
