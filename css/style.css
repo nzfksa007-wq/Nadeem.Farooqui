@@ -616,3 +616,10 @@ body :is(.section,.sec) :is(.visual-grid,.grid4,.grid3,.cards,.dashboard-grid){m
  .site-header .site-menu>li>a[href="contact.html"]{padding:12px!important}
  .site-header .site-dropdown>.site-submenu{min-width:0!important;width:calc(100% - 12px)!important;margin:0 0 8px 12px!important}
 }
+
+/* Floating Back to Top control, used site-wide */
+.back-to-top{position:fixed!important;right:24px!important;bottom:24px!important;z-index:99999!important;width:46px!important;height:46px!important;border:0!important;border-radius:50%!important;background:#0066cc!important;color:#fff!important;box-shadow:0 5px 18px rgba(0,60,130,.26)!important;font:700 26px/1 'Segoe UI',Tahoma,sans-serif!important;display:flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateY(12px);transition:opacity .2s,transform .2s,visibility .2s!important;padding:0!important}
+.back-to-top.is-visible{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)}
+.back-to-top:hover,.back-to-top:focus-visible{background:#0052a3!important;outline-offset:3px}
+@media(max-width:600px){.back-to-top{right:16px!important;bottom:16px!important;width:44px!important;height:44px!important}}
+@media(prefers-reduced-motion:reduce){.back-to-top{transition:none!important}}
