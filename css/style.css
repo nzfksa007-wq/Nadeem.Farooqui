@@ -552,3 +552,18 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif!important}
  .site-header .site-submenu a{color:#17344f!important}
  .page-hero,.services-hero,.portfolio-hero,.booking-hero,.case-hero{padding:46px 18px!important}
 }
+
+/* Critical navigation visibility repair: desktop links always visible */
+.site-header .site-mobile-menu{display:block!important;margin-left:auto}
+.site-header .site-mobile-menu>summary{display:none!important}
+.site-header .site-mobile-menu:not([open])>.site-navigation{display:block!important}
+.site-header .site-navigation{display:block!important;visibility:visible!important;opacity:1!important}
+.site-header .site-menu{display:flex!important;flex-direction:row!important;align-items:center!important}
+.site-header .site-dropdown:not([open])>.site-submenu{display:none!important}
+.site-header .site-dropdown[open]>.site-submenu{display:block!important}
+@media(max-width:800px){
+.site-header .site-mobile-menu>summary{display:block!important}
+.site-header .site-mobile-menu:not([open])>.site-navigation{display:none!important}
+.site-header .site-mobile-menu[open]>.site-navigation{display:block!important}
+.site-header .site-menu{flex-direction:column!important;align-items:stretch!important}
+}
