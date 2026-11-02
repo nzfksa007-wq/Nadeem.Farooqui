@@ -567,3 +567,21 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif!important}
 .site-header .site-mobile-menu[open]>.site-navigation{display:block!important}
 .site-header .site-menu{flex-direction:column!important;align-items:stretch!important}
 }
+
+/* Consistent typography and editorial rhythm across every page */
+:root{--site-font:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;--site-ink:#273746;--site-heading:#0b2d4f}
+html{font-size:16px}
+body{font-family:var(--site-font)!important;font-size:16px;line-height:1.6;color:var(--site-ink)}
+.site-header,.site-header .site-brand,.site-header .site-menu a,.site-header .site-dropdown summary,.site-header .site-submenu a{font-family:var(--site-font)!important}
+.site-header .site-brand{font-size:1.4rem!important;font-weight:700!important;letter-spacing:-.02em!important;line-height:1.25!important}
+.site-header .site-menu>li>a,.site-header .site-dropdown>summary{font-size:1rem!important;font-weight:500!important;line-height:1.35!important;letter-spacing:0!important}
+body :is(.page-hero,.services-hero,.portfolio-hero,.booking-hero,.case-hero) h1{font-family:var(--site-font)!important;font-size:clamp(2rem,4.5vw,3.15rem)!important;font-weight:700!important;line-height:1.2!important;letter-spacing:-.025em!important;margin:0 auto 16px!important;max-width:1000px!important;text-align:center!important}
+body :is(.page-hero,.services-hero,.portfolio-hero,.booking-hero,.case-hero) p{font-family:var(--site-font)!important;font-size:1.08rem!important;line-height:1.7!important;max-width:820px!important;margin:0 auto 16px!important;text-align:center!important}
+body .hero:not(.case-hero) h1{font-family:var(--site-font)!important;font-weight:700!important;line-height:1.2!important;letter-spacing:-.025em!important}
+body :is(.section,.sec,.services-intro,.portfolio-intro,.booking-main) h2{font-family:var(--site-font)!important;font-size:clamp(1.55rem,3vw,2.15rem)!important;font-weight:700!important;line-height:1.25!important;letter-spacing:-.015em!important}
+body :is(.section,.sec,.services-intro,.portfolio-intro,.booking-main) h3{font-family:var(--site-font)!important;line-height:1.3!important}
+body :is(.section,.sec) > :is(.container,.c){max-width:1200px;margin-left:auto;margin-right:auto}
+body :is(.section,.sec){padding-top:48px!important;padding-bottom:48px!important}
+body :is(.section,.sec) p{line-height:1.65}
+body :is(.section,.sec) :is(.visual-grid,.grid4,.grid3,.cards,.dashboard-grid){margin-top:22px}
+@media(max-width:800px){.site-header .site-brand{font-size:1.15rem!important}body :is(.section,.sec){padding-top:32px!important;padding-bottom:32px!important}body :is(.page-hero,.services-hero,.portfolio-hero,.booking-hero,.case-hero) h1{font-size:clamp(1.85rem,6vw,2.5rem)!important}}
