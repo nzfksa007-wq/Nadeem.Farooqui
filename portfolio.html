@@ -296,7 +296,20 @@
         font-size: 2rem;
       }
     }
-  </style>
+  
+/* Tight, deliberate vertical rhythm on portfolio overview */
+.portfolio-overview-intro{padding:48px 0 12px!important;margin:0!important}
+.portfolio-overview-intro .portfolio-intro{margin:0 auto!important;padding:0 20px!important;max-width:950px}
+.portfolio-overview-intro .portfolio-intro h2{margin:0 0 14px!important}
+.portfolio-overview-intro .portfolio-intro p{margin:0 auto!important;line-height:1.65!important}
+.portfolio-cards-section{padding:18px 0 44px!important;margin:0!important}
+.portfolio-cards-section .case-studies-grid{margin:0!important;gap:24px!important;align-items:stretch}
+.dmaic-section{margin:0!important;padding:52px 24px!important}
+.dmaic-section .dmaic-intro{margin-bottom:30px!important}
+.dmaic-section .dmaic-intro h2{margin:0 0 14px!important}
+.dmaic-section .dmaic-intro p{margin:0!important;line-height:1.65!important}
+@media(max-width:768px){.portfolio-overview-intro{padding:32px 0 10px!important}.portfolio-cards-section{padding:14px 0 32px!important}.dmaic-section{padding:36px 18px!important}}
+</style>
 <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -314,7 +327,7 @@
 </section>
 
 <!-- INTRO -->
-<section>
+<section class="portfolio-overview-intro">
   <div class="container">
     <div class="portfolio-intro">
       <h2>Case Studies</h2>
@@ -326,7 +339,7 @@
 </section>
 
 <!-- CASE STUDIES -->
-<section>
+<section class="portfolio-cards-section">
   <div class="container">
     <div class="case-studies-grid">
 
