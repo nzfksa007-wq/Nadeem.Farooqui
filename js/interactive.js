@@ -1,65 +1,18 @@
 document.querySelectorAll('[data-explorer]').forEach((explorer) => {
   const buttons = [...explorer.querySelectorAll('[data-choice]')];
   const panels = [...explorer.querySelectorAll('[data-panel]')];
-  const preview = explorer.closest('.operations-preview');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let selected = 0;
-  let timer;
-  let paused = false;
 
-  function select(index) {
-    selected = index;
-    buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
-    panels.forEach((panel, i) => { panel.hidden = i !== index; });
-  }
-  function stop() {
-    window.clearInterval(timer);
-    timer = undefined;
-  }
-  function play(force = false) {
-    stop();
-    if (!paused && !document.hidden && (force || (!preview.matches(':hover') && !preview.contains(document.activeElement)))) {
-      timer = window.setInterval(() => select((selected + 1) % panels.length), 6500);
-    }
-  }
-  buttons.forEach((button, index) => button.addEventListener('click', () => {
-    select(index);
-    stop();
-    if (pause) {
-      paused = true;
-      pause.textContent = 'Play preview';
-    }
-  }));
-  let pause;
-  if (preview) {
-    pause = document.createElement('button');
-    pause.type = 'button';
-    pause.textContent = reducedMotion.matches ? 'Play preview' : 'Pause preview';
-    paused = reducedMotion.matches;
-    pause.addEventListener('click', () => {
-      paused = !paused;
-      pause.textContent = paused ? 'Play preview' : 'Pause preview';
-      if (paused) stop();
-      else play(true);
+  function select(choice) {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.dataset.choice === choice));
     });
-    explorer.querySelector('.choice-row').append(pause);
-    preview.addEventListener('mouseenter', stop);
-    preview.addEventListener('mouseleave', () => {
-      if (!preview.contains(document.activeElement)) play();
-    });
-    preview.addEventListener('focusin', stop);
-    preview.addEventListener('focusout', (event) => {
-      if (!preview.contains(event.relatedTarget) && !preview.matches(':hover')) play();
-    });
-    document.addEventListener('visibilitychange', () => play());
-    reducedMotion.addEventListener('change', () => {
-      paused = reducedMotion.matches;
-      pause.textContent = paused ? 'Play preview' : 'Pause preview';
-      play();
-    });
-    play();
+    panels.forEach((panel) => { panel.hidden = panel.dataset.panel !== choice; });
   }
-  select(0);
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => select(button.dataset.choice));
+  });
+  select(buttons[0].dataset.choice);
   explorer.classList.add('is-ready');
 });
 
@@ -75,3 +28,36 @@ if (filters) {
   }));
   filters.classList.add('is-ready');
 }
+
+document.querySelectorAll('.evidence-disclosure').forEach((disclosure) => {
+  const charts = [...disclosure.querySelectorAll('.panel, .cpanel')]
+    .filter((chart) => chart.querySelector('h4'));
+  if (charts.length < 2) return;
+
+  const controls = document.createElement('div');
+  controls.className = 'choice-row evidence-controls is-ready';
+  controls.setAttribute('role', 'group');
+  controls.setAttribute('aria-label', 'Choose an analytics view');
+  const grids = [...new Set(charts.map((chart) => chart.parentElement))];
+
+  function showChart(index) {
+    charts.forEach((chart, i) => {
+      chart.hidden = i !== index;
+      controls.children[i].setAttribute('aria-pressed', String(i === index));
+    });
+    grids.forEach((grid) => {
+      grid.classList.add('single-evidence-chart');
+      grid.hidden = [...grid.children].every((item) => item.hidden);
+    });
+  }
+
+  charts.forEach((chart, i) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = chart.querySelector('h4').textContent;
+    button.addEventListener('click', () => showChart(i));
+    controls.append(button);
+  });
+  disclosure.querySelector('summary').after(controls);
+  showChart(0);
+});
