@@ -1,0 +1,188 @@
+/* Home page spacing follows the same rhythm from the hero to the contact card. */
+body.home-page {
+  --home-section-pad: clamp(30px, 4vw, 52px);
+  --home-module-gap: clamp(16px, 2.5vw, 24px);
+}
+body.home-page > :is(.quick-wins, .credibility, .money-impact, .this-for-you, .methodology, .portfolio-section, .start-here, .interactive-section) {
+  margin-block: 0 !important;
+  padding-block: var(--home-section-pad) !important;
+}
+body.home-page > :is(.credibility, .money-impact, .this-for-you, .start-here) {
+  background: #edf1e9 !important;
+}
+body.home-page .section-header,
+body.home-page .methodology .section-header,
+body.home-page .portfolio-section .section-header {
+  margin-block: 0 var(--home-module-gap) !important;
+}
+body.home-page :is(.quick-wins-grid, .portfolio-preview, .dmaic-steps, .fit-grid) {
+  margin-top: 0 !important;
+}
+body.home-page .contact-cta { margin-block: var(--home-section-pad); }
+.motion-toggle {
+  padding: .4rem .7rem;
+  margin: 0 0 1rem;
+  min-height: 44px;
+  border: 1px solid #7ca89c;
+  border-radius: 8px;
+  background: #203a33;
+  color: #edf9f1;
+  font: inherit;
+  font-size: .9rem;
+}
+.motion-scene {
+  --track: #31594f;
+  --light: #80e0bb;
+  --travel: 360%;
+  max-width: 740px;
+  margin: 0 auto var(--home-module-gap);
+  padding: clamp(12px, 2.4vw, 20px);
+  border: 1px solid #477167;
+  border-radius: 12px;
+  background: radial-gradient(ellipse at 95% 0%, #264c41, transparent 65%), #172d27;
+  color: #edf9f1;
+  text-align: left;
+}
+.motion-scene figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-bottom: .7rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+.motion-scene figcaption span { font-size: .75rem; color: #b4d4c8; font-weight: 400; }
+.motion-lanes { display: grid; gap: .5rem; }
+.motion-lane {
+  display: grid;
+  grid-template-columns: minmax(85px, 30%) minmax(0, 1fr);
+  align-items: center;
+  gap: .65rem;
+  font-size: .82rem;
+  line-height: 1.25;
+}
+.motion-rail {
+  position: relative;
+  overflow: hidden;
+  min-height: 8px;
+  border-radius: 10px;
+  background: repeating-linear-gradient(90deg, var(--track) 0 16px, #24483e 16px 18px);
+}
+.motion-rail i {
+  display: block;
+  width: 28%;
+  height: 8px;
+  background: linear-gradient(90deg, transparent, var(--light));
+  border-radius: inherit;
+  transform: translateX(135%);
+}
+.motion-bars .motion-rail i { width: calc(76% - var(--lane) * 10%); transform: none; transform-origin: left; }
+.motion-scan { --travel: 715%; }
+.motion-scan .motion-rail i { width: 14%; background: #e5b66e; }
+.motion-nodes { --travel: 625%; }
+.motion-nodes .motion-rail i { width: 16%; background: #80e0bb; }
+.operations-preview .motion-scene { margin: .75rem 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .motion-scene.is-moving .motion-rail i {
+    animation: motion-flow 3.2s linear infinite;
+    animation-delay: calc(var(--lane) * -.8s);
+  }
+  .motion-bars.is-moving .motion-rail i { animation-name: motion-bars; animation-timing-function: ease-in-out; }
+  .motion-nodes.is-moving .motion-rail i { animation-timing-function: steps(6, end); }
+  @keyframes motion-flow {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(var(--travel)); }
+  }
+  @keyframes motion-bars {
+    0%, 100% { transform: scaleX(.58); }
+    50% { transform: scaleX(1); }
+  }
+}
+@media (max-width: 600px) {
+  .motion-scene figcaption span { flex-basis: 100%; }
+  .motion-lane { grid-template-columns: minmax(85px, 40%) minmax(0, 1fr); }
+}
+
+.motion-film {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: clamp(44px, 8vw, 70px);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  border: 1px solid #41645a;
+  border-radius: 9px;
+  background: repeating-linear-gradient(90deg, transparent 0 23px, #29473e 23px 24px),
+    repeating-linear-gradient(0deg, #193129 0 15px, #29473e 15px 16px);
+}
+.operations-preview .motion-film { height: clamp(78px, 9vw, 112px); }
+.motion-route {
+  position: absolute;
+  inset: 50% 10% auto;
+  border-top: 2px dashed #6b9689;
+  z-index: -1;
+}
+.motion-stop {
+  width: 25px;
+  height: 25px;
+  background: #223e35;
+  border: 2px solid #69a897;
+  border-radius: 7px;
+  box-shadow: 0 0 0 4px #1a362d;
+}
+.motion-packet {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  top: calc(50% - 6px);
+  left: 10%;
+  background: #8de8c0;
+  border: 1px solid #b9f2d7;
+  border-radius: 3px;
+  box-shadow: 0 0 12px #80e0bb88;
+}
+.motion-packet:nth-last-child(2) { left: 48%; background: #65bda3; }
+.motion-packet:last-child { left: 84%; background: #e5b66e; }
+.motion-scan .motion-stop { border-radius: 2px; border-color: #d0a661; }
+.motion-bars .motion-stop { height: 40%; transform-origin: bottom; }
+.motion-nodes .motion-stop { border-radius: 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-moving .motion-packet {
+    animation: film-route 4.8s linear infinite;
+  }
+  .is-moving .motion-packet:nth-last-child(2) { animation-delay: -1.6s; }
+  .is-moving .motion-packet:last-child { animation-delay: -3.2s; }
+  .is-moving .motion-stop {
+    animation: film-pulse 2.4s ease-in-out infinite alternate;
+  }
+  .is-moving .motion-stop:nth-of-type(3) { animation-delay: -.8s; }
+  .is-moving .motion-stop:nth-of-type(4) { animation-delay: -1.6s; }
+  .motion-bars.is-moving .motion-stop { animation: film-columns 2.4s ease-in-out infinite alternate; }
+  .motion-scan.is-moving .motion-packet {
+    animation-name: film-scan;
+    width: 3px;
+    height: 80%;
+    top: 10%;
+  }
+  @keyframes film-route {
+    0% { left: 8%; opacity: 0; }
+    12%, 86% { opacity: 1; }
+    100% { left: 90%; opacity: 0; }
+  }
+  @keyframes film-scan {
+    from { left: 7%; opacity: .25; }
+    50% { opacity: .85; }
+    to { left: 92%; opacity: .25; }
+  }
+  @keyframes film-pulse {
+    to { box-shadow: 0 0 0 4px #376a59, 0 0 16px #80e0bb44; }
+  }
+  @keyframes film-columns {
+    from { transform: scaleY(.55); }
+    to { transform: scaleY(1.22); }
+  }
+}
