@@ -6,7 +6,7 @@
   <meta name="description" content="Supply Chain, Inventory and Warehouse Consulting services by Nadeem Farooqui. Practical solutions for inventory accuracy, working capital, warehouse operations, demand planning and supply chain performance.">
   <meta name="author" content="Nadeem Farooqui">
   <title>Services | Nadeem Farooqui | Supply Chain Consultant</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261111-2">
 
   <style>
     /* SERVICES PAGE */
@@ -257,13 +257,6 @@
         grid-template-columns: 1fr;
       }
 
-    @media (max-width: 760px) {
-      .service-grid,
-      .approach-grid,
-      .client-fit-box {
-        grid-template-columns: 1fr;
-      }
-
       .services-hero {
         padding: 3.5rem 1.5rem;
       }
@@ -324,35 +317,31 @@
 }
 
 
-/* Consistent section rhythm: eliminate duplicate section and container padding */
-.approach-section{padding:48px 0!important;margin:0!important}
-.approach-section>.container{padding-top:0!important;padding-bottom:0!important}
-.approach-section .services-intro{padding:0 16px!important;margin:0 auto 24px!important}
-.approach-section .services-intro h2{margin-bottom:12px!important}
-.approach-section .services-intro p{margin:0 auto!important;line-height:1.65!important}
-.approach-section .approach-grid{margin:24px 0 18px!important}
-.approach-section .approach-grid+.approach-summary{margin-top:20px!important}
-.client-fit{padding:48px 0!important;margin:0!important}
-.client-fit .client-fit-box{margin:0!important}
-@media(max-width:768px){.approach-section,.client-fit{padding:32px 0!important}.approach-section .services-intro{margin-bottom:18px!important}}
-
-/* Screenshot-based fix: close gap between service cards and methodology heading */
-section.approach-section{padding-top:12px!important;padding-bottom:36px!important;margin-top:0!important}
-section.approach-section>.container{padding-top:0!important;padding-bottom:0!important}
-section.approach-section .services-intro{padding-top:0!important;margin-top:0!important;margin-bottom:22px!important}
-section.approach-section .services-intro h2{margin-top:0!important}
-section.approach-section .approach-grid{margin-top:20px!important}
-@media(max-width:768px){section.approach-section{padding-top:8px!important;padding-bottom:28px!important}}
-
-/* Fix actual cause of the gap: bottom padding on the service cards' parent section */
-section.service-offerings{padding-bottom:0!important;margin-bottom:0!important}
-section.service-offerings>.container{padding-bottom:0!important;margin-bottom:0!important}
-section.service-offerings .service-grid{margin-bottom:0!important;padding-bottom:0!important}
-section.approach-section{padding-top:28px!important;margin-top:0!important}
-section.approach-section .services-intro{margin-top:0!important;padding-top:0!important}
-@media(max-width:768px){section.service-offerings{padding-bottom:0!important}section.approach-section{padding-top:20px!important}}
+/* Keep spacing in the parent section so nested cards and headings don't stack padding. */
+section.service-offerings,
+section.approach-section,
+section.client-fit {
+  padding: clamp(24px, 3vw, 40px) 0;
+  margin: 0;
+}
+section.service-offerings { padding-bottom: 24px; }
+section.approach-section { padding-top: 24px; }
+.services-intro {
+  padding: 0;
+  margin: 0 auto 20px;
+}
+.services-intro h2 { margin: 0 0 10px; }
+.services-intro p { margin: 0; }
+.service-grid, .approach-grid { margin: 0; }
+.approach-summary { margin-top: 18px; }
+.client-fit .client-fit-box { margin: 0; }
+@media (max-width: 760px) {
+  section.service-offerings { padding-bottom: 18px; }
+  section.approach-section { padding-top: 20px; }
+  .service-card, .approach-step { padding: 1.25rem; }
+}
 </style>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=20261111-2">
 </head>
 
 <body>
@@ -632,6 +621,7 @@ section.approach-section .services-intro{margin-top:0!important;padding-top:0!im
     <div class="container">
       <p>&copy; 2026 Nadeem Farooqui | Supply Chain Consultant</p>
       <div class="footer-links">
+        <a href="https://wa.me/919493736773">WhatsApp</a>
         <a href="mailto:nadeem.farooqui1@outlook.com">Email</a>
 
         <a href="about.html">About</a>
