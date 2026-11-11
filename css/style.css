@@ -633,3 +633,37 @@ body :is(.section,.sec) :is(.chart-card,.stat,.metric,.note,.action,.root){min-w
 body :is(.section,.sec) :is(.chart-card,.stat,.metric,.note,.action,.root) p{overflow-wrap:break-word}
 .site-header .site-submenu{max-width:min(340px,calc(100vw - 32px))}
 @media(max-width:800px){body :is(.section,.sec) :is(.visual-grid,.grid4,.grid3){max-width:100%}}
+
+/* Consistent interactive states across the consultancy and case studies. */
+:where(a, button, summary):focus-visible {
+  outline: 3px solid #e79b2c;
+  outline-offset: 4px;
+}
+.site-header .site-menu a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, .16);
+  border-radius: 7px;
+}
+@media (hover: hover) and (pointer: fine) {
+  body :is(a[href], button:not(:disabled), summary) {
+    cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAC3UlEQVR4nL2WQWgdRRjH/9/sbhP1PSOaamgxYCvSoOQgIuhJKPUu9BC8CJ4qRXsUMUhriwdB6UGKQkFQxOKhglCQGvQkihpixUjFpERtpbF5EbN5yXu7O/Pz0N24BGteYut3WXa+mf9v5j8zHyOVATgg0o2IujAQAXa9AYPAGeDRWlt8XUCVNcB5wGe5P/nLQntnLf/fbKsEgE/4O+bz3B+eXWSgPomtAmJJ8p7jQHjh9K+dj79PK9CPy93i6XWrdZsFJJKUe44AjL48nWv/52Hszdn8p1aoQBPpar6vPqle98dJQpK6mZ+TpL17muZuiu3UF6145PnJ8OLpi34F7W30x2eB91tp9wEzK8yMXk7cGmC1YE6SGn3Ogkd9jViFM/fKh5ei4eem/Buf/h4kjd3e2DYJHAXuNDNfgTYEGH5e0uqDww1TbORFkEmKmolaHR89e/KC237o2+LU14uJpHFJU8AzQGRmfkPAzOXli5K6dzS32dWWqwkCckgj9zV14LGhuJ25Sm2HpBOS5oD9QP8/2RVLEmDnF4SkpR0D8W39N0dkyJyTnDMVWdCV1OvoE0Otcty0pCuSzklqSUolJWbWAczMWAOUHrqR7ZYCF3YPJsNxn6OzVEiCUICLHa8/eW9UhPDOuctu/KGdtnItS+riayuoxR8gJWZ6dexulnJnX82s2MO7kjB6l4idO7BrUG8D05Kiyt7yG9aLr0V12Qp4CeDdLxc65fn/DpgAOPjeXJZ2AZh66xuSTRXFCgCMl8I50E7T7v3zywwB6eTP7eLYmd8ygNz7w5L0WTmuF0AkSXmePw6E8v4+VeXbWXEQ4PjEfHb2h6UCyBa7jJZjNy4dtYL3CID3vFb+J1XOw0Qe4MhHlzqdPADMALeW9enfrao6APcAH6yDOsBWYTfwZ63ingAGANvMXvQDt9Sh62CHgFlg37U0thzlTBOgWYduSaiHPjfscdC73/9X/AVO/nGKYv56IgAAAABJRU5ErkJggg==") 2 2, pointer !important;
+  }
+}
+.inquiry-panel {
+  background: #eef5ff;
+  border: 1px solid #d6e5f5;
+  border-radius: 14px;
+  padding: clamp(1rem, 4vw, 2rem);
+  margin-block: 1.5rem;
+}
+.inquiry-panel h2 { margin: 0 0 .5rem; }
+.inquiry-panel p { margin: .5rem 0 1rem; }
+.inquiry-topics { display: flex; flex-wrap: wrap; gap: .6rem; margin-block: 1rem; }
+.inquiry-topics a {
+  background: #fff;
+  border: 1px solid #b6d0e9;
+  border-radius: 8px;
+  padding: .55rem .8rem;
+  color: #004f9e;
+  font-weight: 600;
+}
+.inquiry-topics a:hover { background: #e0edff; }
