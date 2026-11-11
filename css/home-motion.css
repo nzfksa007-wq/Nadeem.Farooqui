@@ -19,14 +19,53 @@ body.home-page :is(.quick-wins-grid, .portfolio-preview, .dmaic-steps, .fit-grid
   margin-top: 0 !important;
 }
 body.home-page .contact-cta { margin-block: var(--home-section-pad); }
-.motion-toggle {
-  padding: .4rem .7rem;
-  margin: 0 0 1rem;
-  min-height: 44px;
-  border: 1px solid #7ca89c;
-  border-radius: 8px;
+.home-page .hero .hero-content { row-gap: clamp(22px, 3vw, 36px); }
+.home-page .hero .hero-intro { grid-column: 1 / -1; text-align: center; }
+.home-page .hero .hero-intro .hero-ctas { justify-content: center; }
+.mega-preview {
+  grid-column: 1 / -1;
+  padding: 0;
+  margin: clamp(18px, 3vw, 28px) auto 0;
+  width: 100%;
+  max-width: 1080px;
+  text-align: left;
+}
+.mega-shell {
+  padding: clamp(16px, 3vw, 30px);
+  border: 1px solid #527468;
+  border-radius: 18px;
   background: #203a33;
-  color: #edf9f1;
-  font: inherit;
-  font-size: .9rem;
+  color: #e5f2e7;
+}
+.mega-shell h2 { margin: 0 0 .4rem; color: #fffdf8; text-align: left; }
+.mega-shell > p { margin: 0 0 .85rem; }
+.mega-stages { margin-bottom: .8rem; }
+.mega-stages button { flex: 1 1 auto; }
+.mega-stages button[aria-pressed="true"] { border-color: #ade1ce; }
+.mega-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(10px, 2vw, 20px);
+  align-items: center;
+  border: 1px solid #537467;
+  border-radius: 12px;
+  padding: clamp(12px, 2.5vw, 22px);
+  margin-top: .65rem;
+  background: #142c26;
+}
+.mega-panel h3 { color: #fffdf8; margin: 0 0 .4rem; }
+.mega-panel p { margin: 0 0 .5rem; }
+.mega-panel .interactive-link { color: #a0e3ca; }
+.mega-panel .activity-scene { margin: 0; background: #192f28; }
+.mega-panel .scene-stage { min-height: 114px; align-items: center; }
+.mega-panel .scene-chart .scene-prop:first-child span { color: #82d9b5; letter-spacing: .1em; }
+.mega-panel .scene-documents .scene-prop { border: 1px solid #6e9688; background: #29473d; }
+.mega-panel .scene-reverse .scene-prop:first-child span { color: #e1bd79; }
+.home-page .hero .hero-stats { margin-top: clamp(18px, 3vw, 28px); }
+@media (min-width: 880px) {
+  .home-page .hero .mega-preview, .home-page .hero .hero-stats { margin-top: 0; }
+}
+@media (max-width: 650px) {
+  .mega-panel { grid-template-columns: minmax(0, 1fr); }
+  .mega-stages button { flex: 1 1 29%; }
 }
