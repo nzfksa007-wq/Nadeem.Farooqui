@@ -69,3 +69,120 @@ body.home-page .contact-cta { margin-block: var(--home-section-pad); }
   .mega-panel { grid-template-columns: minmax(0, 1fr); }
   .mega-stages button { flex: 1 1 29%; }
 }
+
+/* A full-width illustrated logistics network behind the opening headline. */
+.home-page .supply-chain-hero { position: relative; isolation: isolate; overflow: hidden; }
+.hero-landscape {
+  position: absolute;
+  inset: 0 0 auto;
+  height: clamp(440px, 60vw, 690px);
+  z-index: -1;
+  overflow: hidden;
+  opacity: .67;
+  background:
+    linear-gradient(180deg, #15282412, #182824 96%),
+    radial-gradient(ellipse at 68% 35%, #42695d 0, #233c35 46%, #182824 82%);
+}
+.landscape-network {
+  position: absolute;
+  inset: -15% -15% 0;
+  transform: perspective(600px) rotateX(46deg) rotateZ(-15deg);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 55px, #a3c7ae33 55px 56px),
+    repeating-linear-gradient(0deg, transparent 0 55px, #a3c7ae33 55px 56px);
+}
+.landscape-network span {
+  position: absolute;
+  inset: 30% 12% auto;
+  height: 29%;
+  border: 2px solid #a2dec486;
+  border-radius: 45% 15% 30% 20%;
+  transform: rotate(-8deg);
+}
+.landscape-network span:nth-child(2) { inset: 25% 25% 35% 24%; transform: rotate(12deg); border-color: #d1a45c85; }
+.landscape-network span:nth-child(3) { inset: 38% 7% 19% 20%; transform: rotate(1deg); }
+.landscape-route {
+  position: absolute;
+  inset: 38% 5% auto;
+  height: 2px;
+  transform: rotate(-14deg);
+  background: #87b7a186;
+}
+.landscape-route i {
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -4px;
+  left: 22%;
+  border-radius: 50%;
+  background: #abe1c5;
+  box-shadow: 0 0 20px #b8ffe4;
+}
+.landscape-route i:nth-child(2) { left: 50%; background: #d9b777; }
+.landscape-route i:nth-child(3) { left: 72%; }
+.landscape-buildings { position: absolute; inset: 15% 5% 15%; }
+.landscape-buildings i {
+  position: absolute;
+  width: clamp(32px, 9vw, 140px);
+  height: clamp(20px, 5vw, 75px);
+  transform: skewY(-18deg);
+  border: 1px solid #77a29499;
+  background: repeating-linear-gradient(90deg, #2b4b41 0 8px, #395e52 8px 10px);
+  box-shadow: 12px 14px 0 #1428217a;
+}
+.landscape-buildings i:nth-child(1) { left: 2%; top: 20%; }
+.landscape-buildings i:nth-child(2) { left: 12%; top: 42%; }
+.landscape-buildings i:nth-child(3) { right: 4%; top: 19%; }
+.landscape-buildings i:nth-child(4) { right: 15%; top: 52%; }
+.landscape-buildings i:nth-child(5) { right: 3%; top: 67%; }
+.film-chapters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  list-style: none;
+  padding: 0;
+  margin: .9rem 0;
+}
+.film-chapters li {
+  padding: .38rem .65rem;
+  border-radius: 999px;
+  color: #cce2d7;
+  background: #152d26;
+  border: 1px solid #507367;
+  font-size: .82rem;
+  line-height: 1.2;
+}
+.film-chapters .is-current {
+  color: #102c24;
+  background: #9bdec2;
+  border-color: #9bdec2;
+  font-weight: 700;
+}
+.film-progress { display: none; height: 3px; border-radius: 6px; background: #527468; overflow: hidden; }
+.film-progress span { display: block; height: 100%; width: 100%; background: #a1dfc2; transform-origin: left; }
+.film-playing .film-progress { display: block; }
+.film-playing .mega-panel { min-height: 208px; }
+.film-playing .mega-panel:not([hidden]) { animation: film-enter .55s ease-out both; }
+.film-playing .film-progress span { animation: film-timer 5s linear both; }
+@keyframes film-enter { from { opacity: 0; transform: translateY(7px); } }
+@keyframes film-timer { from { transform: scaleX(0); } }
+@media (prefers-reduced-motion: no-preference) {
+  .landscape-network { animation: landscape-pan 16s ease-in-out infinite alternate; }
+  .landscape-route i { animation: landscape-travel 8s linear infinite; }
+  .landscape-route i:nth-child(2) { animation-delay: -2.6s; }
+  .landscape-route i:nth-child(3) { animation-delay: -5.2s; }
+  @keyframes landscape-pan {
+    to { transform: perspective(600px) rotateX(46deg) rotateZ(-15deg) translateX(65px); }
+  }
+  @keyframes landscape-travel {
+    0% { left: 0; opacity: 0; }
+    10%, 88% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+}
+@media (max-width: 650px) {
+  .film-chapters { gap: .32rem; }
+  .film-chapters li { font-size: .76rem; padding: .35rem .52rem; }
+  .film-playing .mega-panel { min-height: 295px; }
+}
