@@ -31,6 +31,7 @@ function showFilmChapter() {
   filmPanels.forEach((panel, index) => { panel.hidden = index !== filmIndex; });
   filmChapters.forEach((chapter, index) => {
     chapter.classList.toggle('is-current', index === filmIndex);
+    chapter.setAttribute('aria-pressed', String(index === filmIndex));
   });
   const progress = supplyChainFilm.querySelector('.film-progress span');
   const nextProgress = progress.cloneNode();
@@ -41,14 +42,8 @@ function syncSupplyChainFilm() {
   window.clearInterval(filmTimer);
   const animated = !motionPreference.matches;
   supplyChainFilm.classList.toggle('film-playing', animated);
-  if (!animated) {
-    filmPanels.forEach((panel) => { panel.hidden = false; });
-    filmChapters.forEach((chapter) => chapter.classList.remove('is-current'));
-    return;
-  }
-
   showFilmChapter();
-  if (!filmVisible || document.hidden || supplyChainFilm.contains(document.activeElement)) return;
+  if (!animated || !filmVisible || document.hidden || document.activeElement?.closest('.mega-panel')) return;
   filmTimer = window.setInterval(() => {
     filmIndex = (filmIndex + 1) % filmPanels.length;
     showFilmChapter();
@@ -61,6 +56,38 @@ new IntersectionObserver(([entry]) => {
 }).observe(supplyChainFilm);
 motionPreference.addEventListener('change', syncSupplyChainFilm);
 document.addEventListener('visibilitychange', syncSupplyChainFilm);
-supplyChainFilm.addEventListener('focusin', syncSupplyChainFilm);
-supplyChainFilm.addEventListener('focusout', () => window.setTimeout(syncSupplyChainFilm, 0));
+filmChapters.forEach((chapter, index) => {
+  chapter.addEventListener('click', () => {
+    filmIndex = index;
+    syncSupplyChainFilm();
+  });
+});
+supplyChainFilm.addEventListener('focusin', (event) => {
+  if (event.target.closest('.mega-panel')) syncSupplyChainFilm();
+});
+supplyChainFilm.addEventListener('focusout', (event) => {
+  if (event.target.closest('.mega-panel')) window.setTimeout(syncSupplyChainFilm, 0);
+});
 syncSupplyChainFilm();
+
+const warehouseVideo = document.querySelector('.hero-warehouse-video');
+let warehouseVisible = false;
+
+function syncWarehouseVideo() {
+  if (motionPreference.matches || document.hidden || !warehouseVisible) {
+    warehouseVideo.pause();
+    return;
+  }
+  if (!warehouseVideo.getAttribute('src')) warehouseVideo.src = warehouseVideo.dataset.src;
+  warehouseVideo.muted = true;
+  warehouseVideo.play().catch(() => {
+    // The poster remains visible if the browser restricts background playback.
+  });
+}
+
+new IntersectionObserver(([entry]) => {
+  warehouseVisible = entry.isIntersecting;
+  syncWarehouseVideo();
+}).observe(warehouseVideo);
+motionPreference.addEventListener('change', syncWarehouseVideo);
+document.addEventListener('visibilitychange', syncWarehouseVideo);

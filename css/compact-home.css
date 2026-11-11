@@ -122,7 +122,6 @@
   position: absolute;
   inset: 0;
   background: #2c4038 url("../images/warehouse-operations.webp") center 53% / cover no-repeat;
-  transform: scale(1.04);
 }
 .hero-warehouse-photo::after {
   content: "";
@@ -130,12 +129,19 @@
   inset: 0;
   background: linear-gradient(90deg, #11241feb 0%, #152d24ce 46%, #18282475 100%);
 }
-@media (prefers-reduced-motion: no-preference) {
-  .hero-warehouse-photo::before { animation: warehouse-pan 18s ease-in-out infinite alternate; }
-  @keyframes warehouse-pan {
-    to { transform: scale(1.13) translateX(-1.8%); }
-  }
-}
 @media (max-width: 650px) {
   .hero-warehouse-photo::after { background: linear-gradient(100deg, #11241fdf, #1828248c); }
+}
+
+.hero-warehouse-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 52%;
+}
+.hero-warehouse-photo::after { background: linear-gradient(90deg, #11241fec 0%, #152d24bf 47%, #18282454 100%); }
+@media (max-width: 650px) {
+  .hero-warehouse-photo::after { background: linear-gradient(100deg, #11241fe7, #1828249c); }
 }

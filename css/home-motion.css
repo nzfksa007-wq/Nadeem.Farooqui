@@ -186,3 +186,15 @@ body.home-page .contact-cta { margin-block: var(--home-section-pad); }
   .film-chapters li { font-size: .76rem; padding: .35rem .52rem; }
   .film-playing .mega-panel { min-height: 295px; }
 }
+.film-chapters li { background: transparent; border: 0; padding: 0; }
+.film-chapters button {
+  min-height: 36px;
+  padding: .38rem .65rem;
+  color: #cce2d7;
+  background: #152d26;
+  border: 1px solid #507367;
+  border-radius: 999px;
+  font: inherit;
+}
+.film-chapters button:hover { border-color: #9bdec2; }
+.film-chapters button.is-current { color: #102c24; background: #9bdec2; border-color: #9bdec2; }
