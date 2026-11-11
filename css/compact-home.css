@@ -110,3 +110,32 @@
   .deck-nav a { font-size: .83rem; padding: .45rem .5rem; }
   .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+.hero-warehouse-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.hero-warehouse-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #2c4038 url("../images/warehouse-operations.webp") center 53% / cover no-repeat;
+  transform: scale(1.04);
+}
+.hero-warehouse-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #11241feb 0%, #152d24ce 46%, #18282475 100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-warehouse-photo::before { animation: warehouse-pan 18s ease-in-out infinite alternate; }
+  @keyframes warehouse-pan {
+    to { transform: scale(1.13) translateX(-1.8%); }
+  }
+}
+@media (max-width: 650px) {
+  .hero-warehouse-photo::after { background: linear-gradient(100deg, #11241fdf, #1828248c); }
+}

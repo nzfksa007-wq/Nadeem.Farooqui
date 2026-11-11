@@ -215,3 +215,21 @@ body .back { padding-block: .55rem; margin-block: 0; }
     to { left: 82%; transform: scaleX(-1); }
   }
 }
+
+.case-response {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: .55rem;
+  margin: .75rem 0;
+}
+.case-response div {
+  padding: .6rem .75rem;
+  border: 1px solid #bcd6c9;
+  border-radius: 8px;
+  background: #fffdf8;
+}
+.case-response dt { font-weight: 700; color: #095b54; margin-bottom: .2rem; }
+.case-response dd { margin: 0; line-height: 1.5; }
+@media (max-width: 640px) {
+  .case-response { grid-template-columns: minmax(0, 1fr); }
+}
