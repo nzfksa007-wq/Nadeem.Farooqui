@@ -9,7 +9,7 @@
   <style>
     /* PORTFOLIO PAGE STYLES */
     .portfolio-hero {
-      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      background: linear-gradient(135deg, #0d766b 0%, #095b54 100%);
       color: white;
       padding: 5rem 2rem;
       text-align: center;
@@ -61,7 +61,7 @@
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-      border-top: 4px solid #0066cc;
+      border-top: 4px solid #0d766b;
     }
 
     .case-study-card:hover {
@@ -70,14 +70,14 @@
     }
 
     .case-study-header {
-      background: linear-gradient(135deg, #f0f7ff, #f5f5ff);
+      background: linear-gradient(135deg, #edf5ef, #f5f5ff);
       padding: 2rem;
       border-bottom: 1px solid #e0e0e0;
     }
 
     .case-study-number {
       display: inline-block;
-      background: #0066cc;
+      background: #0d766b;
       color: white;
       width: 36px;
       height: 36px;
@@ -90,7 +90,7 @@
     }
 
     .case-study-card h3 {
-      color: #0066cc;
+      color: #0d766b;
       font-size: 1.5rem;
       margin: 0 0 0.5rem;
     }
@@ -141,7 +141,7 @@
       background: #f0f8ff;
       padding: 1rem;
       border-radius: 6px;
-      border-left: 3px solid #0066cc;
+      border-left: 3px solid #0d766b;
     }
 
     .metric-label {
@@ -155,7 +155,7 @@
     .metric-value {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #0066cc;
+      color: #0d766b;
     }
 
     .case-study-footer {
@@ -166,7 +166,7 @@
 
     .view-case-study {
       display: inline-block;
-      color: #0066cc;
+      color: #0d766b;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
@@ -228,7 +228,7 @@
     }
 
     .dmaic-step h4 {
-      color: #0066cc;
+      color: #0d766b;
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
     }
@@ -242,12 +242,12 @@
     .dmaic-arrow {
       flex: 0 0 auto;
       font-size: 1.5rem;
-      color: #0066cc;
+      color: #0d766b;
       font-weight: bold;
     }
 
     .portfolio-cta {
-      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      background: linear-gradient(135deg, #0d766b 0%, #095b54 100%);
       color: white;
       text-align: center;
       padding: 4rem 2rem;
@@ -319,6 +319,7 @@ section.dmaic-section .dmaic-intro{margin:0 auto 24px!important}
 @media(max-width:768px){section.portfolio-overview-intro{padding:30px 0 8px!important}section.portfolio-cards-section{padding:12px 0 30px!important}section.dmaic-section{padding:32px 18px!important}}
 </style>
 <link rel="stylesheet" href="css/style.css?v=20261111-2">
+<link rel="stylesheet" href="css/interactive.css?v=1">
 </head>
 
 <body>
@@ -349,10 +350,10 @@ section.dmaic-section .dmaic-intro{margin:0 auto 24px!important}
 <!-- CASE STUDIES -->
 <section class="portfolio-cards-section">
   <div class="container">
-    <div class="case-studies-grid">
+    <div class="choice-row case-filters" role="group" aria-label="Filter case studies"><button type="button" aria-pressed="true" data-filter="0">All cases</button><button type="button" aria-pressed="false" data-filter="1">Inventory</button><button type="button" aria-pressed="false" data-filter="2">Planning</button><button type="button" aria-pressed="false" data-filter="3">Working capital</button><button type="button" aria-pressed="false" data-filter="4">Warehouse</button><button type="button" aria-pressed="false" data-filter="5">Logistics</button></div><div class="case-studies-grid">
 
       <!-- CASE STUDY 1: INVENTORY ACCURACY -->
-      <div class="case-study-card">
+      <div class="case-study-card" data-case="1">
         <div class="case-study-header">
           <div class="case-study-number">01</div>
           <h3>Inventory Accuracy Transformation</h3>
@@ -387,7 +388,7 @@ section.dmaic-section .dmaic-intro{margin:0 auto 24px!important}
       </div>
 
       <!-- CASE STUDY 2: STOCK OUT REDUCTION -->
-      <div class="case-study-card">
+      <div class="case-study-card" data-case="2">
         <div class="case-study-header">
           <div class="case-study-number">02</div>
           <h3>Stock Out Reduction & Demand Planning</h3>
@@ -425,7 +426,7 @@ section.dmaic-section .dmaic-intro{margin:0 auto 24px!important}
       </div>
 
       <!-- CASE STUDY 3: WORKING CAPITAL RECOVERY -->
-      <div class="case-study-card">
+      <div class="case-study-card" data-case="3">
         <div class="case-study-header">
           <div class="case-study-number">03</div>
           <h3>Working Capital Optimization & Dead Stock Recovery</h3>
@@ -463,7 +464,7 @@ section.dmaic-section .dmaic-intro{margin:0 auto 24px!important}
       </div>
 
       <!-- CASE STUDY 4: WAREHOUSE PERFORMANCE -->
-      <div class="case-study-card">
+      <div class="case-study-card" data-case="4">
         <div class="case-study-header">
           <div class="case-study-number">04</div>
           <h3>Warehouse Operations & Process Improvement</h3>
@@ -501,7 +502,7 @@ section.dmaic-section .dmaic-intro{margin:0 auto 24px!important}
       </div>
 
       <!-- CASE STUDY 5: SUPPLY CHAIN DASHBOARD -->
-      <div class="case-study-card">
+      <div class="case-study-card" data-case="5">
         <div class="case-study-header">
           <div class="case-study-number">05</div>
           <h3>Outbound Logistics &amp; Distribution</h3>
@@ -606,5 +607,6 @@ section.dmaic-section .dmaic-intro{margin:0 auto 24px!important}
 </footer>
 
 <script id="site-menu-responsive-fix">(function(){var m=document.querySelector('.site-mobile-menu');if(!m)return;function sync(){if(window.innerWidth>800)m.open=true;else if(!m.dataset.mobileReady){m.open=false;m.dataset.mobileReady='1';}}sync();window.addEventListener('resize',sync);})();</script><script defer src="js/back-to-top.js"></script>
+<script src="js/interactive.js?v=1" defer></script>
 </body>
 </html>

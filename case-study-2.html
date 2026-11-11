@@ -7,7 +7,7 @@
 <title>Case Study 2 | Planning & Material Availability</title>
 <style>
 :root{
-  --blue:#0066cc;--blue2:#0052a3;--navy:#0b2d4f;--ink:#273746;--muted:#66798a;
+  --blue:#0d766b;--blue2:#095b54;--navy:#172a27;--ink:#273746;--muted:#66798a;
   --line:#dce6ee;--soft:#f5f8fb;--green:#16845c;--amber:#d58b18;--red:#c64b4b;
 }
 *{box-sizing:border-box}html{overflow-x:hidden;scroll-behavior:smooth}
@@ -34,7 +34,7 @@ h3{color:var(--navy);font-size:1.04rem;margin:0 0 6px}p{margin:0 0 .7rem}.lead{c
 /* unique planning timeline */
 .timeline-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 10px 28px rgba(16,50,77,.05)}
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 0 10px;font-size:.72rem;color:var(--muted)}.legend i{width:18px;height:3px;display:inline-block;vertical-align:middle;margin-right:5px}.legend .demand{background:var(--blue)}.legend .safety{background:var(--amber)}.legend .reorder{background:var(--red)}
-.chart-wrap{overflow-x:auto}.trend-svg{min-width:760px;width:100%;height:300px;display:block}.axis{stroke:#cbd8e2;stroke-width:1}.gridline{stroke:#e8eef3;stroke-width:1}.demand-line{fill:none;stroke:#0066cc;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.area{fill:url(#areaFill)}.safety-line{stroke:#d58b18;stroke-width:2;stroke-dasharray:8 6}.reorder-line{stroke:#c64b4b;stroke-width:2;stroke-dasharray:4 5}.point{fill:#fff;stroke:#0066cc;stroke-width:3}.axistext{fill:#718493;font-size:11px}.callout{fill:#0b2d4f;font-size:11px;font-weight:700}
+.chart-wrap{overflow-x:auto}.trend-svg{min-width:760px;width:100%;height:300px;display:block}.axis{stroke:#cbd8e2;stroke-width:1}.gridline{stroke:#e8eef3;stroke-width:1}.demand-line{fill:none;stroke:#0d766b;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.area{fill:url(#areaFill)}.safety-line{stroke:#d58b18;stroke-width:2;stroke-dasharray:8 6}.reorder-line{stroke:#c64b4b;stroke-width:2;stroke-dasharray:4 5}.point{fill:#fff;stroke:#0d766b;stroke-width:3}.axistext{fill:#718493;font-size:11px}.callout{fill:#172a27;font-size:11px;font-weight:700}
 /* heatmap */
 .analytics-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
 .card{background:#fff;border:1px solid var(--line);border-radius:11px;padding:19px}
@@ -60,7 +60,7 @@ footer{background:#091e31;color:#c8d4de;padding:27px 0;margin-top:40px}
 @media(max-width:620px){.container{padding:0 1rem}.nav{flex-direction:column;align-items:flex-start;padding:11px 0;gap:8px}.nav nav{width:100%;overflow:auto;white-space:nowrap;gap:16px}.hero{padding:44px 0}.section{padding:30px 0}.grid4,.result-grid,.command-kpis,.flow,.insight-row{grid-template-columns:1fr}.heatmap{grid-template-columns:105px repeat(3,1fr)}.hm-head,.hm-label,.hm{padding:9px 4px;font-size:.63rem}.command-head{flex-direction:column}}
 
 /* SHARED INNER-PAGE HERO — aligned with homepage */
-:root{--site-blue:#0066cc;--site-blue-dark:#0052a3;--site-orange:#ff6b35}
+:root{--site-blue:#0d766b;--site-blue-dark:#095b54;--site-orange:#ff6b35}
 .page-hero,.services-hero,.booking-hero,.hero.case-hero{
   background:linear-gradient(135deg,var(--site-blue) 0%,var(--site-blue-dark) 100%)!important;
   color:#fff!important;
@@ -96,11 +96,13 @@ footer{background:#091e31;color:#c8d4de;padding:27px 0;margin-top:40px}
 
 </style>
 <link rel="stylesheet" href="css/style.css?v=20261111-2">
+<link rel="stylesheet" href="css/interactive.css?v=1">
 </head>
 <body>
 <header class="site-header"><div class="site-header-inner"><a class="site-brand" href="index.html">Nadeem Farooqui</a><details class="site-mobile-menu" open><summary aria-label="Toggle navigation">Menu ☰</summary><nav class="site-navigation" aria-label="Main navigation"><ul class="site-menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><details class="site-dropdown"><summary>Case Studies</summary><ul class="site-submenu"><li><a href="portfolio.html">All Case Studies</a></li><li><a href="case-study-1.html">Inventory Accuracy & Control</a></li><li><a href="case-study-2.html" aria-current="page">Planning & Material Availability</a></li><li><a href="case-study-3.html">Working Capital & Dead Stock</a></li><li><a href="case-study-4.html">Warehouse Operations</a></li><li><a href="case-study-5.html">Logistics & Distribution</a></li></ul></details></li><li><a href="contact.html">Contact</a></li></ul></nav></details></div></header>
 
 <section class="hero case-hero"><div class="container"><div class="eyebrow">Case Study 02 • Planning & Material Availability</div><h1>Demand Planning &amp; Replenishment Transformation</h1><p>Using consumption visibility, safety stock review and exception based replenishment to improve material availability and reduce reactive ordering.</p><div class="tags"><span class="tag">Demand Planning</span><span class="tag">36 Month Consumption</span><span class="tag">Safety Stock</span><span class="tag">Replenishment</span><span class="tag">Material Availability</span></div></div></section>
+<section class="interactive-section "><div class="container"><div class="interactive-shell" data-explorer><h2>Compare the stock-out results</h2><p>Select a step or result to see the detail.</p><div class="choice-row" role="group" aria-label="Compare the stock-out results"><button type="button" aria-pressed="true" data-choice="0">Before</button><button type="button" aria-pressed="false" data-choice="1">After</button><button type="button" aria-pressed="false" data-choice="2">What changed</button></div><article class="insight-panel" data-panel="0"><h3>2.0% baseline stock-out rate</h3><p>The baseline shows how often stock was unavailable before the planning changes.</p><div class="preview-bar"><span style="--level:100%"></span></div></article><article class="insight-panel" data-panel="1"><h3>1.06% stock-out rate</h3><p>Over 24 months, the rate fell by 47% after consumption analysis and safety stock review.</p><div class="preview-bar"><span style="--level:53%"></span></div></article><article class="insight-panel" data-panel="2"><h3>Review demand and reorder decisions</h3><p>Use consumption patterns, safety stock and exceptions to focus replenishment on items at risk.</p></article></div></div></section>
 <div class="back"><div class="container"><a href="portfolio.html">← Back to Portfolio</a></div></div>
 
 <section class="section"><div class="container"><div class="kicker">Business Challenge</div><h2>Planning was reacting to shortages instead of anticipating them</h2><p class="lead">Demand visibility was limited, safety stock coverage was inconsistent and replenishment frequently became urgent only after material availability was already at risk. The objective was to establish a more proactive planning rhythm.</p>
@@ -111,7 +113,7 @@ footer{background:#091e31;color:#c8d4de;padding:27px 0;margin-top:40px}
 <h3>Illustrative Demand & Replenishment Timeline</h3>
 <div class="legend"><span><i class="demand"></i>Demand / consumption signal</span><span><i class="safety"></i>Safety stock threshold</span><span><i class="reorder"></i>Reorder trigger</span></div>
 <div class="chart-wrap"><svg class="trend-svg" viewBox="0 0 900 300" role="img" aria-label="Illustrative demand planning trend chart">
-<defs><linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0066cc" stop-opacity=".22"/><stop offset="100%" stop-color="#0066cc" stop-opacity=".02"/></linearGradient></defs>
+<defs><linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d766b" stop-opacity=".22"/><stop offset="100%" stop-color="#0d766b" stop-opacity=".02"/></linearGradient></defs>
 <line class="gridline" x1="55" y1="45" x2="870" y2="45"/><line class="gridline" x1="55" y1="95" x2="870" y2="95"/><line class="gridline" x1="55" y1="145" x2="870" y2="145"/><line class="gridline" x1="55" y1="195" x2="870" y2="195"/><line class="axis" x1="55" y1="245" x2="870" y2="245"/><line class="axis" x1="55" y1="35" x2="55" y2="245"/>
 <line class="safety-line" x1="55" y1="190" x2="870" y2="190"/><text class="axistext" x="690" y="184">Safety stock threshold</text>
 <line class="reorder-line" x1="55" y1="155" x2="870" y2="155"/><text class="axistext" x="690" y="149">Reorder trigger</text>
@@ -168,4 +170,5 @@ footer{background:#091e31;color:#c8d4de;padding:27px 0;margin-top:40px}
 <section class="section" style="padding-top:4px"><div class="container"><div class="cta"><h2>Need stronger planning visibility?</h2><p>Discuss how consumption analysis, safety stock review and exception based replenishment can improve material availability.</p><a class="btn" href="contact.html">Book Free 15-Min Call</a></div></div></section>
 <footer><div class="container"><strong style="color:#fff">Nadeem Farooqui</strong><br>Supply Chain, Inventory &amp; Warehouse Operations Consulting</div></footer>
 <script id="site-menu-responsive-fix">(function(){var m=document.querySelector('.site-mobile-menu');if(!m)return;function sync(){if(window.innerWidth>800)m.open=true;else if(!m.dataset.mobileReady){m.open=false;m.dataset.mobileReady='1';}}sync();window.addEventListener('resize',sync);})();</script><script defer src="js/back-to-top.js"></script>
+<script src="js/interactive.js?v=1" defer></script>
 </body></html>

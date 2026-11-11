@@ -7,7 +7,7 @@
 <title>About Nadeem Farooqui | Supply Chain, Inventory & Warehouse Operations</title>
 <link rel="stylesheet" href="css/style.css?v=20261111-2">
 <style>
-:root{--blue:#0066cc;--blue2:#0052a3;--orange:#ff6b35;--navy:#0b2d4f;--text:#273746;--muted:#667085;--line:#e1e8ef;--soft:#f8fafc}
+:root{--blue:#0d766b;--blue2:#095b54;--orange:#ff6b35;--navy:#172a27;--text:#273746;--muted:#667085;--line:#e1e8ef;--soft:#f8fafc}
 *{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--text);line-height:1.6}.container{max-width:1200px;margin:0 auto;padding:0 2rem}
 header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.header-container{max-width:1200px;margin:auto;min-height:68px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.25rem;font-weight:700;color:var(--blue);text-decoration:none}.header-container nav ul{display:flex;gap:2rem;align-items:center;list-style:none;margin:0;padding:0}.header-container nav a{text-decoration:none;color:#333;font-weight:500;font-size:.95rem}.header-container nav a:hover{color:var(--blue)}
 .page-hero{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:3.6rem 2rem;text-align:center;position:relative;overflow:hidden}.page-hero:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,107,53,.09);right:-130px;top:-230px}.page-hero .container{position:relative;z-index:1}.page-hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin:0 0 .55rem}.page-hero p{font-size:1.05rem;opacity:.94;margin:0 auto;max-width:760px}
@@ -25,7 +25,7 @@ footer{background:#1a1a1a;color:#ccc;padding:2rem 0}.footer-row{display:flex;jus
 @media(max-width:520px){.timeline,.cards3,.cap-grid,.case-strip{grid-template-columns:1fr}.page-hero{padding:2.8rem 1rem}.section{padding:2.5rem 0}}
 
 /* SHARED INNER-PAGE HERO — aligned with homepage */
-:root{--site-blue:#0066cc;--site-blue-dark:#0052a3;--site-orange:#ff6b35}
+:root{--site-blue:#0d766b;--site-blue-dark:#095b54;--site-orange:#ff6b35}
 .page-hero,.services-hero,.booking-hero,.hero.case-hero{
   background:linear-gradient(135deg,var(--site-blue) 0%,var(--site-blue-dark) 100%)!important;
   color:#fff!important;
@@ -61,11 +61,13 @@ footer{background:#1a1a1a;color:#ccc;padding:2rem 0}.footer-row{display:flex;jus
 
 </style>
 <link rel="stylesheet" href="css/style.css?v=20261111-2">
+<link rel="stylesheet" href="css/interactive.css?v=1">
 </head>
 <body>
 <header class="site-header"><div class="site-header-inner"><a class="site-brand" href="index.html">Nadeem Farooqui</a><details class="site-mobile-menu" open><summary aria-label="Toggle navigation">Menu ☰</summary><nav class="site-navigation" aria-label="Main navigation"><ul class="site-menu"><li><a href="index.html">Home</a></li><li><a href="about.html" aria-current="page">About</a></li><li><a href="services.html">Services</a></li><li><details class="site-dropdown"><summary>Case Studies</summary><ul class="site-submenu"><li><a href="portfolio.html">All Case Studies</a></li><li><a href="case-study-1.html">Inventory Accuracy & Control</a></li><li><a href="case-study-2.html">Planning & Material Availability</a></li><li><a href="case-study-3.html">Working Capital & Dead Stock</a></li><li><a href="case-study-4.html">Warehouse Operations</a></li><li><a href="case-study-5.html">Logistics & Distribution</a></li></ul></details></li><li><a href="contact.html">Contact</a></li></ul></nav></details></div></header>
 
 <section class="page-hero"><div class="container"><h1>About Me</h1><p>20+ years of hands on GCC experience across inventory, planning, warehouse operations, logistics and supply chain analytics.</p></div></section>
+<section class="interactive-section "><div class="container"><div class="interactive-shell" data-explorer><h2>Explore my experience</h2><p>Choose an area to see how I approach it.</p><div class="choice-row" role="group" aria-label="Explore my experience"><button type="button" aria-pressed="true" data-choice="0">Inventory</button><button type="button" aria-pressed="false" data-choice="1">Operations</button><button type="button" aria-pressed="false" data-choice="2">Analytics</button></div><article class="insight-panel" data-panel="0"><h3>Inventory accuracy and control</h3><p>I use cycle counting, reconciliation and SAP transaction controls to improve confidence in stock records.</p><a class="interactive-link" href="case-study-1.html">Read the inventory case</a></article><article class="insight-panel" data-panel="1"><h3>Warehouse and field coordination</h3><p>My work covers receiving, picking, dispatch and coordinating deliveries to project sites.</p><a class="interactive-link" href="case-study-5.html">Read the logistics case</a></article><article class="insight-panel" data-panel="2"><h3>Operational reporting</h3><p>I use Excel and Power BI to make stock risks, movement and service performance easier to review.</p><a class="interactive-link" href="portfolio.html">Explore the portfolio</a></article></div></div></section>
 
 <section class="section"><div class="container"><div class="story-grid"><div class="story"><h2>My Journey</h2>
 <p>My career in supply chain and inventory management has been built across two major GCC markets, beginning in Saudi Arabia in 2005 and continuing through my professional journey in the United Arab Emirates from 2022 to 2026.</p>
@@ -104,4 +106,5 @@ footer{background:#1a1a1a;color:#ccc;padding:2rem 0}.footer-row{display:flex;jus
   </div>
 </footer>
 <script id="site-menu-responsive-fix">(function(){var m=document.querySelector('.site-mobile-menu');if(!m)return;function sync(){if(window.innerWidth>800)m.open=true;else if(!m.dataset.mobileReady){m.open=false;m.dataset.mobileReady='1';}}sync();window.addEventListener('resize',sync);})();</script><script defer src="js/back-to-top.js"></script>
+<script src="js/interactive.js?v=1" defer></script>
 </body></html>

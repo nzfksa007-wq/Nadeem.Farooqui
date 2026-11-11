@@ -11,7 +11,7 @@
   <style>
     /* SERVICES PAGE */
     .services-hero {
-      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      background: linear-gradient(135deg, #0d766b 0%, #095b54 100%);
       color: white;
       padding: 4.5rem 2rem;
       text-align: center;
@@ -60,7 +60,7 @@
       padding: 2rem;
       border-radius: 14px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-      border-top: 4px solid #0066cc;
+      border-top: 4px solid #0d766b;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       height: 100%;
       box-sizing: border-box;
@@ -78,13 +78,13 @@
       align-items: center;
       justify-content: center;
       border-radius: 12px;
-      background: #f0f7ff;
+      background: #edf5ef;
       font-size: 1.7rem;
       margin-bottom: 1.2rem;
     }
 
     .service-card h3 {
-      color: #0066cc;
+      color: #0d766b;
       margin-bottom: 0.8rem;
       font-size: 1.25rem;
     }
@@ -105,7 +105,7 @@
     }
 
     .service-card li::marker {
-      color: #0066cc;
+      color: #0d766b;
     }
 
     .approach-section {
@@ -133,7 +133,7 @@
       height: 42px;
       margin: 0 auto 1rem;
       border-radius: 50%;
-      background: #0066cc;
+      background: #0d766b;
       color: white;
       display: flex;
       align-items: center;
@@ -159,8 +159,8 @@
     }
 
     .client-fit-box {
-      background: linear-gradient(135deg, #f0f7ff, #ffffff);
-      border: 1px solid #dcecff;
+      background: linear-gradient(135deg, #edf5ef, #ffffff);
+      border: 1px solid #d8e7dc;
       border-radius: 16px;
       padding: 2.5rem;
       display: grid;
@@ -199,13 +199,13 @@
 
     .fit-list li::before {
       content: "✓";
-      color: #0066cc;
+      color: #0d766b;
       font-weight: 700;
       margin-right: 0.5rem;
     }
 
     .services-cta {
-      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      background: linear-gradient(135deg, #0d766b 0%, #095b54 100%);
       color: white;
       text-align: center;
       padding: 4.5rem 2rem;
@@ -228,7 +228,7 @@
       display: inline-block;
       text-decoration: none;
       background: white;
-      color: #0066cc;
+      color: #0d766b;
       padding: 0.9rem 1.7rem;
       border-radius: 7px;
       font-weight: 700;
@@ -282,7 +282,7 @@
     }
 
 /* SHARED INNER-PAGE HERO — aligned with homepage */
-:root{--site-blue:#0066cc;--site-blue-dark:#0052a3;--site-orange:#ff6b35}
+:root{--site-blue:#0d766b;--site-blue-dark:#095b54;--site-orange:#ff6b35}
 .page-hero,.services-hero,.booking-hero,.hero.case-hero{
   background:linear-gradient(135deg,var(--site-blue) 0%,var(--site-blue-dark) 100%)!important;
   color:#fff!important;
@@ -342,6 +342,7 @@ section.approach-section { padding-top: 24px; }
 }
 </style>
 <link rel="stylesheet" href="css/style.css?v=20261111-2">
+<link rel="stylesheet" href="css/interactive.css?v=1">
 </head>
 
 <body>
@@ -361,7 +362,8 @@ section.approach-section { padding-top: 24px; }
   </section>
 
   <!-- INTRO -->
-  <section class="service-offerings">
+  <section class="interactive-section "><div class="container"><div class="interactive-shell" data-explorer><h2>Find the right starting point</h2><p>Choose the issue that is costing your team the most time.</p><div class="choice-row" role="group" aria-label="Find the right starting point"><button type="button" aria-pressed="true" data-choice="0">Stock-outs</button><button type="button" aria-pressed="false" data-choice="1">Excess inventory</button><button type="button" aria-pressed="false" data-choice="2">Warehouse delays</button><button type="button" aria-pressed="false" data-choice="3">Delivery exceptions</button></div><article class="insight-panel" data-panel="0"><h3>Review demand and replenishment</h3><p>Compare recent consumption with lead times, safety stock and reorder settings to see why critical items run short.</p><a class="interactive-link" href="case-study-2.html">See the stock-out case study</a></article><article class="insight-panel" data-panel="1"><h3>Separate stock by movement and value</h3><p>Start with stock age, recent issues and on-hand value. Review slow and obsolete items for transfer, return or other recovery options.</p><a class="interactive-link" href="case-study-3.html">See the working capital case study</a></article><article class="insight-panel" data-panel="2"><h3>Find where orders wait</h3><p>Walk through receiving, picking and dispatch. Check where incomplete information, repeated checks or unclear handovers slow work.</p><a class="interactive-link" href="case-study-4.html">See the warehouse case study</a></article><article class="insight-panel" data-panel="3"><h3>Track shipment handovers</h3><p>Check material readiness, transport schedules and delivery milestones to find where shipments become harder to track.</p><a class="interactive-link" href="case-study-5.html">See the logistics case study</a></article></div></div></section>
+<section class="service-offerings">
     <div class="container">
       <div class="services-intro">
         <h2>How I Can Help Your Business</h2>
@@ -499,6 +501,7 @@ section.approach-section { padding-top: 24px; }
     </div>
   </section>
 
+
   <!-- CONSULTING APPROACH -->
   <section class="approach-section">
     <div class="container">
@@ -569,7 +572,7 @@ section.approach-section { padding-top: 24px; }
         text-align: center;
         box-shadow: 0 3px 15px rgba(0,0,0,0.05);
         font-weight: 700;
-        color: #0066cc;
+        color: #0d766b;
         font-size: 1.05rem;
         letter-spacing: 0.02em;
       ">
@@ -632,5 +635,6 @@ section.approach-section { padding-top: 24px; }
   </footer>
 
 <script id="site-menu-responsive-fix">(function(){var m=document.querySelector('.site-mobile-menu');if(!m)return;function sync(){if(window.innerWidth>800)m.open=true;else if(!m.dataset.mobileReady){m.open=false;m.dataset.mobileReady='1';}}sync();window.addEventListener('resize',sync);})();</script><script defer src="js/back-to-top.js"></script>
+<script src="js/interactive.js?v=1" defer></script>
 </body>
 </html>
