@@ -31,66 +31,263 @@ const canvas = document.getElementById('supply-globe');
 const art = document.querySelector('.hero-art');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const lowPower = window.matchMedia('(max-width: 700px)').matches;
+const flowStages = [
+  {title:'Inbound receiving',copy:'Match the PO, count the delivery, and record receipt.'},
+  {title:'Quality & exceptions',copy:'Inspect condition and isolate shortages or damage before put-away.'},
+  {title:'Storage & replenishment',copy:'Use clear locations and replenish pick faces before they run dry.'},
+  {title:'Pick & pack',copy:'Confirm the SKU, quantity, order, and packing standard.'},
+  {title:'Dispatch & delivery',copy:'Release the load, hand over clearly, and track delivery closure.'}
+];
+let activeFlowStage = 0;
+let stageRings = [];
+const stageButtons = [...document.querySelectorAll('[data-flow-stage]')];
+const stageTitle = document.querySelector('[data-stage-title]');
+const stageCopy = document.querySelector('[data-stage-copy]');
+const stageIndex = document.querySelector('.caption-index');
+function selectFlowStage(index) {
+  activeFlowStage = (index + flowStages.length) % flowStages.length;
+  const stage = flowStages[activeFlowStage];
+  if (stageTitle) stageTitle.textContent = stage.title;
+  if (stageCopy) stageCopy.textContent = stage.copy;
+  if (stageIndex) stageIndex.textContent = String(activeFlowStage + 1).padStart(2, '0') + ' / ' + String(flowStages.length).padStart(2, '0');
+  stageButtons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === activeFlowStage)));
+  stageRings.forEach((entry, i) => {
+    entry.ring.material = i === activeFlowStage ? entry.activeMaterial : entry.idleMaterial;
+    entry.ring.scale.setScalar(i === activeFlowStage ? 1.16 : 1);
+    entry.beacon.material = i === activeFlowStage ? entry.activeMaterial : entry.idleMaterial;
+  });
+}
+stageButtons.forEach((button, i) => button.addEventListener('click', () => selectFlowStage(i)));
+
 if (canvas && art) {
-  import('three').then(({Scene, PerspectiveCamera, WebGLRenderer, Group, SphereGeometry, Mesh, MeshBasicMaterial, LineBasicMaterial, BufferGeometry, Line, Vector3, TorusGeometry, MeshStandardMaterial, AmbientLight, PointLight, BoxGeometry, MathUtils}) => {
+  import('three').then(({
+    Scene, PerspectiveCamera, WebGLRenderer, Group, Mesh, MeshStandardMaterial,
+    MeshBasicMaterial, BoxGeometry, PlaneGeometry, CylinderGeometry, SphereGeometry,
+    TorusGeometry, Vector3, CatmullRomCurve3, TubeGeometry, AmbientLight,
+    DirectionalLight, GridHelper, MathUtils, SRGBColorSpace
+  }) => {
     const scene = new Scene();
-    const camera = new PerspectiveCamera(37, 1, 0.1, 100);
-    camera.position.set(0, 0, 8.3);
-    const renderer = new WebGLRenderer({canvas, alpha:true, antialias:!lowPower, powerPreference:'low-power'});
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lowPower ? 1.25 : 1.8));
+    const camera = new PerspectiveCamera(35, 1, 0.1, 100);
+    camera.position.set(6.4, 5.6, 8.6);
+    camera.lookAt(0, 0.68, 0);
+    const renderer = new WebGLRenderer({
+      canvas, alpha: true, antialias: !lowPower, powerPreference: 'low-power'
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lowPower ? 1.1 : 1.5));
     renderer.setClearColor(0x000000, 0);
-    const world = new Group(); scene.add(world);
-    const globe = new Group(); world.add(globe);
-    const wire = new Mesh(new SphereGeometry(2.05, lowPower ? 18 : 30, lowPower ? 12 : 20), new MeshBasicMaterial({color:0xcda563, wireframe:true, transparent:true, opacity:.22}));
-    globe.add(wire);
-    const core = new Mesh(new SphereGeometry(1.96, lowPower ? 20 : 36, lowPower ? 14 : 24), new MeshStandardMaterial({color:0x182c44, roughness:.8, metalness:.12, transparent:true, opacity:.28, wireframe:false}));
-    globe.add(core);
-    scene.add(new AmbientLight(0x8ba0b6, 1.7));
-    const keyLight = new PointLight(0xd4ad6b, 9, 15); keyLight.position.set(3, 4, 5); scene.add(keyLight);
-    const rimLight = new PointLight(0x7092b4, 6, 13); rimLight.position.set(-4, -1, -3); scene.add(rimLight);
-    const orbitMaterial = new MeshBasicMaterial({color:0xcda563, transparent:true, opacity:.56});
-    const routeMaterial = new LineBasicMaterial({color:0xc0d0df, transparent:true, opacity:.65});
-    const points = [];
-    const nodeMaterial = new MeshStandardMaterial({color:0xe2bb74, emissive:0x725a32, emissiveIntensity:.65, metalness:.3, roughness:.45});
-    const nodeBlue = new MeshStandardMaterial({color:0xbcd0e2, emissive:0x374b61, emissiveIntensity:.5, metalness:.2, roughness:.45});
-    const radius = 2.075;
-    const count = lowPower ? 12 : 20;
-    for (let i=0;i<count;i++) {
-      const lat = Math.asin(-1 + 2 * (i + .5) / count);
-      const lon = i * Math.PI * (3 - Math.sqrt(5));
-      const point = new Vector3(radius*Math.cos(lat)*Math.cos(lon), radius*Math.sin(lat), radius*Math.cos(lat)*Math.sin(lon));
-      points.push(point);
-      const node = new Mesh(new SphereGeometry(i%4===0?.075:.042, 8, 6), i%3===0?nodeBlue:nodeMaterial);
-      node.position.copy(point); globe.add(node);
+    renderer.outputColorSpace = SRGBColorSpace;
+    const warehouse = new Group();
+    scene.add(warehouse);
+
+    scene.add(new AmbientLight(0xb9c8d4, 1.65));
+    const warmLight = new DirectionalLight(0xffd79a, 3.1);
+    warmLight.position.set(4, 7, 5);
+    scene.add(warmLight);
+    const coolLight = new DirectionalLight(0x83a5c5, 2.0);
+    coolLight.position.set(-5, 4, -3);
+    scene.add(coolLight);
+
+    const mat = {
+      floor: new MeshStandardMaterial({color:0x172c42, roughness:.93}),
+      steel: new MeshStandardMaterial({color:0x8fa4b6, roughness:.4, metalness:.48}),
+      beam: new MeshStandardMaterial({color:0xc7d0d5, roughness:.48, metalness:.35}),
+      belt: new MeshStandardMaterial({color:0x293e52, roughness:.78, metalness:.12}),
+      brass: new MeshStandardMaterial({color:0xd1aa69, roughness:.38, metalness:.36}),
+      dark: new MeshStandardMaterial({color:0x0d1c2c, roughness:.68, metalness:.22}),
+      carton: [
+        new MeshStandardMaterial({color:0xc99d58, roughness:.82}),
+        new MeshStandardMaterial({color:0x8ca8bd, roughness:.78}),
+        new MeshStandardMaterial({color:0xe5dac5, roughness:.85})
+      ],
+      teal: new MeshStandardMaterial({color:0x55c7bc, emissive:0x1a8279, emissiveIntensity:.65, roughness:.35}),
+      route: new MeshBasicMaterial({color:0xe3bb75, transparent:true, opacity:.82}),
+      idleRing: new MeshBasicMaterial({color:0x91a4b5, transparent:true, opacity:.48}),
+      activeRing: new MeshBasicMaterial({color:0xf0c676, transparent:true, opacity:.95})
+    };
+
+    const addBox = (parent, x, y, z, sx, sy, sz, material, rotationY=0) => {
+      const mesh = new Mesh(new BoxGeometry(sx, sy, sz), material);
+      mesh.position.set(x, y, z);
+      mesh.rotation.y = rotationY;
+      parent.add(mesh);
+      return mesh;
+    };
+    const addCylinder = (parent, x, y, z, radius, height, material, rotationX=0) => {
+      const mesh = new Mesh(new CylinderGeometry(radius, radius, height, 12), material);
+      mesh.position.set(x, y, z);
+      mesh.rotation.x = rotationX;
+      parent.add(mesh);
+      return mesh;
+    };
+
+    // Open floor and location grid make the miniature read as a working warehouse.
+    const floor = new Mesh(new PlaneGeometry(7.1, 5.2), mat.floor);
+    floor.rotation.x = -Math.PI/2;
+    floor.position.y = -.08;
+    warehouse.add(floor);
+    const grid = new GridHelper(7, 28, 0x536a7f, 0x324960);
+    grid.position.y = -.067;
+    grid.material.transparent = true;
+    grid.material.opacity = .22;
+    warehouse.add(grid);
+
+    // Open-frame building posts and roof rails frame the work area.
+    for (const x of [-2.05, -0.7, 0.7, 2.05]) {
+      addBox(warehouse, x, 1.08, -1.72, .075, 2.18, .075, mat.steel);
+      addBox(warehouse, x, 1.08, 1.28, .075, 2.18, .075, mat.steel);
     }
-    const routeIndices = [[0,4,8,12,16],[2,6,10,14,18],[1,7,13,19]];
-    for (const route of routeIndices) {
-      const vertices=[];
-      for (let j=0;j<route.length;j++) {
-        const a=points[route[j]%points.length], b=points[route[(j+1)%route.length]%points.length];
-        for (let k=0;k<=24;k++) {
-          const t=k/24, base=a.clone().lerp(b,t).normalize();
-          const lift=Math.sin(Math.PI*t)*.12;
-          vertices.push(base.x*(radius+lift),base.y*(radius+lift),base.z*(radius+lift));
+    addBox(warehouse, 0, 2.17, -1.72, 4.25, .09, .08, mat.beam);
+    addBox(warehouse, 0, 2.17, 1.28, 4.25, .09, .08, mat.beam);
+    addBox(warehouse, 0, 2.14, -.22, .055, .07, 3.0, mat.beam);
+
+    // Receiving bay: inbound pallet, receipt bench, and scan / quality gate.
+    addBox(warehouse, -2.35, .13, -.45, .62, .22, .82, mat.belt);
+    addBox(warehouse, -2.35, .28, -.45, .42, .1, .58, mat.brass);
+    addBox(warehouse, -1.55, .43, -.18, .58, .13, .58, mat.beam);
+    for (const x of [-1.8, -1.3]) addBox(warehouse, x, .2, -.18, .07, .38, .07, mat.steel);
+    for (const x of [-1.85, -1.3]) {
+      addBox(warehouse, x, .95, .24, .065, 1.55, .065, mat.steel);
+      addBox(warehouse, x + .275, 1.68, .24, .55, .065, .065, mat.steel);
+    }
+    addBox(warehouse, -1.575, 1.68, .24, .09, .08, .1, mat.teal);
+
+    // Three rack bays, labelled visually by location strips, hold mixed stock.
+    const bayXs = [-.62, .43, 1.48];
+    for (let bay=0; bay<bayXs.length; bay++) {
+      const cx = bayXs[bay], backZ = -1.03;
+      for (const dx of [-.45, .45]) {
+        addBox(warehouse, cx+dx, .92, backZ, .07, 1.82, .07, mat.steel);
+        addBox(warehouse, cx+dx, .14, backZ+.31, .14, .1, .16, mat.brass);
+      }
+      for (const y of [.35, .98, 1.61]) {
+        addBox(warehouse, cx, y, backZ, .98, .07, .7, mat.beam);
+        addBox(warehouse, cx, y-.13, backZ+.37, .98, .045, .05, mat.brass);
+      }
+      for (let level=0; level<2; level++) {
+        for (let item=0; item<(lowPower?2:3); item++) {
+          const count = lowPower?2:3;
+          const x = cx + (item-(count-1)/2)*.28;
+          const y = level===0?.61:1.24;
+          const z = backZ + (item%2)*.22 - .04;
+          addBox(warehouse, x, y, z, .23, .24, .24, mat.carton[(bay+item+level)%3], item%2?.025:-.025);
         }
       }
-      const line=new Line(new BufferGeometry().setFromPoints(Array.from({length:vertices.length/3},(_,i)=>new Vector3(vertices[i*3],vertices[i*3+1],vertices[i*3+2]))),routeMaterial);
-      globe.add(line);
     }
-    const ring1 = new Mesh(new TorusGeometry(2.42,.006,4,120), orbitMaterial); ring1.rotation.set(.9,.2,-.45); world.add(ring1);
-    const ring2 = new Mesh(new TorusGeometry(2.62,.004,4,120), new MeshBasicMaterial({color:0x9db5ca,transparent:true,opacity:.25})); ring2.rotation.set(1.24,.7,.15); world.add(ring2);
-    const crateGroup = new Group(); world.add(crateGroup);
-    if (!lowPower) for(let i=0;i<5;i++) {
-      const crate = new Mesh(new BoxGeometry(.13,.13,.13), new MeshStandardMaterial({color:i%2?0xb08b4c:0x9eb2c4,roughness:.75,metalness:.12}));
-      const angle=i*1.256, dist=2.78+(i%2)*.17; crate.position.set(Math.cos(angle)*dist,Math.sin(angle*1.4)*.65,Math.sin(angle)*dist*.7); crate.rotation.set(.4,angle,.2); crateGroup.add(crate);
-    }
-    let pointerX=0, pointerY=0, raf=0;
-    art.addEventListener('pointermove', event => { const r=art.getBoundingClientRect(); pointerX=(event.clientX-r.left)/r.width-.5; pointerY=(event.clientY-r.top)/r.height-.5; }, {passive:true});
+
+    // Pick / pack workbench and staged order cartons.
+    addBox(warehouse, 1.55, .43, .46, .8, .13, .48, mat.beam);
+    for (const x of [1.23, 1.87]) addBox(warehouse, x, .2, .46, .07, .4, .07, mat.steel);
+    addBox(warehouse, 1.37, .62, .43, .26, .25, .26, mat.carton[2]);
+    addBox(warehouse, 1.69, .62, .43, .26, .25, .26, mat.carton[0]);
+    addBox(warehouse, 1.55, .53, .8, .68, .035, .055, mat.belt);
+
+    // Outbound dock door and lane.
+    addBox(warehouse, 2.47, .67, .95, .09, 1.34, .09, mat.steel);
+    addBox(warehouse, 3.02, .67, .95, .09, 1.34, .09, mat.steel);
+    addBox(warehouse, 2.745, 1.31, .95, .64, .1, .09, mat.brass);
+    addBox(warehouse, 2.745, .67, .91, .42, .9, .04, mat.dark);
+    for (let i=0;i<4;i++) addBox(warehouse, 2.745, .34+i*.2, .875, .39, .025, .018, mat.steel);
+
+    // Two compact vehicles connect supplier receipt and outbound delivery to the warehouse.
+    const makeTruck = (x,z,accent,flip=1) => {
+      const truck = new Group();
+      truck.position.set(x,0,z);
+      truck.rotation.y = flip===1 ? 0 : Math.PI;
+      warehouse.add(truck);
+      addBox(truck, -.08, .33, 0, .88, .48, .56, mat.beam);
+      addBox(truck, .53, .3, 0, .36, .4, .52, accent);
+      addBox(truck, .58, .43, 0, .19, .18, .43, mat.dark);
+      for (const wx of [-.38,.28,.62]) for (const side of [-.27,.27]) {
+        addCylinder(truck, wx, .12, side, .105, .07, mat.dark, Math.PI/2);
+      }
+      return truck;
+    };
+    makeTruck(-2.86, -1.12, mat.carton[1], 1);
+    makeTruck(2.86, 1.28, mat.brass, -1);
+
+    // The lit route links receiving, verification, storage, order preparation, and dispatch.
+    const routePoints = [
+      new Vector3(-2.3,.06,-.48),
+      new Vector3(-1.55,.06,.35),
+      new Vector3(-.45,.06,-.38),
+      new Vector3(.42,.06,.43),
+      new Vector3(1.55,.06,.48),
+      new Vector3(2.72,.06,.9)
+    ];
+    const route = new CatmullRomCurve3(routePoints);
+    warehouse.add(new Mesh(
+      new TubeGeometry(route, lowPower?48:80, .022, 6, false),
+      mat.route
+    ));
+
+    // Stage markers sit on the floor; the selected stage is highlighted by the controls above.
+    const stagePositions = [
+      routePoints[0].clone().lerp(routePoints[1],.56),
+      routePoints[1],
+      routePoints[2],
+      routePoints[4],
+      routePoints[5]
+    ];
+    stageRings = stagePositions.map((point, i) => {
+      const ring = new Mesh(new TorusGeometry(.16,.016,5,30), mat.idleRing);
+      ring.rotation.x = Math.PI/2;
+      ring.position.set(point.x,.045,point.z);
+      warehouse.add(ring);
+      const beacon = new Mesh(new SphereGeometry(.045,10,8), mat.idleRing);
+      beacon.position.set(point.x,.12,point.z);
+      warehouse.add(beacon);
+      return {ring,beacon,idleMaterial:mat.idleRing,activeMaterial:mat.activeRing};
+    });
+    selectFlowStage(activeFlowStage);
+
+    // One pallet travels through the route, making the process visible rather than decorative.
+    const movingPallet = new Group();
+    addBox(movingPallet,0,.08,0,.45,.09,.36,mat.brass);
+    addBox(movingPallet,-.105,.27,0,.21,.27,.28,mat.carton[1]);
+    addBox(movingPallet,.12,.27,0,.21,.27,.28,mat.carton[0]);
+    warehouse.add(movingPallet);
+
+    let pointerX=0, pointerY=0, frame=0, elapsed=0, previousTime=0;
+    art.addEventListener('pointermove',event=>{
+      const rect=art.getBoundingClientRect();
+      pointerX=(event.clientX-rect.left)/rect.width-.5;
+      pointerY=(event.clientY-rect.top)/rect.height-.5;
+    },{passive:true});
     art.addEventListener('pointerleave',()=>{pointerX=0;pointerY=0;},{passive:true});
-    const resize=()=>{const rect=art.getBoundingClientRect(); if(!rect.width||!rect.height)return; renderer.setSize(rect.width,rect.height,false); camera.aspect=rect.width/rect.height; camera.position.z=lowPower?8.9:8.2; camera.updateProjectionMatrix(); if(reduceMotion) renderer.render(scene,camera);};
-    new ResizeObserver(resize).observe(art); resize();
-    const render=()=>{raf=requestAnimationFrame(render);globe.rotation.y+=.0017;globe.rotation.x+=.00035;world.rotation.y=MathUtils.lerp(world.rotation.y,pointerX*.13,.035);world.rotation.x=MathUtils.lerp(world.rotation.x,-pointerY*.09,.035);ring1.rotation.z+=.0005;ring2.rotation.y-=.0003;renderer.render(scene,camera);}; if(reduceMotion) renderer.render(scene,camera); else render();
-    document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0;}else if(!reduceMotion&&!raf)render();});
+    const resize=()=>{
+      const rect=art.getBoundingClientRect();
+      if(!rect.width||!rect.height)return;
+      renderer.setSize(rect.width,rect.height,false);
+      camera.aspect=rect.width/rect.height;
+      camera.position.set(lowPower?6.8:6.4,5.6,lowPower?9.2:8.6);
+      camera.lookAt(0,.68,0);
+      camera.updateProjectionMatrix();
+      if(reduceMotion) renderer.render(scene,camera);
+    };
+    new ResizeObserver(resize).observe(art);
+    resize();
+
+    const draw=(time=0)=>{
+      if(!reduceMotion) frame=requestAnimationFrame(draw);
+      if(previousTime) elapsed+=Math.min((time-previousTime)/1000,.05);
+      previousTime=time;
+      warehouse.rotation.y=MathUtils.lerp(warehouse.rotation.y,pointerX*.075,.04);
+      warehouse.rotation.x=MathUtils.lerp(warehouse.rotation.x,-pointerY*.025,.04);
+      const progress=reduceMotion?.42:(elapsed*.062)%1;
+      const position=route.getPointAt(progress);
+      movingPallet.position.set(position.x,position.y,position.z);
+      const tangent=route.getTangentAt(progress);
+      movingPallet.rotation.y=Math.atan2(tangent.x,tangent.z);
+      renderer.render(scene,camera);
+    };
+    draw();
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden){cancelAnimationFrame(frame);frame=0;}
+      else if(!reduceMotion&&!frame){previousTime=0;frame=requestAnimationFrame(draw);}
+    });
     canvas.dataset.ready='true';
-  }).catch(() => { canvas.hidden = true; art.classList.add('static-globe'); });
+  }).catch(()=>{
+    canvas.hidden=true;
+    art.classList.add('static-warehouse');
+  });
 }
